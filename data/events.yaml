@@ -1,0 +1,246 @@
+# Agenda des événements nature et finance (France, Europe, Suisse, Royaume-Uni + références internationales).
+#
+# Règle : aucun événement n'est ajouté sans vérification sur une source officielle (page de l'organisateur
+# ou de l'institution). Le champ `source` indique la page consultée, `verifie_le` la date de vérification.
+# Les candidats détectés automatiquement sont écrits dans data/interim/events_candidates.csv : ils ne
+# deviennent des événements qu'après validation manuelle.
+#
+# Champs :
+#   id, titre, debut (AAAA-MM-JJ), fin (AAAA-MM-JJ, optionnel), horaire (texte libre, optionnel)
+#   lieu, pays (FR | UE | CH | UK | INT), format (présentiel | visio | hybride)
+#   organisateur, lien, themes (liste, voir src/lib.py THEMES), cout (optionnel)
+#   note (optionnel), confiance (haute | moyenne), verifie_le, source
+#
+# `confiance: moyenne` = information issue d'une source secondaire, d'un « save the date » sans programme
+# ou dont un détail (par exemple l'année) est déduit du contexte : à revérifier avant de s'engager.
+
+evenements:
+  - id: building-bridges-2026
+    titre: "Building Bridges 2026"
+    debut: 2026-10-06
+    fin: 2026-10-08
+    horaire: "7 octobre 09:00–18:30, 8 octobre 09:00–20:30 (CEST)"
+    lieu: "Centre International de Conférences Genève (CICG)"
+    pays: CH
+    format: présentiel
+    organisateur: "Building Bridges Foundation"
+    lien: "https://www.buildingbridges.org/2026-edition/"
+    themes: ["Instruments et marchés", "Risques et dépendances"]
+    cout: "CHF 500 (tarif standard), CHF 250 (tarif réduit ONG, organisations internationales, start-ups)"
+    note: "En cours jusqu’au 8 octobre. Septième édition, thème « Investable Solutions to Global Challenges »."
+    confiance: haute
+    verifie_le: 2026-10-07
+    source: "https://www.buildingbridges.org/2026-edition/practical-information-2026/"
+
+  - id: tnfd-sbtn-npi-13oct
+    titre: "Webinaire TNFD, SBTN et NPI : nouvelles lignes directrices alignées (session 2)"
+    debut: 2026-10-13
+    horaire: "16:00–17:00 (BST)"
+    lieu: "En ligne"
+    pays: INT
+    format: visio
+    organisateur: "TNFD, Science Based Targets Network, Nature Positive Initiative"
+    lien: "https://tnfd.global/event/new-guidance-published-session-2/"
+    themes: ["Reporting et standards"]
+    note: "Publication synchronisée le 13 octobre de LEAP 2.0 (TNFD), des Science-Based Targets for Nature 2.0 (SBTN) et du cadre d’indicateurs sur l’état de la nature (NPI)."
+    confiance: moyenne
+    verifie_le: 2026-10-07
+    source: "https://tnfd.global/event/new-guidance-published-session-2/ (la page ne précise pas l’année ; 2026 déduit du contexte : session LEAP v2.0 du TNFD Hive, 24 octobre 2026)"
+
+  - id: tnfd-leap2-webinaire-14oct
+    titre: "Webinaire TNFD : présentation de LEAP 2.0 (session 1)"
+    debut: 2026-10-14
+    horaire: "09:00–10:15 (BST)"
+    lieu: "En ligne"
+    pays: INT
+    format: visio
+    organisateur: "TNFD"
+    lien: "https://tnfd.global/event/webinar-introducing-tnfds-leap-2-0-updates-to-nature-related-assessment-methodologies-guidance-and-metrics/"
+    themes: ["Reporting et standards", "Risques et dépendances"]
+    note: "Première mise à jour de LEAP depuis la version 1.0 de septembre 2023 : mesure de l’état de la nature, espèces exotiques envahissantes, lignes directrices pour les portefeuilles des institutions financières."
+    confiance: moyenne
+    verifie_le: 2026-10-07
+    source: "https://tnfd.global/event/webinar-introducing-tnfds-leap-2-0-updates-to-nature-related-assessment-methodologies-guidance-and-metrics/ (année non précisée sur la page, 2026 déduit du contexte)"
+
+  - id: defi-2026
+    titre: "DEFi 2026 – Dialogue Entreprise-Finance pour la transition écologique (4e édition)"
+    debut: 2026-10-15
+    horaire: "09:30–18:30"
+    lieu: "Paris 9e (52 rue de la Victoire)"
+    pays: FR
+    format: présentiel
+    organisateur: "Institut de la Finance Durable et Entreprises pour l’Environnement (EpE)"
+    lien: "https://institutdelafinancedurable.org/en/evenement/defi-2026/"
+    themes: ["Risques et dépendances", "Instruments et marchés"]
+    cout: "Gratuit, inscription obligatoire avec une adresse professionnelle (https://luma.com/defi2026)"
+    note: "Thème : « Garder le cap de la transition ». Ateliers dont « Identifier et piloter ses risques environnementaux » et « Quels modèles de financement pour un usage plus soutenable des sols ? ». Présentiel uniquement."
+    confiance: haute
+    verifie_le: 2026-10-07
+    source: "https://institutdelafinancedurable.org/en/evenement/defi-2026/ ; https://www.rsedatanews.net/article/article-agenda-dialogue-entreprise-finance-defi-pour-la-transition-ecologique-edition-20-20260922-11"
+
+  - id: cop17-cbd
+    titre: "COP17 de la Convention sur la diversité biologique (Conférence des Nations unies sur la biodiversité 2026)"
+    debut: 2026-10-19
+    fin: 2026-10-30
+    lieu: "Erevan, Arménie"
+    pays: INT
+    format: présentiel
+    organisateur: "Secrétariat de la CBD, gouvernement d’Arménie"
+    lien: "https://www.cbd.int/conferences/2026"
+    themes: ["Cadre mondial et science", "Instruments et marchés"]
+    note: "Premier bilan collectif de la mise en œuvre du Cadre mondial de Kunming–Montréal. Sommet des dirigeants le 16 octobre, cérémonie d’ouverture le 18 octobre, segment ministériel les 27 et 28 octobre. Journée Entreprises et biodiversité le 25 octobre, Finance Day le 26 octobre."
+    confiance: haute
+    verifie_le: 2026-10-07
+    source: "https://www.cbd.int/conferences/2026 ; https://www.cbd.int/conferences/2026/info-note"
+
+  - id: issb-nature-webinaire-22oct
+    titre: "Webinaire ISSB depuis la COP17 : consultation sur l’information relative à la nature"
+    debut: 2026-10-22
+    horaire: "16:00 (CEST)"
+    lieu: "En ligne"
+    pays: INT
+    format: visio
+    organisateur: "ISSB (Fondation IFRS)"
+    lien: "https://www.ifrs.org/news-and-events/news/2026/10/cop17-issb-nature-related-disclosures-consultation/"
+    themes: ["Reporting et standards", "Réglementation et supervision"]
+    note: "Lancement du projet de norme (Practice Statement) sur l’information relative à la nature, avec une consultation de 120 jours qui s’achève le 19 février 2027."
+    confiance: haute
+    verifie_le: 2026-10-07
+    source: "https://www.ifrs.org/news-and-events/news/2026/10/cop17-issb-nature-related-disclosures-consultation/"
+
+  - id: tnfd-hive-cop17
+    titre: "TNFD Hive à la COP17"
+    debut: 2026-10-23
+    fin: 2026-10-24
+    lieu: "Erevan, Arménie (place de la République, hors Blue Zone)"
+    pays: INT
+    format: présentiel
+    organisateur: "TNFD"
+    lien: "https://tnfd.global/cop17-landing-page-tnfd-hive/"
+    themes: ["Reporting et standards", "Risques et dépendances", "Instruments et marchés"]
+    note: "Deux jours de sessions (LEAP v2.0, quantification du risque lié à la nature, plans de transition, financement de la nature). Accréditation CBD non requise ; inscription par session."
+    confiance: haute
+    verifie_le: 2026-10-07
+    source: "https://tnfd.global/cop17-landing-page-tnfd-hive/"
+
+  - id: cop17-finance-day
+    titre: "Finance Day de la COP17"
+    debut: 2026-10-26
+    horaire: "08:30–18:30"
+    lieu: "Blue Zone, Erevan, Arménie"
+    pays: INT
+    format: présentiel
+    organisateur: "Secrétariat de la CBD (steering group dont Finance for Biodiversity Foundation et UNEP FI)"
+    lien: "https://www.financeforbiodiversity.org/news-events/events/finance-for-biodiversity-at-cop17/"
+    themes: ["Instruments et marchés", "Cadre mondial et science"]
+    note: "Rencontre de ministres et de dirigeants d’institutions financières co-organisée par Finance for Biodiversity Foundation. Journée Entreprises et biodiversité la veille (25 octobre)."
+    confiance: haute
+    verifie_le: 2026-10-07
+    source: "https://www.financeforbiodiversity.org/event/finance-day-ffb-innovation-panel/"
+
+  - id: forum-biodiversite-economie-2026
+    titre: "Forum Biodiversité et Économie (6e édition)"
+    debut: 2026-11-03
+    fin: 2026-11-04
+    lieu: "Paris, Centre des Congrès de la Villette (Cité des sciences et de l’industrie)"
+    pays: FR
+    format: présentiel
+    organisateur: "Office français de la biodiversité"
+    lien: "https://www.actu-environnement.com/ae/agenda/manif/forum-biodiversite-economie-6e-edition-27133.php4"
+    themes: ["Cadre mondial et science", "Risques et dépendances"]
+    cout: "Gratuit"
+    note: "Biennal, destiné aux entreprises ; lié au programme « Entreprises engagées pour la nature »."
+    confiance: moyenne
+    verifie_le: 2026-10-07
+    source: "https://www.actu-environnement.com/ae/agenda/manif/forum-biodiversite-economie-6e-edition-27133.php4 (source secondaire ; page OFB non consultée)"
+
+  - id: congres-sfn-solu-biod
+    titre: "Congrès international sur les solutions fondées sur la nature (SOLU-BIOD)"
+    debut: 2026-11-03
+    fin: 2026-11-06
+    lieu: "Université Sorbonne, Paris"
+    pays: FR
+    format: présentiel
+    organisateur: "Programme national de recherche SOLU-BIOD"
+    lien: "https://www.inee.cnrs.fr/fr/evenement/congres-international-sur-les-solutions-fondees-sur-la-nature"
+    themes: ["Solutions fondées sur la nature"]
+    note: "Environ 500 chercheurs, praticiens et décideurs attendus."
+    confiance: haute
+    verifie_le: 2026-10-07
+    source: "https://www.inee.cnrs.fr/fr/evenement/congres-international-sur-les-solutions-fondees-sur-la-nature"
+
+  - id: blue-finance-2026
+    titre: "Blue Finance 2026 : financer la restauration de la nature, des marchés de capitaux au littoral"
+    debut: 2026-11-11
+    horaire: "09:00–17:00 (GMT)"
+    lieu: "One Birdcage Walk, Londres"
+    pays: UK
+    format: présentiel
+    organisateur: "Ocean & Coastal Futures"
+    lien: "https://coastal-futures.net/blue-finance-26"
+    themes: ["Instruments et marchés", "Solutions fondées sur la nature"]
+    cout: "À partir de 105 £ (tarif réduit selon billetterie)"
+    note: "Marchés de capital naturel, gain net marin, crédits marins émergents."
+    confiance: haute
+    verifie_le: 2026-10-07
+    source: "https://site.corsizio.com/event/6a4cede76905bd52ff069b91 ; https://uksif.org/11-november-2026-blue-finance-2026-financing-nature-recovery-from-capital-markets-to-the-coast/"
+
+  - id: nature-finance-uk-2026
+    titre: "Nature Finance UK Conference 2026 (9e édition)"
+    debut: 2026-11-12
+    horaire: "09:00–19:00 (GMT)"
+    lieu: "Queen Elizabeth II Centre, Londres"
+    pays: UK
+    format: présentiel
+    organisateur: "Ecosystems Knowledge Network"
+    lien: "https://ecosystemsknowledge.net/event/nature-finance-uk-conference-2026/"
+    themes: ["Instruments et marchés", "Solutions fondées sur la nature"]
+    cout: "475 £ (tarif standard) ; tarif early bird épuisé"
+    note: "Plus de 500 participants attendus. Partenaire : IIGCC."
+    confiance: haute
+    verifie_le: 2026-10-07
+    source: "https://ecosystemsknowledge.net/event/nature-finance-uk-conference-2026/ ; https://www.iigcc.org/events/iigcc-partnership-nature-finance-uk-conference"
+
+  - id: nature-credits-finlande-2026
+    titre: "Marchés de crédits nature et innovations agro-environnementales en Europe"
+    debut: 2026-11-17
+    fin: 2026-11-18
+    lieu: "Verkatehdas, Hämeenlinna, Finlande"
+    pays: UE
+    format: présentiel
+    organisateur: "Ministère de l’Agriculture et des Forêts de Finlande, Ministère de l’Environnement de Finlande (réseau PAC de l’UE)"
+    lien: "https://eu-cap-network.ec.europa.eu/events/advancing-nature-credit-markets-and-agri-environmental-innovations-europe_en"
+    themes: ["Instruments et marchés", "Réglementation et supervision"]
+    note: "Séminaire du 17 novembre après-midi sur les cadres européens pour les crédits nature ; intervention de la Commission européenne sur la feuille de route européenne des crédits nature annoncée (à confirmer). Inscription avant le 30 octobre."
+    confiance: haute
+    verifie_le: 2026-10-07
+    source: "https://eu-cap-network.ec.europa.eu/events/advancing-nature-credit-markets-and-agri-environmental-innovations-europe_en"
+
+  - id: rewilding-knowledge-2026
+    titre: "Rewilding Knowledge : événement science–politique sur le règlement européen sur la restauration de la nature"
+    debut: 2026-11-25
+    lieu: "Comet Louise, Bruxelles"
+    pays: UE
+    format: présentiel
+    organisateur: "Projets wildE, WILDCARD et REWRITE, SER Europe, CINEA"
+    lien: "https://rewriteproject.eu/events/19/rewilding-knowledge-science-policy-event"
+    themes: ["Réglementation et supervision", "Solutions fondées sur la nature"]
+    note: "« Save the date » : programme et inscription à venir."
+    confiance: moyenne
+    verifie_le: 2026-10-07
+    source: "https://rewriteproject.eu/events/19/rewilding-knowledge-science-policy-event"
+
+  - id: gfra-2026
+    titre: "Green Finance Research Advances 2026 (11e édition) : financer la résilience dans un monde en mutation"
+    debut: 2026-12-08
+    fin: 2026-12-09
+    lieu: "Auditorium de la Banque de France, Paris, et en ligne"
+    pays: FR
+    format: hybride
+    organisateur: "Banque de France et Institut Louis Bachelier, avec l’Institut de la Finance Durable"
+    lien: "https://www.banque-france.fr/en/news/11th-green-finance-research-advances"
+    themes: ["Risques et dépendances", "Solutions fondées sur la nature"]
+    note: "Axes dont « Nature, eau et financement de l’adaptation ». Conférence de recherche en anglais ; modalités d’inscription à venir (sélection des articles mi-octobre)."
+    confiance: haute
+    verifie_le: 2026-10-07
+    source: "https://www.banque-france.fr/en/news/11th-green-finance-research-advances"

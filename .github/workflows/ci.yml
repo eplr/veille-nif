@@ -1,0 +1,48 @@
+name: Contrôles
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1"   # lundi 06:00 UTC : vérification des sources et des liens de l'agenda
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Installer les dépendances (environnement virtuel)
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install -r requirements.txt
+      - name: Tests (hors réseau)
+        run: .venv/bin/python -m unittest discover -s tests -v
+
+  liens:
+    # Détecte une source ou un lien d'événement devenu inaccessible. Un échec envoie un email au mainteneur.
+    if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Installer les dépendances (environnement virtuel)
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install -r requirements.txt
+      - name: Sources du registre
+        run: .venv/bin/python src/news_watch.py --check-sources
+      - name: Liens de l'agenda
+        run: .venv/bin/python src/events_watch.py --check-links

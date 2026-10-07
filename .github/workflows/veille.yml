@@ -1,0 +1,93 @@
+name: Veille quotidienne
+
+# 05:00 UTC, soit 06:00 ou 07:00 à Paris selon la saison. GitHub peut décaler un déclenchement planifié de quelques minutes.
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+    inputs:
+      lookback_days:
+        description: "Fenêtre de recherche en jours (7 pour une première exécution)"
+        default: "3"
+        type: string
+      dry_run:
+        description: "Composer sans envoyer d'email ni enregistrer l'état"
+        type: boolean
+        default: false
+      force_send:
+        description: "Envoyer même sans nouveauté (test)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+# Une seule exécution à la fois : deux envois simultanés dupliqueraient l'email et l'état.
+concurrency:
+  group: veille
+  cancel-in-progress: false
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installer les dépendances (environnement virtuel)
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install -r requirements.txt
+
+      - name: Veille et envoi
+        env:
+          # Secrets à définir dans Settings > Secrets and variables > Actions. Aucun n'est dans le dépôt.
+          EMAIL_BACKEND: ${{ secrets.EMAIL_BACKEND }}
+          GRAPH_TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
+          GRAPH_CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
+          GRAPH_CLIENT_SECRET: ${{ secrets.GRAPH_CLIENT_SECRET }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          DIGEST_FROM: ${{ secrets.DIGEST_FROM }}
+          DIGEST_TO: ${{ secrets.DIGEST_TO }}
+          # Les entrées passent par des variables d'environnement, jamais interpolées dans le script.
+          INPUT_LOOKBACK: ${{ inputs.lookback_days || '3' }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+          INPUT_FORCE: ${{ inputs.force_send }}
+        run: |
+          if ! [[ "$INPUT_LOOKBACK" =~ ^[0-9]+$ ]]; then
+            echo "lookback_days doit être un entier" >&2
+            exit 1
+          fi
+          args="--lookback-days $INPUT_LOOKBACK"
+          [ "$INPUT_DRY_RUN" = "true" ] && args="$args --dry-run"
+          [ "$INPUT_FORCE" = "true" ] && args="$args --force-send"
+          .venv/bin/python src/daily_digest.py $args
+
+      - name: Mettre à jour les versions copier-coller
+        if: ${{ inputs.dry_run != true }}
+        run: .venv/bin/python src/export_prompt_pack.py
+
+      - name: Enregistrer l'état et les livrables
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          # Ce fichier garantit un commit par jour : GitHub désactive les workflows planifiés d'un
+          # dépôt public resté 60 jours sans activité.
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > data/last_run.txt
+          git config user.name "veille-nif[bot]"
+          git config user.email "veille-nif@users.noreply.github.com"
+          git add data/interim data/output data/last_run.txt dist
+          if git diff --cached --quiet; then
+            echo "Rien à enregistrer"
+          else
+            git commit -m "veille du $(date -u +%F)"
+            git pull --rebase
+            git push
+          fi
