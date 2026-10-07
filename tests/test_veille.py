@@ -115,6 +115,24 @@ class TestNewsDedup(unittest.TestCase):
             self.assertTrue(news_watch._accept(a, seen, 3))
             self.assertFalse(news_watch._accept(b, seen, 3))
 
+    def test_rejeu_renvoie_les_articles_deja_vus_sans_perdre_l_historique(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = pathlib.Path(d) / "seen.json"
+            a = {"title": "Un titre assez long pour passer", "link": "https://a/1", "pub_date": "", "source": "A"}
+            seen = news_watch.Seen(path)
+            self.assertTrue(news_watch._accept(a, seen, 3))
+            seen.save()
+            # Mode normal : l'article est connu, il est écarté.
+            self.assertFalse(news_watch._accept(a, news_watch.Seen(path), 3))
+            # Mode rejeu : il repasse, mais une seule fois dans l'exécution.
+            replay = news_watch.Seen(path, ignore_existing=True)
+            self.assertTrue(news_watch._accept(a, replay, 3))
+            self.assertFalse(news_watch._accept(a, replay, 3))
+            # L'historique n'est ni perdu ni dupliqué après enregistrement.
+            before = lib.load_seen(path)
+            replay.save()
+            self.assertEqual(lib.load_seen(path), before)
+
 
 class TestEvents(unittest.TestCase):
     def test_agenda_reel_valide(self):

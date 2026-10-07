@@ -18,6 +18,10 @@ on:
         description: "Envoyer même sans nouveauté (test)"
         type: boolean
         default: false
+      ignore_seen:
+        description: "Inclure les articles déjà envoyés (renvoi d'un email de test, l'historique est conservé)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -61,6 +65,7 @@ jobs:
           INPUT_LOOKBACK: ${{ inputs.lookback_days || '3' }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
           INPUT_FORCE: ${{ inputs.force_send }}
+          INPUT_IGNORE_SEEN: ${{ inputs.ignore_seen }}
         run: |
           if ! [[ "$INPUT_LOOKBACK" =~ ^[0-9]+$ ]]; then
             echo "lookback_days doit être un entier" >&2
@@ -69,6 +74,7 @@ jobs:
           args="--lookback-days $INPUT_LOOKBACK"
           [ "$INPUT_DRY_RUN" = "true" ] && args="$args --dry-run"
           [ "$INPUT_FORCE" = "true" ] && args="$args --force-send"
+          [ "$INPUT_IGNORE_SEEN" = "true" ] && args="$args --ignore-seen"
           .venv/bin/python src/daily_digest.py $args
 
       - name: Mettre à jour les versions copier-coller

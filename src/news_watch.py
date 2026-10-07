@@ -115,17 +115,25 @@ class Seen:
     relayé par plusieurs sources ne soit signalé deux fois.
     """
 
-    def __init__(self, path):
+    def __init__(self, path, ignore_existing: bool = False):
+        """ignore_existing : rejoue la veille (renvoi d'un email) sans oublier l'historique.
+
+        Le filtre ne consulte alors que ce qui est vu pendant cette exécution, mais `order`
+        conserve tout l'historique : save() ne fait donc rien perdre.
+        """
         self.path = path
         self.order = load_seen(path)
-        self.keys = set(self.order)
+        self.replay = ignore_existing
+        self._stored = set(self.order)
+        self.keys = set() if ignore_existing else set(self.order)
 
     def __contains__(self, key: str) -> bool:
         return key in self.keys
 
     def add(self, key: str):
-        if key not in self.keys:
-            self.keys.add(key)
+        self.keys.add(key)
+        if key not in self._stored:
+            self._stored.add(key)
             self.order.append(key)
 
     def save(self):
@@ -149,13 +157,15 @@ def _accept(item: dict, seen: Seen, lookback_days: int) -> bool:
     return True
 
 
-def collect(lookback_days: int = LOOKBACK_DAYS) -> tuple[list[dict], "Seen"]:
+def collect(lookback_days: int = LOOKBACK_DAYS, ignore_seen: bool = False) -> tuple[list[dict], "Seen"]:
     """Interroge toutes les sources. Renvoie (articles nouveaux, état de déduplication non enregistré).
 
     Rien n'est écrit sur disque : l'appelant enregistre avec commit() une fois l'email envoyé, pour qu'un
     échec d'envoi ne fasse pas perdre d'articles.
+
+    ignore_seen : renvoie aussi les articles déjà envoyés (renvoi d'un email de test).
     """
-    seen = Seen(SEEN_FILE)
+    seen = Seen(SEEN_FILE, ignore_existing=ignore_seen)
     new_items: list[dict] = []
     now_str = today_utc().strftime("%Y-%m-%d %H:%M")
 
@@ -213,8 +223,14 @@ def collect(lookback_days: int = LOOKBACK_DAYS) -> tuple[list[dict], "Seen"]:
 
 
 def commit(new_items: list[dict], seen: "Seen"):
-    """Enregistre l'état de déduplication et le journal CSV."""
+    """Enregistre l'état de déduplication et le journal CSV.
+
+    En mode rejeu, le journal n'est pas alimenté : ces articles y figurent déjà, et le pack
+    dist/ en reprendrait des doublons.
+    """
     seen.save()
+    if seen.replay:
+        return
     append_csv(LOG_OUT, LOG_FIELDS, [{**i, "themes": " | ".join(i["themes"])} for i in new_items])
 
 

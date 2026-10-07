@@ -268,12 +268,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--dry-run", action="store_true", help="composer et afficher, sans envoyer ni enregistrer")
     parser.add_argument("--force-send", action="store_true", help="envoyer même sans nouveauté (test)")
+    parser.add_argument("--ignore-seen", action="store_true",
+                        help="inclure les articles déjà envoyés (renvoi d'un email de test) ; l'historique est conservé")
     parser.add_argument("--lookback-days", type=int, default=news_watch.LOOKBACK_DAYS)
     parser.add_argument("--html-out", help="écrire l'aperçu HTML dans ce fichier")
     args = parser.parse_args()
 
     today = date.today()
-    items, seen = news_watch.collect(args.lookback_days)
+    items, seen = news_watch.collect(args.lookback_days, ignore_seen=args.ignore_seen)
     window, new_events = events_watch.run(today, persist=False)
     calls, health = calls_watch.run(persist=False)
 
