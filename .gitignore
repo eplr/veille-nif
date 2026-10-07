@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 .env
 .DS_Store
+
+# Notes de session locales : le dépôt est public, ne pas les publier
+SESSION_*.md
