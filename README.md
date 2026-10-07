@@ -88,4 +88,15 @@ Dossier `formation/` : fiche programme (`programme.md`), plan des diapositives a
 
 ## Licence
 
-À définir par la communauté. En l’absence de licence, tous droits réservés par défaut : en choisir une avant d’inviter des contributions externes.
+Deux licences, selon la nature du fichier. Titulaire des droits : fidestra.
+
+- **Code** – licence MIT (`LICENSE`) : `src/`, `tests/`, `.github/`, `requirements.txt`. Réutilisation libre, y compris commerciale, en conservant l’avis de copyright.
+- **Contenus et données** – licence CC BY 4.0 (`LICENSE-CONTENT`) : `formation/`, `dist/`, `data/`, `README.md` et les autres textes. Réutilisation libre, y compris commerciale et modifiée, à condition de citer la source et de signaler les modifications.
+
+Attribution demandée pour les contenus :
+
+> Veille Nature in Finance – fidestra, CC BY 4.0, https://github.com/eplr/veille-nif
+
+Les contenus de tiers cités ou liés depuis le dépôt (articles de presse, textes réglementaires, pages d’événements, appels à projets) restent soumis à leurs propres conditions : ces licences ne portent que sur ce qui est produit dans le cadre du projet.
+
+En contribuant, vous acceptez que votre apport soit diffusé sous la licence correspondant au fichier modifié.
