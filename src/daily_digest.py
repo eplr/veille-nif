@@ -5,15 +5,15 @@ Trois blocs :
 2. Agenda des 60 prochains jours (data/events.yaml).
 3. Appels à projets en cours relayés par Carenews (nouveaux ou qui se clôturent sous 14 jours).
 
-Un email part s'il y a du nouveau (articles, événement entré dans la fenêtre, appel à projets) ou avec
---force-send. L'état de déduplication n'est enregistré qu'après un envoi réussi : un échec d'envoi ne fait
+Un email part chaque jour, même sans nouveauté : dans ce cas l'objet porte la mention « rien de nouveau » et
+l'email le dit. L'état de déduplication n'est enregistré qu'après un envoi réussi : un échec d'envoi ne fait
 perdre aucun article.
 
 Usage :
     python src/daily_digest.py                        # exécution normale
     python src/daily_digest.py --dry-run              # compose et affiche, n'envoie ni n'enregistre rien
     python src/daily_digest.py --dry-run --html-out /tmp/veille.html   # aperçu HTML à ouvrir dans un navigateur
-    python src/daily_digest.py --force-send           # envoie même sans nouveauté (test)
+    python src/daily_digest.py --ignore-seen          # renvoi d'un test : inclut les articles déjà envoyés
     python src/daily_digest.py --lookback-days 7      # première exécution : fenêtre plus large
 """
 import argparse
@@ -32,6 +32,7 @@ FOOTER = (
     "Vous recevez ce message car vous faites partie de la liste de diffusion de la veille Nature in Finance. "
     "Pour ne plus le recevoir, répondez simplement « désinscription »."
 )
+AUCUNE_ACTU = "Aucune nouvelle actualité depuis le précédent envoi."
 NOTE_METHODE = (
     "Sélection automatique par mots-clés : vérifiez toujours la source avant de la citer. "
     "L’agenda est validé à la main ; les événements marqués « à revérifier » reposent sur une source secondaire."
@@ -120,6 +121,8 @@ def compose_markdown(items, window, new_events, calls, health, today: date) -> s
                 for it in group:
                     lines.append(f"- [{it['titre']}]({it['lien']}) ({it['source']})")
         lines.append("")
+    else:
+        lines += [f"_{AUCUNE_ACTU}_", ""]
 
     if window:
         lines.append(f"## Agenda des {events_watch.WINDOW_DAYS} prochains jours")
@@ -178,7 +181,8 @@ def _article_row(it: dict, show_themes: bool) -> str:
 
 def _html_news(items: list[dict]) -> str:
     if not items:
-        return ""
+        return (f'<tr><td style="padding:24px 32px 0 32px;font-size:14px;color:{_MUTED};">'
+                f'{_esc(AUCUNE_ACTU)}</td></tr>')
     registry, press = split_news(items)
     blocks = []
     for pays, group in registry.items():
@@ -267,7 +271,6 @@ def compose_html(items, window, new_events, calls, health, today: date) -> str:
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--dry-run", action="store_true", help="composer et afficher, sans envoyer ni enregistrer")
-    parser.add_argument("--force-send", action="store_true", help="envoyer même sans nouveauté (test)")
     parser.add_argument("--ignore-seen", action="store_true",
                         help="inclure les articles déjà envoyés (renvoi d'un email de test) ; l'historique est conservé")
     parser.add_argument("--lookback-days", type=int, default=news_watch.LOOKBACK_DAYS)
@@ -292,12 +295,9 @@ def main():
         print(body_md)
         return 0
 
-    if has_content or args.force_send:
-        subject = f"{TITRE} – {today.strftime('%d/%m/%Y')}" + ("" if has_content else " (rien de nouveau)")
-        send_email(subject=subject, body_markdown=body_md, body_html=body_html)
-        print("[daily-digest] email envoyé")
-    else:
-        print("[daily-digest] rien de nouveau, email non envoyé (--force-send pour forcer)")
+    subject = f"{TITRE} – {today.strftime('%d/%m/%Y')}" + ("" if has_content else " (rien de nouveau)")
+    send_email(subject=subject, body_markdown=body_md, body_html=body_html)
+    print("[daily-digest] email envoyé")
 
     # État enregistré seulement ici : une exception d'envoi ci-dessus l'aurait laissé intact.
     news_watch.commit(items, seen)

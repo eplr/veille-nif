@@ -26,7 +26,7 @@ flowchart LR
 - **Actualités** (`src/news_watch.py`) : trois canaux. Les flux RSS des sources qui en ont un ; une requête Google News `site:` pour les autres ; des requêtes thématiques par zone et par langue. Les articles sont filtrés par mots-clés (nature, biodiversité, TNFD, etc.), dédoublonnés et étiquetés par pays et par thème.
 - **Agenda** (`src/events_watch.py`) : lit `data/events.yaml`, un agenda tenu à la main. Aucun événement n’y entre sans vérification sur une source officielle. Le script cherche aussi des événements candidats, écrits dans `data/interim/events_candidates.csv` pour relecture, jamais dans l’agenda.
 - **Appels à projets** (`src/calls_watch.py`) : lit la liste publique de Carenews, filtre sur la nature et l’agriculture, signale les appels nouveaux ou qui se clôturent sous 14 jours.
-- **Email** (`src/daily_digest.py`) : assemble les trois blocs. Un email part s’il y a du nouveau ; l’état de déduplication n’est enregistré qu’après un envoi réussi.
+- **Email** (`src/daily_digest.py`) : assemble les trois blocs. Un email part chaque jour, même sans nouveauté (l’objet porte alors « rien de nouveau » et l’email indique qu’il n’y a pas d’actualité nouvelle). Les actualités ne reprennent que ce qui n’a pas déjà été envoyé ; l’agenda des 60 jours est réaffiché en entier. L’état de déduplication n’est enregistré qu’après un envoi réussi.
 
 ## Installation locale
 
@@ -54,7 +54,7 @@ Autres commandes utiles :
    - Pour Microsoft 365 : `GRAPH_TENANT_ID`, `GRAPH_CLIENT_ID`, `GRAPH_CLIENT_SECRET` (permission applicative `Mail.Send`, idéalement restreinte à la boîte d’expédition).
    - Pour un SMTP classique : `EMAIL_BACKEND=smtp`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`.
 2. Lancer le workflow **Veille quotidienne** à la main (onglet Actions > Run workflow) avec `dry_run` coché, pour vérifier la collecte sans envoyer d’email.
-3. Lancer une première exécution réelle avec `lookback_days = 7` et `force_send` coché, puis laisser le planificateur reprendre : 05:00 UTC chaque jour.
+3. Lancer une première exécution réelle avec `lookback_days = 7`, puis laisser le planificateur reprendre : 05:00 UTC chaque jour. Pour renvoyer un email de test complet, y compris les articles déjà envoyés, cocher `ignore_seen` : l’historique de déduplication est conservé.
 
 Pour changer d’adresse d’expédition, modifier uniquement le secret `DIGEST_FROM` (et l’application Graph si besoin) : aucun changement de code.
 

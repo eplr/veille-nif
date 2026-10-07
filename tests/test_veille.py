@@ -213,6 +213,16 @@ class TestDigest(unittest.TestCase):
         self.assertIn("&lt;script&gt;", html)
         self.assertIn("a=1&amp;b=2", html)
 
+    def test_sans_actualite_l_email_le_dit(self):
+        md = daily_digest.compose_markdown([], self.window, [], [], {"ok": True}, self.today)
+        html = daily_digest.compose_html([], self.window, [], [], {"ok": True}, self.today)
+        self.assertIn(daily_digest.AUCUNE_ACTU, md)
+        self.assertIn(daily_digest.AUCUNE_ACTU, html)
+        self.assertNotIn("## Nouveautés", md)
+        # Avec des articles, le message n'apparaît pas.
+        self.assertNotIn(daily_digest.AUCUNE_ACTU,
+                         daily_digest.compose_markdown(self.items, self.window, [], [], {"ok": True}, self.today))
+
     def test_sections_et_alerte_source(self):
         md = daily_digest.compose_markdown(self.items, self.window, self.new, [], {"ok": False}, self.today)
         for needle in ["## Nouveautés", "### France", "Presse et veille thématique", "## Agenda", "Carenews indisponible"]:
