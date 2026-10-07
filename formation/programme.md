@@ -56,8 +56,8 @@ Ajouter 30 minutes, entre le module 3 et le module 4 :
 Les textes évoluent vite. Avant chaque séance, reprendre chaque point sur sa source primaire et corriger le support si besoin. Dernière vérification : 7 octobre 2026.
 
 - COP17 de la CBD (Erevan, 19–30 octobre 2026) : si la séance a lieu après le 30 octobre, ajouter les décisions adoptées. Page : https://www.cbd.int/conferences/2026
-- Normes ESRS révisées : l’acte délégué a été adopté par la Commission le 3 juillet 2026 (C(2026) 5010) ; un cabinet d’avocats indique une publication au Journal officiel le 21 septembre 2026 et une entrée en vigueur le 10 novembre 2026. Confirmer au Journal officiel de l’Union européenne et vérifier que la norme E4 figure bien dans le texte final.
-- Directive Omnibus I (UE) 2026/470 : entrée en vigueur le 18 mars 2026, transposition au plus tard le 19 mars 2027. Texte : https://eur-lex.europa.eu
+- Normes ESRS révisées : règlement délégué (UE) 2026/1563 de la Commission du 3 juillet 2026, publié au Journal officiel de l’Union européenne le 21 septembre 2026 (JO L, 2026/1563), en vigueur le 10 novembre 2026 et applicable aux exercices ouverts à compter du 1er janvier 2027. Texte : http://data.europa.eu/eli/reg_del/2026/1563/oj . Vérifier que la norme E4 figure bien dans le texte final, et si un rectificatif des versions linguistiques a été publié (il est annoncé pour octobre ou novembre 2026).
+- Directive Omnibus I (UE) 2026/470 du 24 février 2026 : en vigueur le 18 mars 2026, transposition au plus tard le 19 mars 2027. Texte : http://data.europa.eu/eli/dir/2026/470/oj
 - ISSB : projet de norme (Practice Statement) sur l’information relative à la nature, consultation de 120 jours jusqu’au 19 février 2027. Page : https://www.ifrs.org/news-and-events/news/2026/10/cop17-issb-nature-related-disclosures-consultation/
 - TNFD : LEAP 2.0 annoncé pour le 13 octobre 2026. Page : https://tnfd.global
 - FINMA, circulaire 2026/1 : calendrier d’entrée en vigueur par catégorie d’établissements. Page : https://www.finma.ch/en/documentation/dossier/dossier-sustainable-finance/aufsicht-zu-naturrisiken/
