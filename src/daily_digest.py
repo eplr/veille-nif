@@ -146,11 +146,14 @@ def compose_markdown(items, window, new_events, calls, health, today: date) -> s
 # --------------------------------------------------------------------------
 # Version HTML (CSS en ligne : indispensable pour Outlook et Microsoft Graph)
 # --------------------------------------------------------------------------
-_BG, _CARD, _HEADER, _BORDER = "#0b0d12", "#151822", "#10131b", "#262b38"
-_TEXT, _MUTED, _BRAND = "#e8eaed", "#98a2b3", "#7c8797"
-_NEWS, _NEWS_BG = "#6fcf97", "#14281d"
-_AGENDA, _AGENDA_BG = "#f5a623", "#332a13"
-_CALLS, _CALLS_BG = "#a78bfa", "#2a2140"
+# Fond vert sombre. Les accents évitent le vert pour rester lisibles dessus :
+# or pour les nouveautés, bleu ciel pour l'agenda, lavande pour les appels à projets.
+_BG, _CARD, _HEADER, _BORDER = "#091e16", "#113227", "#0c281e", "#2a5c47"
+_TEXT, _MUTED, _BRAND = "#eaf2ec", "#9bb5a5", "#a8dcbe"
+_NEWS, _NEWS_BG = "#e8c069", "#362c13"
+_AGENDA, _AGENDA_BG = "#84c9e6", "#14323d"
+_CALLS, _CALLS_BG = "#bba8f2", "#292245"
+_WARN = "#e8a05c"  # panne de source : ne doit pas se confondre avec une couleur de section
 _FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
 
 
@@ -181,7 +184,7 @@ def _html_news(items: list[dict]) -> str:
     for pays, group in registry.items():
         rows = "".join(_article_row(i, True) for i in group)
         blocks.append(f'<div style="margin-top:16px;"><div style="font-size:12px;font-weight:700;letter-spacing:0.4px;'
-                      f'text-transform:uppercase;color:{_AGENDA};">{_esc(PAYS_LABELS[pays])}</div>{rows}</div>')
+                      f'text-transform:uppercase;color:{_NEWS};">{_esc(PAYS_LABELS[pays])}</div>{rows}</div>')
     if press:
         rows = ""
         for theme, group in press.items():
@@ -189,7 +192,7 @@ def _html_news(items: list[dict]) -> str:
                      f'letter-spacing:0.4px;margin-top:12px;">{_esc(theme)}</div>')
             rows += "".join(_article_row(i, False) for i in group)
         blocks.append(f'<div style="margin-top:20px;"><div style="font-size:12px;font-weight:700;letter-spacing:0.4px;'
-                      f'text-transform:uppercase;color:{_AGENDA};">Presse et veille thématique</div>{rows}</div>')
+                      f'text-transform:uppercase;color:{_NEWS};">Presse et veille thématique</div>{rows}</div>')
     return (f'<tr><td style="padding:24px 32px 8px 32px;">{_badge(f"Nouveautés – {len(items)}", _NEWS, _NEWS_BG)}'
             f'{"".join(blocks)}</td></tr>')
 
@@ -230,7 +233,7 @@ def _html_calls(calls: list[dict]) -> str:
 def compose_html(items, window, new_events, calls, health, today: date) -> str:
     warn = ""
     if not health.get("ok", True):
-        warn = (f'<tr><td style="padding:16px 32px 0 32px;font-size:12px;color:{_AGENDA};">'
+        warn = (f'<tr><td style="padding:16px 32px 0 32px;font-size:12px;color:{_WARN};">'
                 'Source Carenews indisponible aujourd’hui : la section « Appels à projets » est incomplète.</td></tr>')
     body = _html_news(items) + _html_agenda(window, new_events) + _html_calls(calls) + warn
     return f"""<!DOCTYPE html>
