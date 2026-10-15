@@ -48,6 +48,7 @@ sources:
   - {id: capitals-coalition, nom: "Capitals Coalition", pays: INT, categorie: standard, langue: en, url: "https://capitalscoalition.org", rss: null, domaine: "capitalscoalition.org", filtre: aucun, verif: "2026-10-07"}
 
   # --- Associations de place et think tanks ---
+  - {id: reclaim-finance, nom: "Reclaim Finance", pays: FR, categorie: think_tank, langue: fr, url: "https://reclaimfinance.org", rss: null, domaine: "reclaimfinance.org", filtre: mots_cles, verif: "2026-10-15"}
   - {id: finance-for-tomorrow, nom: "Finance for Tomorrow", pays: FR, categorie: think_tank, langue: fr, url: "https://financefortomorrow.com", rss: "https://financefortomorrow.com/feed/", domaine: null, filtre: mots_cles, verif: "2026-10-07"}
   - {id: i4ce, nom: "I4CE", pays: FR, categorie: think_tank, langue: fr, url: "https://www.i4ce.org", rss: "https://www.i4ce.org/feed/", domaine: null, filtre: mots_cles, verif: "2026-10-07"}
   - {id: fir, nom: "Forum pour l'investissement responsable", pays: FR, categorie: think_tank, langue: fr, url: "https://www.frenchsif.org", rss: null, domaine: "frenchsif.org", filtre: mots_cles, verif: "2026-10-07"}

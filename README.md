@@ -13,7 +13,7 @@ Tout tourne gratuitement : du Python sans appel à un modèle d’IA, exécuté 
 
 ```mermaid
 flowchart LR
-  S["data/sources.yaml<br/>44 sources"] --> N["news_watch.py<br/>flux RSS, requêtes par site,<br/>requêtes par zone"]
+  S["data/sources.yaml<br/>45 sources"] --> N["news_watch.py<br/>flux RSS, requêtes par site,<br/>requêtes par zone"]
   E["data/events.yaml<br/>agenda validé à la main"] --> D
   C["calls_watch.py<br/>appels à projets Carenews"] --> D
   N --> D["daily_digest.py<br/>email HTML"]
