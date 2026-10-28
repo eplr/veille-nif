@@ -125,6 +125,7 @@ jobs:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATA_SOURCE_ID: ${{ vars.NOTION_DATA_SOURCE_ID }}
           NOTION_WEEKLY_PAGE_ID: ${{ vars.NOTION_WEEKLY_PAGE_ID }}
+          NOTION_LIBRARY_URL: ${{ vars.NOTION_LIBRARY_URL }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
           INPUT_PUBLISH_NOW: ${{ inputs.publish_now }}
           CALLS_OUTCOME: ${{ steps.calls.outcome }}

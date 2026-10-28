@@ -157,7 +157,7 @@ class TestWeeklySelection(unittest.TestCase):
         items = [article(), article(1, canal="zone", themes=["Thème complémentaire"], acces="abonnement")]
         blocks = daily.build_blocks(items, events, [], NOW, calls_available=False)
         content = json.dumps(blocks, ensure_ascii=False)
-        for expected in ("L’essentiel de la semaine", "Science et génie écologique",
+        for expected in ("L’essentiel de la semaine", "À retenir cette semaine",
                          "accès sur abonnement", "Événement 7", "à revérifier", "Carenews"):
             self.assertIn(expected, content)
         self.assertNotIn("désinscription", content)
@@ -166,7 +166,12 @@ class TestWeeklySelection(unittest.TestCase):
         self.assertNotIn("epl@", content)
         self.assertNotIn("Thème complémentaire", content)
         self.assertNotIn("Identifiant sync", content)
-        self.assertIn("column_list", content)
+        self.assertNotIn("column_list", content)
+        self.assertEqual(len([b for b in blocks if b["type"] == "quote"]), 3)
+        for item in items:
+            titles = [b for b in blocks if b["type"] == "heading_3"
+                      and property_value({"rich_text": b["heading_3"]["rich_text"]}) == item["titre"]]
+            self.assertEqual(len(titles), 1)
 
     def test_apercu_sans_jeton_ni_ecriture_notion(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -236,6 +241,9 @@ class TestWeeklyPublication(unittest.TestCase):
         client.reset_mock()
         daily.ensure_cover(client, {"id": SOURCE_ID, "cover": {"type": "external"}})
         client.request.assert_not_called()
+        client.request.side_effect = [{"id": SOURCE_ID}, {"status": "uploaded"}, {}]
+        daily.ensure_cover(client, {"id": SOURCE_ID, "cover": {"type": "external"}}, force=True)
+        self.assertEqual(client.request.call_count, 3)
 
     def setUp(self):
         self.client = BlockClient()

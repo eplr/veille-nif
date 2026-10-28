@@ -122,6 +122,7 @@ Configuration GitHub Actions :
 - secret `NOTION_TOKEN` : jeton de l’intégration interne autorisée sur la base ;
 - variable `NOTION_DATA_SOURCE_ID` : identifiant de la source de données qui contient les propriétés ;
 - variable `NOTION_WEEKLY_PAGE_ID` : identifiant de la page publique fixe, conservé pendant la migration ;
+- variable `NOTION_LIBRARY_URL` : lien public vers la vue d’accueil de la bibliothèque ;
 - permissions Notion : lecture, insertion et modification du contenu. Aucun accès aux données des utilisateurs n’est nécessaire.
 
 Le jeton n’est jamais fourni en argument, dans un fichier ou dans les journaux. Les variables nécessaires doivent être injectées dans l’environnement par un mécanisme sûr.
@@ -164,9 +165,15 @@ La page « Veille – Nature in Finance » est une **page ordinaire**, pas une l
 
 La sélection compare les publications à une fenêtre glissante de **sept jours**, en UTC, bornes incluses. Les dates absentes, illisibles, futures ou sans heure sont exclues. La sélection est plafonnée à 15 articles par défaut (`--max-articles`), privilégie les sources primaires et réserve une place à la science si un contenu pertinent existe. Elle est indépendante des articles déjà envoyés par email. La période est affichée en heure de Paris.
 
-La page présente une couverture originale (`assets/notion-cover.png`), trois cartes de chiffres clés, trois liens « à retenir », quatre rubriques éditoriales et l’agenda complet à 60 jours. Les sources, dates et accès payants restent visibles ; les tags et propriétés techniques restent dans la base. La méthode est repliée en bas de page. Les opportunités ouvertes et les avertissements Carenews sont conservés. Aucune synthèse n’est inventée et aucune coordonnée du PDF n’est publiée.
+La page présente une couverture haute définition (`assets/notion-cover.png`), trois chiffres clés lisibles sans colonnes étroites, trois liens « à retenir », les autres articles par rubrique et l’agenda à 60 jours. Les titres ne sont pas répétés dans plusieurs sections. Les sources, dates et accès payants restent visibles ; les tags et propriétés techniques restent dans la base. Un lien vers la bibliothèque est placé sous l’introduction et rappelé en bas de page.
 
-La couverture est téléversée une seule fois via l’API officielle, sans hébergement externe ni dépendance graphique à l’exécution. Une couverture choisie manuellement n’est pas remplacée. Les autres blocs utilisent les couleurs natives de Notion ; le thème du lecteur reste libre. Conserver les annotations dans `Notes` de la fiche de gestion ou dans des blocs **hors de la zone générée**.
+La couverture est téléversée une seule fois via l’API officielle, sans hébergement externe ni dépendance graphique à l’exécution. Une couverture choisie manuellement n’est pas remplacée, sauf demande explicite `--refresh-cover`. Les autres blocs utilisent les couleurs natives de Notion ; le thème du lecteur reste libre. Conserver les annotations dans `Notes` de la fiche de gestion ou dans des blocs **hors de la zone générée**.
+
+### Navigation de la bibliothèque
+
+`src/notion_library.py --apply` prépare cinq vues : Toutes les ressources, Actualités, Rapports, Agenda et Opportunités. Les propriétés visibles sont limitées aux informations utiles à chaque vue ; les filtres rapides permettent de cibler type, thème, zone, validation et date. La vue d’origine reste disponible sous « Exploration détaillée ». Les vues publiques excluent les fiches de gestion et les ressources rejetées, sans supprimer de données. Les filtres et propriétés masquées ne sont pas une protection d’accès : les droits de partage de la base restent à contrôler séparément.
+
+La configuration est manuelle, pas réappliquée à chaque collecte : les réglages de navigation peuvent ensuite être ajustés dans Notion. Sans `--apply`, le script affiche uniquement les opérations prévues.
 
 Le programme prépare la nouvelle zone avant d’archiver la précédente. En cas d’échec partiel, l’ancienne édition complète reste disponible et une nouvelle exécution réconcilie les zones techniques. Seuls les sous-arbres explicitement marqués comme générés sont remplacés ; les autres contenus ne sont pas supprimés. Une publication identique ne réécrit pas les blocs et ne change jamais l’identifiant de page.
 

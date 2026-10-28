@@ -23,6 +23,7 @@ import news_archive
 from lib import DEFAULT_THEME, is_noise, load_sources, normalize_title, parse_date, today_utc
 from notion_content import canonical_url, load_articles, notion_date, rich_text, select
 from notion_sync import NotionClient, NotionError, property_value
+from notion_library import DEFAULT_LIBRARY_URL
 
 PAGE_KEY = "veille-nif:weekly-publication:current"
 CONTAINER_KEY = "veille-nif:weekly-publication:management"
@@ -98,46 +99,44 @@ def article_blocks(item):
     if item.get("acces") == "abonnement":
         meta.append("accès sur abonnement")
     return [
-        block("paragraph", item["titre"], bold=True, link=item["lien"]),
+        block("heading_3", item["titre"], bold=True, link=item["lien"]),
         block("paragraph", " · ".join(meta), color="gray"),
     ]
 
 
-def build_blocks(items, events, calls, now, calls_available=True, total_articles=None):
+def build_blocks(items, events, calls, now, calls_available=True, total_articles=None, library_url=None):
+    library_url = canonical_url(library_url or DEFAULT_LIBRARY_URL)
     local, start = now.astimezone(PARIS), (now - timedelta(days=7)).astimezone(PARIS)
     blocks = [
-        block("paragraph", "L’HEBDO · NATURE IN FINANCE", color="green", bold=True),
         block("heading_1", "L’essentiel de la semaine"),
         block("paragraph", f"Édition du {local.strftime('%d/%m/%Y')} · "
               f"du {start.strftime('%d/%m')} au {local.strftime('%d/%m/%Y')}",
               color="gray"),
-        {"object": "block", "type": "column_list", "column_list": {"children": [
-            {"object": "block", "type": "column", "column": {"children": [
-                block("quote", f"{number}\n{label}", color=color, bold=True),
-            ]}}
+        *[
+            block("quote", f"{number} {label}", color=color, bold=True)
             for number, label, color in (
-                (len(items), "actualités sélectionnées", "green_background"),
+                (len(items), "actualités retenues", "green_background"),
                 (len({item["source"] for item in items}), "sources citées", "yellow_background"),
                 (len(events), "rencontres à l’agenda", "blue_background"),
             )
-        ]}},
+        ],
     ]
     if total_articles is not None and total_articles > len(items):
         blocks.append(block("paragraph", f"{len(items)} articles retenus parmi {total_articles} publications "
                             "datées repérées cette semaine. Les autres ressources restent dans la bibliothèque.",
                             color="gray"))
+    blocks.append(block("paragraph", "Consulter la bibliothèque complète", color="green_background",
+                        bold=True, link=library_url))
     if not items:
         blocks.append(block("paragraph", "Aucune nouvelle actualité retenue pour cette édition."))
     else:
         blocks.append(block("heading_2", "À retenir cette semaine", color="green"))
         for item in items[:3]:
-            entry = block("numbered_list_item", item["titre"], bold=True, link=item["lien"])
-            entry["numbered_list_item"]["children"] = [block("paragraph", item["source"], color="gray")]
-            blocks.append(entry)
+            blocks.extend(article_blocks(item))
         blocks.append(block("divider"))
     colors = {"Réglementation et standards": "yellow_background", "Science et génie écologique": "green_background",
               "Financement et marchés": "purple_background", "Pratiques et engagements": "gray_background"}
-    for label, group in editorial.group_news(items).items():
+    for label, group in editorial.group_news(items[3:]).items():
         blocks.append(block("heading_2", label, color=colors[label]))
         for item in group:
             blocks.extend(article_blocks(item))
@@ -155,7 +154,7 @@ def build_blocks(items, events, calls, now, calls_available=True, total_articles
         meta = [event.get(key) for key in ("lieu", "format", "horaire", "cout") if event.get(key)]
         blocks += [
             block("paragraph", label, color="blue", bold=True),
-            block("paragraph", event["titre"], bold=True, link=event["lien"]),
+            block("heading_3", event["titre"], bold=True, link=event["lien"]),
             block("paragraph", " · ".join(meta), color="gray"),
             block("divider"),
         ]
@@ -174,6 +173,8 @@ def build_blocks(items, events, calls, now, calls_available=True, total_articles
     if not calls_available:
         blocks.append(block("paragraph", "Source Carenews indisponible ou non collectée : "
                             "les opportunités peuvent être incomplètes ou provenir du dernier instantané.", color="orange"))
+    blocks += [block("divider"),
+               block("paragraph", "Explorer toutes les ressources de la bibliothèque", bold=True, link=library_url)]
     blocks.append({"object": "block", "type": "toggle", "toggle": {
         "rich_text": text("Sources et méthode", color="gray"),
         "children": [block("paragraph", "Sélection automatique, non exhaustive : vérifiez la source avant de la citer. "
@@ -325,12 +326,12 @@ def managed_state(root):
 
 
 def root_block(state, digest):
-    title = "Nature in Finance" + (" – édition en préparation" if state == "draft" else "")
+    title = "Édition hebdomadaire" + (" – en préparation" if state == "draft" else "")
     # Le lien identifie seulement ce sous-arbre ; les autres blocs restent manuels.
-    parts = text(title, bold=True)
+    parts = text(title, color="gray")
     parts[0]["text"]["link"] = {"url": f"{MARKER}{state}-{digest}"}
     return {"object": "block", "type": "paragraph", "paragraph": {
-        "rich_text": parts, "color": "green_background" if state == "active" else "gray_background",
+        "rich_text": parts, "color": "default" if state == "active" else "gray_background",
     }}
 
 
@@ -365,9 +366,9 @@ def publish(client, page, blocks, now):
     return {"page_id": page["id"], "changed": changed, "blocks": len(blocks)}
 
 
-def ensure_cover(client, page):
-    """Joindre une couverture originale une seule fois, sans écraser un choix manuel."""
-    if page.get("cover"):
+def ensure_cover(client, page, force=False):
+    """Joindre une couverture ; remplacement uniquement sur demande explicite."""
+    if page.get("cover") and not force:
         return
     path = Path(__file__).resolve().parents[1] / "assets" / "notion-cover.png"
     content = path.read_bytes()
@@ -394,6 +395,7 @@ def main():
     parser.add_argument("--calls-unavailable", action="store_true", help="signaler l’échec de collecte Carenews")
     parser.add_argument("--weekly", action="store_true", help="publier uniquement le lundi (sauf aperçu)")
     parser.add_argument("--max-articles", type=int, default=editorial.MAX_ARTICLES)
+    parser.add_argument("--refresh-cover", action="store_true", help="remplacer explicitement la couverture")
     args = parser.parse_args()
     try:
         now = today_utc()
@@ -416,7 +418,7 @@ def main():
         calls = [c for c in calls if not c.get("cloture") or str(c["cloture"])[:10] >= today.isoformat()]
         blocks = build_blocks(items, events, calls, now,
                               calls_available=calls_watch.SNAPSHOT_FILE.exists() and not args.calls_unavailable,
-                              total_articles=len(all_items))
+                              total_articles=len(all_items), library_url=os.environ.get("NOTION_LIBRARY_URL"))
         if args.json_out:
             news_archive.write_json(Path(args.json_out), blocks)
         print(f"[notion-weekly] {len(items)} actualité(s) retenues sur {len(all_items)} sur sept jours, "
@@ -428,7 +430,7 @@ def main():
         if client.ensure_schema():
             raise NotionError("Schéma incomplet : initialiser la bibliothèque avant publication")
         page = get_page(client, os.environ.get("NOTION_WEEKLY_PAGE_ID") or os.environ.get("NOTION_DAILY_PAGE_ID"))
-        ensure_cover(client, page)
+        ensure_cover(client, page, force=args.refresh_cover)
         result = publish(client, page, blocks, now)
         page = client.request("GET", f"/pages/{page['id']}")
         print(f"[notion-weekly] {result}")
