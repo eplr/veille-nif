@@ -10,6 +10,7 @@ import argparse
 import html
 import sys
 from datetime import date, timedelta
+from pathlib import Path
 
 import calls_watch
 import editorial
@@ -295,14 +296,21 @@ def main():
     parser.add_argument("--max-articles", type=int, default=editorial.MAX_ARTICLES)
     parser.add_argument("--lookback-days", type=int, default=news_watch.LOOKBACK_DAYS)
     parser.add_argument("--html-out", help="écrire l'aperçu HTML dans ce fichier")
+    parser.add_argument("--collection-file", help="réutiliser une collecte JSON préparée, sans refaire les requêtes")
     args = parser.parse_args()
 
     if args.lookback_days < 1 or args.max_articles < 1:
         parser.error("lookback-days et max-articles doivent être strictement positifs")
     today = today_utc().date()
-    incoming, seen = news_watch.collect(args.lookback_days, ignore_seen=args.ignore_seen)
+    if args.collection_file:
+        path = Path(args.collection_file)
+        if not path.is_file():
+            parser.error("fichier de collecte introuvable")
+        incoming, seen = news_archive.read_json(path, []), None
+    else:
+        incoming, seen = news_watch.collect(args.lookback_days, ignore_seen=args.ignore_seen)
     archive = news_archive.merge(news_archive.load(), incoming)
-    if not args.dry_run and not args.ignore_seen:
+    if not args.dry_run and not args.ignore_seen and not args.collection_file:
         news_watch.commit(incoming, seen)
     if args.collect_only or (args.weekly and today.weekday() != 0 and not args.dry_run):
         print(f"[weekly-digest] collecte seule : {len(incoming)} article(s), aucun email")

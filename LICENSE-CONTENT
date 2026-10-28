@@ -7,6 +7,7 @@ Périmètre
 Cette licence couvre les contenus éditoriaux et les données du dépôt, c’est-à-dire :
 
   - dist/        (prompts copier-coller et packs associés)
+  - assets/      (visuels originaux de la veille)
   - data/        (sources.yaml, events.yaml et les autres jeux de données tenus à la main)
   - README.md    et les autres textes de documentation
 

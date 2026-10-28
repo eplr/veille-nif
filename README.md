@@ -2,11 +2,12 @@
 
 Outil de veille sur la finance durable, axe nature et biodiversité, pour la communauté Nature in Finance. Périmètre : France, Europe, Suisse, Royaume-Uni, avec quelques références internationales (TNFD, ISSB, CBD, IPBES).
 
-Il produit deux choses :
-1. **Une newsletter hebdomadaire** : actualités par rubrique, synthèses de rapports validées, agenda court et appels à projets ouverts.
-2. **Des versions « copier-coller »** pour Claude, ChatGPT ou tout autre assistant (`dist/`).
+Il produit trois choses :
+1. **Une page Notion hebdomadaire à lien fixe** : sélection des sept derniers jours et agenda à 60 jours, sans propriétés techniques, à partager sur WhatsApp.
+2. **Une newsletter hebdomadaire** : actualités par rubrique, synthèses de rapports validées, agenda court et appels à projets ouverts.
+3. **Des versions « copier-coller »** pour Claude, ChatGPT ou tout autre assistant (`dist/`).
 
-Tout tourne gratuitement : du Python sans appel à un modèle d’IA, exécuté chaque jour par GitHub Actions.
+La collecte tourne en Python sans appel à un modèle d’IA, exécutée chaque jour par GitHub Actions. L’usage reste soumis aux limites des services GitHub et Notion.
 
 ## Comment ça marche
 
@@ -17,6 +18,8 @@ flowchart LR
   C["calls_watch.py<br/>appels à projets Carenews"] --> D
   N --> A["news_archive.json<br/>archive indépendante des envois"]
   A --> D["daily_digest.py<br/>sélection hebdomadaire"]
+  A --> Q["notion_weekly.py<br/>sélection sur sept jours"]
+  Q --> F["Page Notion fixe<br/>lien à partager sur WhatsApp"]
   R["data/reports.yaml<br/>fiches validées"] --> D
   D --> M["Email le lundi<br/>(copie cachée)"]
   S --> P["export_prompt_pack.py"]
@@ -29,6 +32,7 @@ flowchart LR
 - **Appels à projets** (`src/calls_watch.py`) : lit la liste publique de Carenews, filtre sur la nature et l’agriculture, signale les appels nouveaux ou qui se clôturent sous 14 jours.
 - **Newsletter** (`src/daily_digest.py`, `src/editorial.py`) : collecte chaque jour, diffusion le lundi à 07:00 UTC (08:00 ou 09:00 à Paris). L’édition retient au plus 15 articles détectés dans les 7 derniers jours, avec une place réservée à la science lorsqu’un contenu est disponible. Les sources primaires sont prioritaires, puis les analyses, la presse et les communications ; à autorité égale, les publications les plus récentes passent d’abord. Ce classement est un repère éditorial, pas une validation de chaque affirmation.
 - **Archive et états** (`src/news_archive.py`) : les contenus collectés sont conservés dans `data/output/news_archive.json` avant l’envoi. L’historique `data/interim/newsletter_delivery.json` ne marque comme diffusés que les articles et rapports effectivement envoyés. Un plafond de sélection ou un échec d’email ne supprime pas l’archive. Les articles non retenus restent archivés, mais ne sont plus candidats à l’email une fois leur période éditoriale dépassée.
+- **Page hebdomadaire** (`src/notion_weekly.py`) : une page de lecture ordinaire, sans les propriétés de la base. Couverture vert sombre, cartes de chiffres clés, trois signaux à retenir, sélection de 15 actualités par rubrique et agenda bleu reprennent la charte. Les tags détaillés restent dans la bibliothèque, pas sur la page publique.
 
 ## Structure de l’hebdomadaire
 
@@ -62,6 +66,7 @@ Autres commandes utiles :
 - `.venv/bin/python src/events_watch.py` : affiche l’agenda complet ; `--check-links` vérifie les liens ; `--candidates` cherche des événements à valider.
 - `.venv/bin/python src/calls_watch.py` : affiche les appels à projets ouverts.
 - `.venv/bin/python src/export_prompt_pack.py` : régénère `dist/` ; `--no-network` omet la collecte Carenews.
+- `.venv/bin/python src/notion_weekly.py --dry-run --json-out /tmp/notion-weekly.json` : composer la page sans jeton ni écriture Notion.
 
 Attention : sans `--weekly`, `--collect-only` ou `--dry-run`, `daily_digest.py` effectue un envoi immédiat. `--ignore-seen` permet un rejeu de test sans modifier les historiques de collecte et de diffusion ; il faut ajouter `--dry-run` pour ne pas envoyer.
 
@@ -72,9 +77,10 @@ Attention : sans `--weekly`, `--collect-only` ou `--dry-run`, `daily_digest.py` 
    - `DIGEST_TO` : les destinataires de la communauté, séparés par des virgules. Ils sont toujours en copie cachée.
    - Pour Microsoft 365 : `GRAPH_TENANT_ID`, `GRAPH_CLIENT_ID`, `GRAPH_CLIENT_SECRET` (permission applicative `Mail.Send`, idéalement restreinte à la boîte d’expédition).
    - Pour un SMTP classique : `EMAIL_BACKEND=smtp`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`.
-2. Lancer le workflow **Veille et newsletter hebdomadaire** à la main avec `dry_run` coché : l’aperçu est composé quel que soit le jour, sans email ni modification d’état.
+2. Lancer le workflow **Collecte quotidienne et veille hebdomadaire Notion** avec `dry_run` coché : les aperçus sont composés quel que soit le jour, sans email, écriture Notion ni modification d’état durable.
 3. Laisser le planificateur collecter chaque jour à 07:00 UTC ; seul le lundi déclenche l’email. Une première collecte avec `lookback_days = 7` peut élargir la recherche. Les articles déjà traités par l’ancienne veille quotidienne ne sont pas réexpédiés lors de la migration.
 4. Pour un envoi immédiat volontaire, cocher `send_now` et décocher `dry_run`. Pour un rejeu incluant des articles déjà vus, cocher aussi `ignore_seen` ; les historiques ne sont pas modifiés par ce rejeu.
+5. Pour actualiser uniquement la page Notion, cocher `publish_now` et laisser `send_now` décoché : l’étape d’email est alors ignorée, même le lundi. Cocher aussi `send_now` uniquement pour demander explicitement les deux publications.
 
 Pour changer d’adresse d’expédition, modifier uniquement le secret `DIGEST_FROM` (et l’application Graph si besoin) : aucun changement de code.
 
@@ -115,9 +121,11 @@ Le connecteur `src/notion_sync.py` synchronise les données publiques locales ve
 Configuration GitHub Actions :
 - secret `NOTION_TOKEN` : jeton de l’intégration interne autorisée sur la base ;
 - variable `NOTION_DATA_SOURCE_ID` : identifiant de la source de données qui contient les propriétés ;
+- variable `NOTION_WEEKLY_PAGE_ID` : identifiant de la page publique fixe, conservé pendant la migration ;
+- variable `NOTION_LIBRARY_URL` : lien public vers la vue d’accueil de la bibliothèque ;
 - permissions Notion : lecture, insertion et modification du contenu. Aucun accès aux données des utilisateurs n’est nécessaire.
 
-Le jeton n’est jamais fourni en argument, dans un fichier ou dans les journaux. En local, les deux variables doivent être injectées dans l’environnement par un mécanisme sûr avant d’exécuter les commandes.
+Le jeton n’est jamais fourni en argument, dans un fichier ou dans les journaux. Les variables nécessaires doivent être injectées dans l’environnement par un mécanisme sûr.
 
 ```bash
 .venv/bin/python src/notion_sync.py --init-schema --dry-run  # prévisualiser les propriétés manquantes
@@ -151,6 +159,37 @@ Les requêtes sont paginées et limitées en débit ; les réponses de quota res
 
 Cette première version est **unidirectionnelle vers Notion**. Modifier un statut dans Notion ne modifie pas encore la sélection de la newsletter et n’ajoute pas un événement communautaire à `data/events.yaml`. Le formulaire, le circuit de retour éditorial et WhatsApp restent des lots distincts. Si la base est publiée sur le web, vérifier les droits avant d’y ajouter des notes ou contributions confidentielles.
 
+### Page publique hebdomadaire et lien WhatsApp
+
+La page « Veille – Nature in Finance » est une **page ordinaire**, pas une ligne de base de données : elle ne possède que son titre. Une fiche « Gestion de la veille hebdomadaire », d’identifiant technique `veille-nif:weekly-publication:management`, reste dans la bibliothèque pour les métadonnées. La page de lecture est sa sous-page, repérée par `NOTION_WEEKLY_PAGE_ID`. La migration du prototype quotidien sauvegarde d’abord ses propriétés dans la fiche de gestion puis déplace la même page, sans changer son identifiant ni effacer son contenu. Un champ non copiable arrête la migration plutôt que de perdre une annotation. L’ancien `NOTION_DAILY_PAGE_ID` est accepté comme repli pendant cette transition.
+
+La sélection compare les publications à une fenêtre glissante de **sept jours**, en UTC, bornes incluses. Les dates absentes, illisibles, futures ou sans heure sont exclues. La sélection est plafonnée à 15 articles par défaut (`--max-articles`), privilégie les sources primaires et réserve une place à la science si un contenu pertinent existe. Elle est indépendante des articles déjà envoyés par email. La période est affichée en heure de Paris.
+
+La page présente une couverture haute définition (`assets/notion-cover.png`), trois chiffres clés lisibles sans colonnes étroites, trois liens « à retenir », les autres articles par rubrique et l’agenda à 60 jours. Les titres ne sont pas répétés dans plusieurs sections. Les sources, dates et accès payants restent visibles ; les tags et propriétés techniques restent dans la base. Un lien vers la bibliothèque est placé sous l’introduction et rappelé en bas de page.
+
+La couverture est téléversée une seule fois via l’API officielle, sans hébergement externe ni dépendance graphique à l’exécution. Une couverture choisie manuellement n’est pas remplacée, sauf demande explicite `--refresh-cover`. Les autres blocs utilisent les couleurs natives de Notion ; le thème du lecteur reste libre. Conserver les annotations dans `Notes` de la fiche de gestion ou dans des blocs **hors de la zone générée**.
+
+### Navigation de la bibliothèque
+
+`src/notion_library.py --apply` prépare cinq vues : Toutes les ressources, Actualités, Rapports, Agenda et Opportunités. Les propriétés visibles sont limitées aux informations utiles à chaque vue ; les filtres rapides permettent de cibler type, thème, zone, validation et date. La vue d’origine reste disponible sous « Exploration détaillée ». Les vues publiques excluent les fiches de gestion et les ressources rejetées, sans supprimer de données. Les filtres et propriétés masquées ne sont pas une protection d’accès : les droits de partage de la base restent à contrôler séparément.
+
+La configuration est manuelle, pas réappliquée à chaque collecte : les réglages de navigation peuvent ensuite être ajustés dans Notion. Sans `--apply`, le script affiche uniquement les opérations prévues.
+
+Le programme prépare la nouvelle zone avant d’archiver la précédente. En cas d’échec partiel, l’ancienne édition complète reste disponible et une nouvelle exécution réconcilie les zones techniques. Seuls les sous-arbres explicitement marqués comme générés sont remplacés ; les autres contenus ne sont pas supprimés. Une publication identique ne réécrit pas les blocs et ne change jamais l’identifiant de page.
+
+Pour rendre le lien utilisable sans compte Notion, ouvrir une première fois la page et choisir **Partager → Publier**, puis vérifier le lien en navigation privée. L’API officielle ne publie pas automatiquement la page : le script affiche `public_url` lorsqu’une URL publique est déclarée ; sinon il indique que la publication reste à confirmer. La version publique peut présenter un décalage temporaire après une modification : vérifier le contenu rendu, pas seulement l’état de l’API. Partager ce lien public fixe dans WhatsApp. Aucun message WhatsApp n’est envoyé automatiquement.
+
+```bash
+# Collecte de contrôle : sortie temporaire, aucun historique modifié.
+.venv/bin/python src/news_watch.py --lookback-days 7 --dry-run --require-source-data --json-out /tmp/collecte.json
+# Aperçu autonome des blocs.
+.venv/bin/python src/notion_weekly.py --collection-file /tmp/collecte.json --dry-run --json-out /tmp/notion-weekly.json
+# Publication réelle, variables Notion déjà injectées de façon sûre.
+.venv/bin/python src/notion_weekly.py --collection-file /tmp/collecte.json
+```
+
+Le workflow collecte et alimente la bibliothèque chaque jour. Il actualise la page et envoie l’email **le lundi seulement**, après une collecte réussie. Les deux publications sont indépendantes : une panne d’email n’empêche pas la page. Une collecte illisible ne remplace pas l’ancienne édition par une page vide. `--weekly` applique ce garde du lundi ; sans ce flag, une publication manuelle est possible, sans email. L’affichage sans propriétés ne remplace pas le contrôle des droits de partage de la bibliothèque.
+
 
 ## Limites connues
 
@@ -166,7 +205,7 @@ Cette première version est **unidirectionnelle vers Notion**. Modifier un statu
 Deux licences, selon la nature du fichier. Titulaire des droits : fidestra.
 
 - **Code** – licence MIT (`LICENSE`) : `src/`, `tests/`, `.github/`, `requirements.txt`. Réutilisation libre, y compris commerciale, en conservant l’avis de copyright.
-- **Contenus et données** – licence CC BY 4.0 (`LICENSE-CONTENT`) : `dist/`, `data/`, `README.md` et les autres textes. Réutilisation libre, y compris commerciale et modifiée, à condition de citer la source et de signaler les modifications.
+- **Contenus et données** – licence CC BY 4.0 (`LICENSE-CONTENT`) : `assets/`, `dist/`, `data/`, `README.md` et les autres textes. Réutilisation libre, y compris commerciale et modifiée, à condition de citer la source et de signaler les modifications.
 
 Attribution demandée pour les contenus :
 

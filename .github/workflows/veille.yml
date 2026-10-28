@@ -1,6 +1,6 @@
-name: Veille et newsletter hebdomadaire
+name: Collecte quotidienne et veille hebdomadaire Notion
 
-# Collecte quotidienne à 07:00 UTC. Envoi le lundi seulement (08:00 ou 09:00 à Paris).
+# Collecte quotidienne à 07:00 UTC. Page Notion et email le lundi seulement.
 # GitHub peut retarder le déclenchement.
 on:
   schedule:
@@ -21,6 +21,10 @@ on:
         default: false
       send_now:
         description: "Envoyer maintenant, sans attendre lundi (décocher dry_run pour un envoi réel)"
+        type: boolean
+        default: false
+      publish_now:
+        description: "Actualiser la page publique maintenant, sans déclencher l’email"
         type: boolean
         default: false
 
@@ -50,7 +54,24 @@ jobs:
           python -m venv .venv
           .venv/bin/pip install -r requirements.txt
 
-      - name: Veille et envoi
+      - name: Collecter les actualités
+        id: collect
+        env:
+          INPUT_LOOKBACK: ${{ inputs.lookback_days || '3' }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+          INPUT_IGNORE_SEEN: ${{ inputs.ignore_seen }}
+        run: |
+          if ! [[ "$INPUT_LOOKBACK" =~ ^[0-9]+$ ]]; then
+            echo "lookback_days doit être un entier" >&2
+            exit 1
+          fi
+          args="--lookback-days $INPUT_LOOKBACK --json-out /tmp/veille-collection.json --require-source-data"
+          [ "$INPUT_DRY_RUN" = "true" ] && args="$args --dry-run"
+          [ "$INPUT_IGNORE_SEEN" = "true" ] && args="$args --ignore-seen"
+          .venv/bin/python src/news_watch.py $args
+
+      - name: Composer et envoyer l’hebdomadaire
+        if: ${{ inputs.publish_now != true || inputs.send_now == true || inputs.dry_run == true }}
         env:
           # Secrets à définir dans Settings > Secrets and variables > Actions. Aucun n'est dans le dépôt.
           EMAIL_BACKEND: ${{ secrets.EMAIL_BACKEND }}
@@ -73,7 +94,7 @@ jobs:
             echo "lookback_days doit être un entier" >&2
             exit 1
           fi
-          args="--lookback-days $INPUT_LOOKBACK"
+          args="--collection-file /tmp/veille-collection.json"
           # Un aperçu est toujours composé, quel que soit le jour.
           if [ "$INPUT_SEND_NOW" != "true" ] && [ "$INPUT_DRY_RUN" != "true" ]; then
             args="$args --weekly"
@@ -87,6 +108,7 @@ jobs:
         run: .venv/bin/python src/export_prompt_pack.py
 
       - name: Actualiser les appels pour la bibliothèque
+        id: calls
         if: ${{ always() && !cancelled() && steps.dependencies.outcome == 'success' && inputs.dry_run != true }}
         run: .venv/bin/python src/calls_watch.py --snapshot
 
@@ -96,6 +118,25 @@ jobs:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATA_SOURCE_ID: ${{ vars.NOTION_DATA_SOURCE_ID }}
         run: .venv/bin/python src/notion_sync.py
+
+      - name: Actualiser la veille Notion hebdomadaire
+        if: ${{ always() && !cancelled() && steps.collect.outcome == 'success' }}
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATA_SOURCE_ID: ${{ vars.NOTION_DATA_SOURCE_ID }}
+          NOTION_WEEKLY_PAGE_ID: ${{ vars.NOTION_WEEKLY_PAGE_ID }}
+          NOTION_LIBRARY_URL: ${{ vars.NOTION_LIBRARY_URL }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+          INPUT_PUBLISH_NOW: ${{ inputs.publish_now }}
+          CALLS_OUTCOME: ${{ steps.calls.outcome }}
+        run: |
+          args="--collection-file /tmp/veille-collection.json --json-out /tmp/notion-weekly.json"
+          if [ "$INPUT_PUBLISH_NOW" != "true" ] && [ "$INPUT_DRY_RUN" != "true" ]; then
+            args="$args --weekly"
+          fi
+          [ "$INPUT_DRY_RUN" = "true" ] && args="$args --dry-run"
+          [ "$CALLS_OUTCOME" != "success" ] && args="$args --calls-unavailable"
+          .venv/bin/python src/notion_weekly.py $args
 
       - name: Enregistrer l'état et les livrables
         # Conserver la collecte même si l’email ou l’export échoue ensuite.
