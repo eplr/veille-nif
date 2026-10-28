@@ -162,6 +162,15 @@ def call_record(call):
     return result
 
 
+def load_articles():
+    """Reprendre les articles de l’archive et de l’ancien journal CSV."""
+    log, rows = OUTPUT / "news_log.csv", []
+    if log.exists():
+        with log.open(encoding="utf-8", newline="") as stream:
+            rows = list(csv.DictReader(stream))
+    return news_archive.merge(news_archive.load(), rows)
+
+
 def load_records(today, days=14):
     """Stock récent d’articles (ou tout si days=0), agenda complet, rapports et appels.
 
@@ -169,11 +178,7 @@ def load_records(today, days=14):
     prétendre connaître les dates d’envoi de l’ancienne veille quotidienne.
     """
     sources = {s["nom"]: s for s in load_sources()}
-    log, rows = OUTPUT / "news_log.csv", []
-    if log.exists():
-        with log.open(encoding="utf-8", newline="") as stream:
-            rows = list(csv.DictReader(stream))
-    articles = news_archive.merge(news_archive.load(), rows)
+    articles = load_articles()
     cutoff = today - timedelta(days=days - 1) if days else date.min
     records, history = {}, news_archive.deliveries()
     sent_articles, sent_reports = {}, {}

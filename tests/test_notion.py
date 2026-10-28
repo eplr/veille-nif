@@ -197,6 +197,19 @@ class TestSynchronization(unittest.TestCase):
 
 
 class TestClient(unittest.TestCase):
+    def test_multipart_remplace_content_type_json_sans_requete_reseau(self):
+        session = requests.Session()
+        client = notion.NotionClient("test-token", SOURCE_ID, session=session)
+        response = Mock()
+        response.status_code, response.headers = 200, {}
+        response.json.return_value = {"status": "uploaded"}
+        with patch.object(session, "send", return_value=response) as send:
+            result = client.request("POST", f"/file_uploads/{SOURCE_ID}/send",
+                                    files={"file": ("cover.png", b"PNG-test", "image/png")})
+        prepared = send.call_args.args[0]
+        self.assertTrue(prepared.headers["Content-Type"].startswith("multipart/form-data; boundary="))
+        self.assertIn(b"PNG-test", prepared.body)
+        self.assertEqual(result["status"], "uploaded")
     def setUp(self):
         self.session = Mock()
         self.session.headers = {}

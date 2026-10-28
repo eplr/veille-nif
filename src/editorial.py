@@ -35,7 +35,8 @@ def section_for(item: dict) -> str:
     text = f"{item['titre']} {' '.join(item.get('themes', []))}"
     if REGULATION_RE.search(text) or "Réglementation et supervision" in item.get("themes", []):
         return "reglementation"
-    if SCIENCE_RE.search(item["titre"]) or "Cadre mondial et science" in item.get("themes", []):
+    if (SCIENCE_RE.search(item["titre"])
+            or {"Cadre mondial et science", "Science et génie écologique"} & set(item.get("themes", []))):
         return "science"
     if "Instruments et marchés" in item.get("themes", []):
         return "financement"

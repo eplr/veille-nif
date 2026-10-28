@@ -240,7 +240,8 @@ FARM_ENV_RE = re.compile(
 # Pages administratives et offres d'emploi, sans intérêt pour la veille.
 NOISE_RE = re.compile(
     r"^d[ée]cision n°|ABSCH-|\bGCF n°|\bCIDDAE|offre d.emploi|recrutement|adjoint-e|charg[ée]-e"
-    r"|g[ée]omaticien|^agenda de ",
+    r"|g[ée]omaticien|^agenda de "
+    r"|post[- ]?doctorant|postdoctoral (position|fellow)|postdoc (position|fellow)",
     re.IGNORECASE,
 )
 

@@ -15,6 +15,7 @@ Usage :
 """
 import argparse
 import time
+from pathlib import Path
 
 from lib import (
     INTERIM, OUTPUT, append_csv, detect_themes, fetch_feed, google_news_rss, http_get,
@@ -165,7 +166,8 @@ def _accept(item: dict, seen: Seen, lookback_days: int) -> bool:
     return True
 
 
-def collect(lookback_days: int = LOOKBACK_DAYS, ignore_seen: bool = False) -> tuple[list[dict], "Seen"]:
+def collect(lookback_days: int = LOOKBACK_DAYS, ignore_seen: bool = False,
+            health: dict | None = None) -> tuple[list[dict], "Seen"]:
     """Interroge toutes les sources. Renvoie (articles nouveaux, état de déduplication non enregistré).
 
     Rien n'est écrit sur disque : l'appelant archive avec commit() indépendamment de la diffusion.
@@ -176,6 +178,8 @@ def collect(lookback_days: int = LOOKBACK_DAYS, ignore_seen: bool = False) -> tu
     seen = Seen(SEEN_FILE, ignore_existing=ignore_seen)
     new_items: list[dict] = []
     now_str = today_utc().strftime("%Y-%m-%d %H:%M")
+    health = health if health is not None else {}
+    health["entries_read"] = 0
 
     def keep(item: dict, pays: str, source_name: str, canal: str, source: dict | None = None):
         text = f"{item['title']} {item.get('summary', '')}"
@@ -208,6 +212,7 @@ def collect(lookback_days: int = LOOKBACK_DAYS, ignore_seen: bool = False) -> tu
             canal = "site"
         else:
             continue
+        health["entries_read"] += len(items)
         for item in items:
             if not _accept(item, seen, lookback_days):
                 continue
@@ -224,7 +229,9 @@ def collect(lookback_days: int = LOOKBACK_DAYS, ignore_seen: bool = False) -> tu
     # 3. Requêtes thématiques par zone
     for zone in ZONES:
         for query in zone["queries"]:
-            for item in google_news_rss(f"{query} when:{lookback_days}d", hl=zone["hl"], gl=zone["gl"], ceid=zone["ceid"]):
+            items = google_news_rss(f"{query} when:{lookback_days}d", hl=zone["hl"], gl=zone["gl"], ceid=zone["ceid"])
+            health["entries_read"] += len(items)
+            for item in items:
                 # Google News traite mal les opérateurs booléens : on revérifie le titre.
                 if (_accept(item, seen, lookback_days)
                         and (is_nature_related(item["title"], wide=True)
@@ -289,12 +296,33 @@ def check_sources() -> int:
     return problems
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--lookback-days", type=int, default=LOOKBACK_DAYS)
     parser.add_argument("--check-sources", action="store_true")
+    parser.add_argument("--dry-run", action="store_true", help="collecter sans modifier les historiques")
+    parser.add_argument("--ignore-seen", action="store_true", help="inclure les articles déjà connus, sans modifier les historiques")
+    parser.add_argument("--json-out", help="écrire la collecte pour les étapes suivantes (même en aperçu)")
+    parser.add_argument("--require-source-data", action="store_true", help="échouer si aucun contenu source n’a pu être lu")
     args = parser.parse_args()
     if args.check_sources:
         raise SystemExit(1 if check_sources() else 0)
-    for it in run(args.lookback_days):
+    if args.lookback_days < 1:
+        parser.error("lookback-days doit être strictement positif")
+    health = {}
+    items, seen = collect(args.lookback_days, ignore_seen=args.ignore_seen, health=health)
+    if args.require_source_data and not health["entries_read"]:
+        raise SystemExit("Aucun contenu source lisible : l’édition précédente doit être conservée")
+    if args.json_out:
+        from news_archive import write_json
+
+        write_json(Path(args.json_out), items)
+    if not args.dry_run:
+        commit(items, seen)
+    for it in items:
         print(f"- [{it['pays']}] {it['source']} : {it['titre']}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

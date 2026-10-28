@@ -18,7 +18,7 @@ API_VERSION = "2026-03-11"
 API_ROOT = "https://api.notion.com/v1"
 VALIDATION = ["À valider", "À revérifier", "Validé", "Rejeté"]
 CONTENT_TYPES = ["Actualité", "Rapport", "Événement", "Financement",
-                 "AO/RfP pour structures", "Mission de consultant"]
+                 "AO/RfP pour structures", "Mission de consultant", "Édition hebdomadaire"]
 
 
 def definition(kind, options=()):
@@ -76,13 +76,16 @@ class NotionClient:
             "Content-Type": "application/json",
         })
 
-    def request(self, method, path, payload=None):
+    def request(self, method, path, payload=None, files=None):
         safe_to_retry = method == "GET" or path.endswith("/query")
         for attempt in range(5):
             time.sleep(0.35)  # sous le budget habituel de trois requêtes par seconde
             try:
+                options = {"json": payload} if files is None else {
+                    "files": files, "headers": {"Content-Type": None},
+                }
                 response = self.session.request(
-                    method, API_ROOT + path, json=payload, timeout=30, allow_redirects=False,
+                    method, API_ROOT + path, timeout=30, allow_redirects=False, **options,
                 )
             except requests.RequestException:
                 if safe_to_retry and attempt < 4:
