@@ -1,46 +1,43 @@
-"""Veille quotidienne Nature in Finance : agrège, compose et envoie l'email.
-
-Trois blocs :
-1. Nouveautés : articles des sources du registre (par pays), puis presse et veille thématique.
-2. Agenda des 60 prochains jours (data/events.yaml).
-3. Appels à projets en cours relayés par Carenews (nouveaux ou qui se clôturent sous 14 jours).
-
-Un email part chaque jour, même sans nouveauté : dans ce cas l'objet porte la mention « rien de nouveau » et
-l'email le dit. L'état de déduplication n'est enregistré qu'après un envoi réussi : un échec d'envoi ne fait
-perdre aucun article.
+"""Newsletter hebdomadaire Nature in Finance, alimentée par une collecte quotidienne.
 
 Usage :
-    python src/daily_digest.py                        # exécution normale
-    python src/daily_digest.py --dry-run              # compose et affiche, n'envoie ni n'enregistre rien
-    python src/daily_digest.py --dry-run --html-out /tmp/veille.html   # aperçu HTML à ouvrir dans un navigateur
-    python src/daily_digest.py --ignore-seen          # renvoi d'un test : inclut les articles déjà envoyés
-    python src/daily_digest.py --lookback-days 7      # première exécution : fenêtre plus large
+    python src/daily_digest.py --weekly       # collecte ; envoi uniquement le lundi UTC
+    python src/daily_digest.py --collect-only # collecte et archive, sans email
+    python src/daily_digest.py --dry-run --html-out /tmp/veille.html
+    python src/daily_digest.py --ignore-seen   # renvoi de test, sans modifier les historiques
 """
 import argparse
 import html
 import sys
-from datetime import date
+from datetime import date, timedelta
 
 import calls_watch
+import editorial
 import events_watch
+import news_archive
 import news_watch
-from lib import DEFAULT_THEME, PAYS_LABELS, PAYS_ORDER, THEMES, parse_date
+import reports as report_files
+from lib import PAYS_LABELS, today_utc, parse_date
 from send_digest_email import send_email
 
-TITRE = "Veille Nature in Finance"
+TITRE = "Veille hebdomadaire Nature in Finance"
+REPO_URL = "https://github.com/eplr/veille-nif"
+AGENDA_URL = REPO_URL + "/blob/main/dist/pack_avec_pieces_jointes.md"
+ARCHIVE_URL = REPO_URL + "/blob/main/data/output/news_archive.json"
 FOOTER = (
     "Vous recevez ce message car vous faites partie de la liste de diffusion de la veille Nature in Finance. "
     "Pour ne plus le recevoir, répondez simplement « désinscription »."
 )
-AUCUNE_ACTU = "Aucune nouvelle actualité depuis le précédent envoi."
+AUCUNE_ACTU = "Aucune nouvelle actualité retenue pour cette édition."
 NOTE_METHODE = (
-    "Sélection automatique par mots-clés : vérifiez toujours la source avant de la citer. "
-    "L’agenda est validé à la main ; les événements marqués « à revérifier » reposent sur une source secondaire."
+    "Sélection automatique par mots-clés et priorité de source, sans garantie d’exhaustivité. "
+    "Une source primaire ne vaut pas validation de ses affirmations. Vérifiez la source avant de la citer. "
+    "L’agenda et les fiches de rapports sont validés à la main ; "
+    "les événements marqués « à revérifier » comportent encore une incertitude."
 )
 
 MOIS = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."]
 JOURS = ["lun.", "mar.", "mer.", "jeu.", "ven.", "sam.", "dim."]
-THEME_ORDER = list(THEMES) + [DEFAULT_THEME]
 
 
 # --------------------------------------------------------------------------
@@ -67,26 +64,17 @@ def _esc(s) -> str:
     return html.escape(str(s or ""), quote=True)
 
 
-def _sort_news(items: list[dict]) -> list[dict]:
-    """Du plus récent au plus ancien (date de publication ; date illisible en dernier)."""
-    def key(i):
-        dt = parse_date(i["date_publication"])
-        return dt.timestamp() if dt else 0
-    return sorted(items, key=key, reverse=True)
+def _article_meta(item: dict) -> str:
+    published = parse_date(item.get("date_publication", ""))
+    parts = [item["source"], PAYS_LABELS.get(item["pays"], item["pays"]),
+             published.strftime("%d/%m/%Y") if published else "date de publication non précisée"]
+    if item.get("acces") == "abonnement":
+        parts.append("accès sur abonnement")
+    return " · ".join(parts)
 
 
-def split_news(items: list[dict]) -> tuple[dict[str, list[dict]], dict[str, list[dict]]]:
-    """(sources du registre groupées par pays, presse et veille thématique groupée par thème)."""
-    registry: dict[str, list[dict]] = {}
-    press: dict[str, list[dict]] = {}
-    for it in _sort_news(items):
-        if it["canal"] in ("rss", "site"):
-            registry.setdefault(it["pays"], []).append(it)
-        else:
-            press.setdefault(it["themes"][0], []).append(it)
-    registry = {p: registry[p] for p in PAYS_ORDER if p in registry}
-    press = {t: press[t] for t in THEME_ORDER if t in press}
-    return registry, press
+def _period(today: date) -> str:
+    return f"Du {(today - timedelta(days=6)).strftime('%d/%m/%Y')} au {today.strftime('%d/%m/%Y')}"
 
 
 def _event_tags(e: dict, new_ids: set) -> list[str]:
@@ -103,38 +91,47 @@ def _event_tags(e: dict, new_ids: set) -> list[str]:
 # --------------------------------------------------------------------------
 # Version texte (Markdown)
 # --------------------------------------------------------------------------
-def compose_markdown(items, window, new_events, calls, health, today: date) -> str:
+def compose_markdown(items, window, new_events, calls, health, today: date, reports=()) -> str:
     new_ids = {e["id"] for e in new_events}
-    registry, press = split_news(items)
-    lines = [f"# {TITRE} – {today.strftime('%d/%m/%Y')}", ""]
+    groups = editorial.group_news(items)
+    lines = [f"# {TITRE} – {today.strftime('%d/%m/%Y')}", "", _period(today), ""]
 
     if items:
         lines.append(f"## Nouveautés – {len(items)} article(s)")
-        for pays, group in registry.items():
-            lines.append(f"### {PAYS_LABELS[pays]}")
+        for label, group in groups.items():
+            lines.append(f"### {label}")
             for it in group:
-                lines.append(f"- [{it['titre']}]({it['lien']}) ({it['source']}) – {' · '.join(it['themes'])}")
-        if press:
-            lines.append("### Presse et veille thématique")
-            for theme, group in press.items():
-                lines.append(f"**{theme}**")
-                for it in group:
-                    lines.append(f"- [{it['titre']}]({it['lien']}) ({it['source']})")
+                lines.append(f"- [{it['titre']}]({it['lien']}) – {_article_meta(it)} – {' · '.join(it['themes'])}")
         lines.append("")
     else:
         lines += [f"_{AUCUNE_ACTU}_", ""]
+    if not any(editorial.section_for(i) == "science" for i in items):
+        lines += ["_Science et génie écologique : aucun nouveau contenu retenu cette semaine._", ""]
+    lines += [f"[Consulter les articles collectés]({ARCHIVE_URL})", ""]
+
+    lines.append("## Synthèses de rapports")
+    if not reports:
+        lines.append("_Aucune nouvelle fiche validée cette semaine._")
+    for report in reports:
+        lines += [f"### [{report['titre']}]({report['lien']})",
+                  f"{report['source']} · publication : {report['date']} · fiche vérifiée : {report['verifie_le']}"]
+        lines += [f"- {result}" for result in report["resultats"]]
+        lines += [f"**Méthode :** {report['methode']}", f"**Limites :** {report['limites']}",
+                  f"**Implications pratiques :** {report['implications']}"]
+    lines.append("")
 
     if window:
-        lines.append(f"## Agenda des {events_watch.WINDOW_DAYS} prochains jours")
-        for e in window:
+        lines.append("## Agenda – prochaines rencontres")
+        for e in window[:editorial.MAX_EVENTS]:
             tags = _event_tags(e, new_ids)
             tag_txt = f" [{', '.join(tags)}]" if tags else ""
             lines.append(f"- **{fr_range(e['debut'], e['fin'])}** – [{e['titre']}]({e['lien']}) – {e['lieu']}{tag_txt}")
         lines.append("")
+        lines += [f"[Agenda complet des {events_watch.WINDOW_DAYS} prochains jours]({AGENDA_URL})", ""]
 
-    if calls:
-        lines.append("## Appels à projets en cours")
-        for c in calls:
+    for label, group in editorial.group_opportunities(calls).items():
+        lines.append(f"## {label}")
+        for c in group:
             flag = "nouveau" if c["nouveau"] else "clôture proche"
             lines.append(f"- [{c['titre']}]({c['lien']}) – {c['porteur']} – {fr_closing(c['cloture'])} [{flag}]")
         lines.append("")
@@ -170,33 +167,26 @@ def _pill(text: str, color: str) -> str:
             f'border-radius:3px;padding:1px 5px;margin-left:6px;text-transform:uppercase;letter-spacing:0.4px;">{_esc(text)}</span>')
 
 
-def _article_row(it: dict, show_themes: bool) -> str:
-    meta = _esc(it["source"])
-    if show_themes:
-        meta += " · " + _esc(" · ".join(it["themes"]))
+def _article_row(it: dict) -> str:
+    meta = _esc(_article_meta(it)) + " · " + _esc(" · ".join(it["themes"]))
     return (f'<div style="padding:10px 0;border-bottom:1px solid {_BORDER};">'
             f'<a href="{_esc(it["lien"])}" style="font-size:14px;color:{_TEXT};text-decoration:none;font-weight:600;">{_esc(it["titre"])}</a>'
             f'<div style="font-size:12px;color:{_MUTED};margin-top:3px;">{meta}</div></div>')
 
 
 def _html_news(items: list[dict]) -> str:
-    if not items:
-        return (f'<tr><td style="padding:24px 32px 0 32px;font-size:14px;color:{_MUTED};">'
-                f'{_esc(AUCUNE_ACTU)}</td></tr>')
-    registry, press = split_news(items)
     blocks = []
-    for pays, group in registry.items():
-        rows = "".join(_article_row(i, True) for i in group)
+    if not items:
+        blocks.append(f'<p style="color:{_MUTED};">{_esc(AUCUNE_ACTU)}</p>')
+    for label, group in editorial.group_news(items).items():
+        rows = "".join(_article_row(i) for i in group)
         blocks.append(f'<div style="margin-top:16px;"><div style="font-size:12px;font-weight:700;letter-spacing:0.4px;'
-                      f'text-transform:uppercase;color:{_NEWS};">{_esc(PAYS_LABELS[pays])}</div>{rows}</div>')
-    if press:
-        rows = ""
-        for theme, group in press.items():
-            rows += (f'<div style="font-size:11px;font-weight:700;color:{_MUTED};text-transform:uppercase;'
-                     f'letter-spacing:0.4px;margin-top:12px;">{_esc(theme)}</div>')
-            rows += "".join(_article_row(i, False) for i in group)
-        blocks.append(f'<div style="margin-top:20px;"><div style="font-size:12px;font-weight:700;letter-spacing:0.4px;'
-                      f'text-transform:uppercase;color:{_NEWS};">Presse et veille thématique</div>{rows}</div>')
+                      f'color:{_NEWS};">{_esc(label)}</div>{rows}</div>')
+    if not any(editorial.section_for(i) == "science" for i in items):
+        blocks.append(f'<p style="font-size:12px;color:{_MUTED};">'
+                      'Science et génie écologique : aucun nouveau contenu retenu cette semaine.</p>')
+    blocks.append(f'<p><a href="{ARCHIVE_URL}" style="font-size:12px;color:{_BRAND};">'
+                  'Consulter les articles collectés</a></p>')
     return (f'<tr><td style="padding:24px 32px 8px 32px;">{_badge(f"Nouveautés – {len(items)}", _NEWS, _NEWS_BG)}'
             f'{"".join(blocks)}</td></tr>')
 
@@ -206,7 +196,7 @@ def _html_agenda(window: list[dict], new_events: list[dict]) -> str:
         return ""
     new_ids = {e["id"] for e in new_events}
     rows = []
-    for e in window:
+    for e in window[:editorial.MAX_EVENTS]:
         pills = "".join(_pill(t, _AGENDA if t == "nouveau" else _MUTED) for t in _event_tags(e, new_ids))
         horaire = f" · {_esc(e['horaire'])}" if e.get("horaire") else ""
         cout = f" · {_esc(e['cout'])}" if e.get("cout") else ""
@@ -217,29 +207,54 @@ def _html_agenda(window: list[dict], new_events: list[dict]) -> str:
             f'<div style="font-size:12px;color:{_MUTED};margin-top:3px;">{_esc(e["lieu"])} · {_esc(e["format"])}{horaire}{cout}</div>'
             f'</div>')
     return (f'<tr><td style="padding:24px 32px 8px 32px;">'
-            f'{_badge(f"Agenda – {events_watch.WINDOW_DAYS} prochains jours", _AGENDA, _AGENDA_BG)}{"".join(rows)}</td></tr>')
+            f'{_badge("Agenda – prochaines rencontres", _AGENDA, _AGENDA_BG)}{"".join(rows)}'
+            f'<p><a href="{AGENDA_URL}" style="font-size:12px;color:{_AGENDA};">'
+            f'Agenda complet des {events_watch.WINDOW_DAYS} prochains jours</a></p></td></tr>')
 
 
 def _html_calls(calls: list[dict]) -> str:
-    if not calls:
-        return ""
+    sections = []
+    for label, group in editorial.group_opportunities(calls).items():
+        rows = []
+        for c in group:
+            pill = _pill("nouveau", _CALLS) if c["nouveau"] else _pill("clôture proche", _MUTED)
+            rows.append(
+                f'<div style="padding:10px 0;border-bottom:1px solid {_BORDER};">'
+                f'<a href="{_esc(c["lien"])}" style="font-size:14px;color:{_TEXT};text-decoration:none;font-weight:600;">{_esc(c["titre"])}</a>{pill}'
+                f'<div style="font-size:12px;color:{_MUTED};margin-top:3px;">{_esc(c["porteur"])} · {_esc(fr_closing(c["cloture"]))}</div></div>')
+        sections.append(f'<tr><td style="padding:24px 32px 8px 32px;">{_badge(label, _CALLS, _CALLS_BG)}'
+                        f'{"".join(rows)}</td></tr>')
+    return "".join(sections)
+
+
+def _html_reports(reports) -> str:
     rows = []
-    for c in calls:
-        pill = _pill("nouveau", _CALLS) if c["nouveau"] else _pill("clôture proche", _MUTED)
+    for report in reports:
+        results = "".join(f"<li>{_esc(result)}</li>" for result in report["resultats"])
+        details = "".join(
+            f'<p><strong>{label} :</strong> {_esc(report[field])}</p>'
+            for label, field in (("Méthode", "methode"), ("Limites", "limites"),
+                                 ("Implications pratiques", "implications"))
+        )
         rows.append(
-            f'<div style="padding:10px 0;border-bottom:1px solid {_BORDER};">'
-            f'<a href="{_esc(c["lien"])}" style="font-size:14px;color:{_TEXT};text-decoration:none;font-weight:600;">{_esc(c["titre"])}</a>{pill}'
-            f'<div style="font-size:12px;color:{_MUTED};margin-top:3px;">{_esc(c["porteur"])} · {_esc(fr_closing(c["cloture"]))}</div></div>')
-    return (f'<tr><td style="padding:24px 32px 8px 32px;">{_badge("Appels à projets en cours", _CALLS, _CALLS_BG)}'
-            f'{"".join(rows)}</td></tr>')
+            f'<div style="padding:12px 0;border-bottom:1px solid {_BORDER};">'
+            f'<a href="{_esc(report["lien"])}" style="color:{_TEXT};font-weight:600;">{_esc(report["titre"])}</a>'
+            f'<p style="color:{_MUTED};">{_esc(report["source"])} · {_esc(report["date"])}'
+            f' · fiche vérifiée : {_esc(report["verifie_le"])}</p>'
+            f'<ul>{results}</ul>{details}</div>'
+        )
+    if not rows:
+        rows.append(f'<p style="color:{_MUTED};">Aucune nouvelle fiche validée cette semaine.</p>')
+    return (f'<tr><td style="padding:24px 32px 8px 32px;color:{_TEXT};font-size:13px;line-height:1.6;">'
+            f'{_badge("Synthèses de rapports", _BRAND, _HEADER)}{"".join(rows)}</td></tr>')
 
 
-def compose_html(items, window, new_events, calls, health, today: date) -> str:
+def compose_html(items, window, new_events, calls, health, today: date, reports=()) -> str:
     warn = ""
     if not health.get("ok", True):
         warn = (f'<tr><td style="padding:16px 32px 0 32px;font-size:12px;color:{_WARN};">'
                 'Source Carenews indisponible aujourd’hui : la section « Appels à projets » est incomplète.</td></tr>')
-    body = _html_news(items) + _html_agenda(window, new_events) + _html_calls(calls) + warn
+    body = _html_news(items) + _html_reports(reports) + _html_agenda(window, new_events) + _html_calls(calls) + warn
     return f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -253,7 +268,8 @@ def compose_html(items, window, new_events, calls, health, today: date) -> str:
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background-color:{_CARD};border-radius:10px;border:1px solid {_BORDER};overflow:hidden;">
         <tr><td style="background-color:{_HEADER};padding:24px 32px;border-bottom:1px solid {_BORDER};">
           <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:{_BRAND};">Nature in Finance</div>
-          <div style="font-size:20px;font-weight:600;color:{_TEXT};margin-top:6px;">Veille du {today.strftime('%d/%m/%Y')}</div>
+          <div style="font-size:20px;font-weight:600;color:{_TEXT};margin-top:6px;">L’hebdo – {today.strftime('%d/%m/%Y')}</div>
+          <div style="font-size:12px;color:{_MUTED};margin-top:8px;">{_period(today)}</div>
         </td></tr>
         {body}
         <tr><td style="padding:20px 32px;background-color:{_HEADER};border-top:1px solid {_BORDER};">
@@ -272,19 +288,41 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--dry-run", action="store_true", help="composer et afficher, sans envoyer ni enregistrer")
     parser.add_argument("--ignore-seen", action="store_true",
-                        help="inclure les articles déjà envoyés (renvoi d'un email de test) ; l'historique est conservé")
+                        help="rejouer les articles connus pour un test, sans modifier les historiques")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--collect-only", action="store_true", help="archiver la collecte sans envoyer")
+    mode.add_argument("--weekly", action="store_true", help="collecter chaque jour ; envoyer le lundi UTC seulement")
+    parser.add_argument("--max-articles", type=int, default=editorial.MAX_ARTICLES)
     parser.add_argument("--lookback-days", type=int, default=news_watch.LOOKBACK_DAYS)
     parser.add_argument("--html-out", help="écrire l'aperçu HTML dans ce fichier")
     args = parser.parse_args()
 
-    today = date.today()
-    items, seen = news_watch.collect(args.lookback_days, ignore_seen=args.ignore_seen)
-    window, new_events = events_watch.run(today, persist=False)
-    calls, health = calls_watch.run(persist=False)
+    if args.lookback_days < 1 or args.max_articles < 1:
+        parser.error("lookback-days et max-articles doivent être strictement positifs")
+    today = today_utc().date()
+    incoming, seen = news_watch.collect(args.lookback_days, ignore_seen=args.ignore_seen)
+    archive = news_archive.merge(news_archive.load(), incoming)
+    if not args.dry_run and not args.ignore_seen:
+        news_watch.commit(incoming, seen)
+    if args.collect_only or (args.weekly and today.weekday() != 0 and not args.dry_run):
+        print(f"[weekly-digest] collecte seule : {len(incoming)} article(s), aucun email")
+        return 0
 
-    has_content = bool(items or new_events or calls)
-    body_md = compose_markdown(items, window, new_events, calls, health, today)
-    body_html = compose_html(items, window, new_events, calls, health, today)
+    history = news_archive.deliveries()
+    if args.weekly and today.isoformat() in history and not args.ignore_seen and not args.dry_run:
+        print("[weekly-digest] édition déjà envoyée aujourd’hui, aucun nouvel envoi")
+        return 0
+    # Un rejeu utilise les dates de détection courantes sans réécrire l’archive.
+    candidates = news_archive.merge(incoming, archive) if args.ignore_seen else news_archive.unsent(archive, history)
+    items = editorial.select_news(candidates, today, args.max_articles)
+    sent_reports = {rid for edition in history.values() for rid in edition["rapports"]}
+    reports = [r for r in report_files.load(today) if args.ignore_seen or r["id"] not in sent_reports][:2]
+    window, new_events = events_watch.run(today, persist=False)
+    calls, health = calls_watch.run(today=today, persist=False)
+
+    has_content = bool(items or reports or new_events or calls)
+    body_md = compose_markdown(items, window, new_events, calls, health, today, reports)
+    body_html = compose_html(items, window, new_events, calls, health, today, reports)
 
     if args.html_out:
         with open(args.html_out, "w", encoding="utf-8") as f:
@@ -299,11 +337,13 @@ def main():
     send_email(subject=subject, body_markdown=body_md, body_html=body_html)
     print("[daily-digest] email envoyé")
 
-    # État enregistré seulement ici : une exception d'envoi ci-dessus l'aurait laissé intact.
-    news_watch.commit(items, seen)
-    events_watch.mark_announced(new_events)
-    if health.get("ok"):
-        calls_watch.commit(calls)
+    # La collecte est déjà archivée ; seule la diffusion est acquittée après succès.
+    if not args.ignore_seen:
+        news_archive.mark_sent(today, items, reports)
+        visible_ids = {e["id"] for e in window[:editorial.MAX_EVENTS]}
+        events_watch.mark_announced([e for e in new_events if e["id"] in visible_ids])
+        if health.get("ok"):
+            calls_watch.commit(calls)
     return 0
 
 

@@ -1,9 +1,10 @@
-name: Veille quotidienne
+name: Veille et newsletter hebdomadaire
 
-# 05:00 UTC, soit 06:00 ou 07:00 à Paris selon la saison. GitHub peut décaler un déclenchement planifié de quelques minutes.
+# Collecte quotidienne à 07:00 UTC. Envoi le lundi seulement (08:00 ou 09:00 à Paris).
+# GitHub peut retarder le déclenchement.
 on:
   schedule:
-    - cron: "0 5 * * *"
+    - cron: "0 7 * * *"
   workflow_dispatch:
     inputs:
       lookback_days:
@@ -16,6 +17,10 @@ on:
         default: false
       ignore_seen:
         description: "Inclure les articles déjà envoyés (renvoi d'un email de test, l'historique est conservé)"
+        type: boolean
+        default: false
+      send_now:
+        description: "Envoyer maintenant, sans attendre lundi (décocher dry_run pour un envoi réel)"
         type: boolean
         default: false
 
@@ -40,6 +45,7 @@ jobs:
           cache: pip
 
       - name: Installer les dépendances (environnement virtuel)
+        id: dependencies
         run: |
           python -m venv .venv
           .venv/bin/pip install -r requirements.txt
@@ -61,12 +67,17 @@ jobs:
           INPUT_LOOKBACK: ${{ inputs.lookback_days || '3' }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
           INPUT_IGNORE_SEEN: ${{ inputs.ignore_seen }}
+          INPUT_SEND_NOW: ${{ inputs.send_now }}
         run: |
           if ! [[ "$INPUT_LOOKBACK" =~ ^[0-9]+$ ]]; then
             echo "lookback_days doit être un entier" >&2
             exit 1
           fi
           args="--lookback-days $INPUT_LOOKBACK"
+          # Un aperçu est toujours composé, quel que soit le jour.
+          if [ "$INPUT_SEND_NOW" != "true" ] && [ "$INPUT_DRY_RUN" != "true" ]; then
+            args="$args --weekly"
+          fi
           [ "$INPUT_DRY_RUN" = "true" ] && args="$args --dry-run"
           [ "$INPUT_IGNORE_SEEN" = "true" ] && args="$args --ignore-seen"
           .venv/bin/python src/daily_digest.py $args
@@ -75,8 +86,20 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         run: .venv/bin/python src/export_prompt_pack.py
 
+      - name: Actualiser les appels pour la bibliothèque
+        if: ${{ always() && !cancelled() && steps.dependencies.outcome == 'success' && inputs.dry_run != true }}
+        run: .venv/bin/python src/calls_watch.py --snapshot
+
+      - name: Synchroniser la bibliothèque Notion
+        if: ${{ always() && !cancelled() && steps.dependencies.outcome == 'success' && inputs.dry_run != true }}
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATA_SOURCE_ID: ${{ vars.NOTION_DATA_SOURCE_ID }}
+        run: .venv/bin/python src/notion_sync.py
+
       - name: Enregistrer l'état et les livrables
-        if: ${{ inputs.dry_run != true }}
+        # Conserver la collecte même si l’email ou l’export échoue ensuite.
+        if: ${{ always() && !cancelled() && inputs.dry_run != true }}
         run: |
           # Ce fichier garantit un commit par jour : GitHub désactive les workflows planifiés d'un
           # dépôt public resté 60 jours sans activité.
@@ -87,7 +110,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Rien à enregistrer"
           else
-            git commit -m "veille du $(date -u +%F)"
+            git commit -m "veille du $(date -u +%F)" -m "Co-Authored-By: Warp <agent@warp.dev>"
             git pull --rebase
             git push
           fi

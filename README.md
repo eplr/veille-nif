@@ -2,10 +2,9 @@
 
 Outil de veille sur la finance durable, axe nature et biodiversité, pour la communauté Nature in Finance. Périmètre : France, Europe, Suisse, Royaume-Uni, avec quelques références internationales (TNFD, ISSB, CBD, IPBES).
 
-Il produit trois choses :
-1. **Un email quotidien** : nouveautés, agenda des 60 prochains jours, appels à projets ouverts.
+Il produit deux choses :
+1. **Une newsletter hebdomadaire** : actualités par rubrique, synthèses de rapports validées, agenda court et appels à projets ouverts.
 2. **Des versions « copier-coller »** pour Claude, ChatGPT ou tout autre assistant (`dist/`).
-3. **Une mini-formation en visio** de 1 h 30 sur l’utilisation de la veille et de l’IA (`formation/`).
 
 Tout tourne gratuitement : du Python sans appel à un modèle d’IA, exécuté chaque jour par GitHub Actions.
 
@@ -13,38 +12,58 @@ Tout tourne gratuitement : du Python sans appel à un modèle d’IA, exécuté 
 
 ```mermaid
 flowchart LR
-  S["data/sources.yaml<br/>45 sources"] --> N["news_watch.py<br/>flux RSS, requêtes par site,<br/>requêtes par zone"]
+  S["data/sources.yaml<br/>53 sources"] --> N["news_watch.py<br/>collecte quotidienne"]
   E["data/events.yaml<br/>agenda validé à la main"] --> D
   C["calls_watch.py<br/>appels à projets Carenews"] --> D
-  N --> D["daily_digest.py<br/>email HTML"]
-  D --> M["Email de la communauté<br/>(copie cachée)"]
+  N --> A["news_archive.json<br/>archive indépendante des envois"]
+  A --> D["daily_digest.py<br/>sélection hebdomadaire"]
+  R["data/reports.yaml<br/>fiches validées"] --> D
+  D --> M["Email le lundi<br/>(copie cachée)"]
   S --> P["export_prompt_pack.py"]
   E --> P
   P --> V["dist/<br/>prompts copier-coller"]
 ```
 
-- **Actualités** (`src/news_watch.py`) : trois canaux. Les flux RSS des sources qui en ont un ; une requête Google News `site:` pour les autres ; des requêtes thématiques par zone et par langue. Les articles sont filtrés par mots-clés (nature, biodiversité, TNFD, etc.), dédoublonnés et étiquetés par pays et par thème.
+- **Actualités** (`src/news_watch.py`) : flux RSS, requêtes Google News `site:` et requêtes thématiques par zone/langue. Les filtres couvrent aussi la science sans condition de vocabulaire financier et la réglementation CSRD/SFDR/ISSB. Chaque article conserve sa source, sa zone de recherche, ses thèmes, son axe éventuel, son niveau d’autorité et les restrictions d’accès connues.
 - **Agenda** (`src/events_watch.py`) : lit `data/events.yaml`, un agenda tenu à la main. Aucun événement n’y entre sans vérification sur une source officielle. Le script cherche aussi des événements candidats, écrits dans `data/interim/events_candidates.csv` pour relecture, jamais dans l’agenda.
 - **Appels à projets** (`src/calls_watch.py`) : lit la liste publique de Carenews, filtre sur la nature et l’agriculture, signale les appels nouveaux ou qui se clôturent sous 14 jours.
-- **Email** (`src/daily_digest.py`) : assemble les trois blocs. Un email part chaque jour, même sans nouveauté (l’objet porte alors « rien de nouveau » et l’email indique qu’il n’y a pas d’actualité nouvelle). Les actualités ne reprennent que ce qui n’a pas déjà été envoyé ; l’agenda des 60 jours est réaffiché en entier. L’état de déduplication n’est enregistré qu’après un envoi réussi.
+- **Newsletter** (`src/daily_digest.py`, `src/editorial.py`) : collecte chaque jour, diffusion le lundi à 07:00 UTC (08:00 ou 09:00 à Paris). L’édition retient au plus 15 articles détectés dans les 7 derniers jours, avec une place réservée à la science lorsqu’un contenu est disponible. Les sources primaires sont prioritaires, puis les analyses, la presse et les communications ; à autorité égale, les publications les plus récentes passent d’abord. Ce classement est un repère éditorial, pas une validation de chaque affirmation.
+- **Archive et états** (`src/news_archive.py`) : les contenus collectés sont conservés dans `data/output/news_archive.json` avant l’envoi. L’historique `data/interim/newsletter_delivery.json` ne marque comme diffusés que les articles et rapports effectivement envoyés. Un plafond de sélection ou un échec d’email ne supprime pas l’archive. Les articles non retenus restent archivés, mais ne sont plus candidats à l’email une fois leur période éditoriale dépassée.
+
+## Structure de l’hebdomadaire
+
+1. **Réglementation et standards** : CSRD, SFDR, ESRS, IFRS/ISSB, TNFD.
+2. **Science et génie écologique** : IPBES, INRAE, MNHN, CNRS, restauration et stratégies territoriales.
+3. **Financement et marchés**.
+4. **Pratiques et engagements**.
+5. **Synthèses de rapports** : jusqu’à deux fiches lues et validées humainement ; sinon, l’absence de nouvelle fiche est indiquée.
+6. **Agenda** : les cinq premières rencontres, avec un lien vers l’agenda complet à 60 jours.
+7. **Opportunités** : types séparés « appels à projets et financements », « AO/RfP pour structures » et « missions de consultants indépendants ». À ce stade, seul le premier type est alimenté automatiquement, par Carenews ; une rubrique sans contenu est omise.
+
+Les rubriques d’actualités vides sont omises ; l’absence de contenu scientifique est signalée explicitement. Une édition est envoyée chaque lundi même sans nouvelle actualité. Les liens d’archive et d’agenda pointent provisoirement vers les fichiers publics du dépôt, en attendant la vérification des vues publiques filtrées de la bibliothèque Notion.
 
 ## Installation locale
 
-Python 3.12 ou plus récent. Utiliser un environnement virtuel.
+Python 3.12 ou plus récent, compatible Linux AMD64. Utiliser un environnement virtuel.
 
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m unittest discover -s tests -v          # tests, hors réseau
-.venv/bin/python src/daily_digest.py --dry-run --html-out veille.html   # aperçu sans rien envoyer ni enregistrer
+.venv/bin/python src/daily_digest.py --dry-run --html-out /tmp/veille.html   # aperçu sans envoi ni état
 ```
 
 Autres commandes utiles :
 
-- `python src/news_watch.py --check-sources` : vérifie que chaque source et chaque flux répond.
-- `python src/events_watch.py` : affiche l’agenda des 60 prochains jours ; `--check-links` vérifie les liens ; `--candidates` cherche des événements à valider.
-- `python src/calls_watch.py` : affiche les appels à projets ouverts retenus.
-- `python src/export_prompt_pack.py` : régénère les fichiers de `dist/`.
+- `.venv/bin/python src/daily_digest.py --weekly` : collecte ; envoie uniquement le lundi UTC et évite un second envoi planifié de la même édition.
+- `.venv/bin/python src/daily_digest.py --collect-only` : archive la collecte sans email.
+- `.venv/bin/python src/daily_digest.py --dry-run --max-articles 12` : aperçu avec plafond différent.
+- `.venv/bin/python src/news_watch.py --check-sources` : vérifie chaque source et flux.
+- `.venv/bin/python src/events_watch.py` : affiche l’agenda complet ; `--check-links` vérifie les liens ; `--candidates` cherche des événements à valider.
+- `.venv/bin/python src/calls_watch.py` : affiche les appels à projets ouverts.
+- `.venv/bin/python src/export_prompt_pack.py` : régénère `dist/` ; `--no-network` omet la collecte Carenews.
+
+Attention : sans `--weekly`, `--collect-only` ou `--dry-run`, `daily_digest.py` effectue un envoi immédiat. `--ignore-seen` permet un rejeu de test sans modifier les historiques de collecte et de diffusion ; il faut ajouter `--dry-run` pour ne pas envoyer.
 
 ## Mise en route de l’envoi automatique
 
@@ -53,16 +72,29 @@ Autres commandes utiles :
    - `DIGEST_TO` : les destinataires de la communauté, séparés par des virgules. Ils sont toujours en copie cachée.
    - Pour Microsoft 365 : `GRAPH_TENANT_ID`, `GRAPH_CLIENT_ID`, `GRAPH_CLIENT_SECRET` (permission applicative `Mail.Send`, idéalement restreinte à la boîte d’expédition).
    - Pour un SMTP classique : `EMAIL_BACKEND=smtp`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`.
-2. Lancer le workflow **Veille quotidienne** à la main (onglet Actions > Run workflow) avec `dry_run` coché, pour vérifier la collecte sans envoyer d’email.
-3. Lancer une première exécution réelle avec `lookback_days = 7`, puis laisser le planificateur reprendre : 05:00 UTC chaque jour. Pour renvoyer un email de test complet, y compris les articles déjà envoyés, cocher `ignore_seen` : l’historique de déduplication est conservé.
+2. Lancer le workflow **Veille et newsletter hebdomadaire** à la main avec `dry_run` coché : l’aperçu est composé quel que soit le jour, sans email ni modification d’état.
+3. Laisser le planificateur collecter chaque jour à 07:00 UTC ; seul le lundi déclenche l’email. Une première collecte avec `lookback_days = 7` peut élargir la recherche. Les articles déjà traités par l’ancienne veille quotidienne ne sont pas réexpédiés lors de la migration.
+4. Pour un envoi immédiat volontaire, cocher `send_now` et décocher `dry_run`. Pour un rejeu incluant des articles déjà vus, cocher aussi `ignore_seen` ; les historiques ne sont pas modifiés par ce rejeu.
 
 Pour changer d’adresse d’expédition, modifier uniquement le secret `DIGEST_FROM` (et l’application Graph si besoin) : aucun changement de code.
 
-Point de vigilance : GitHub désactive les workflows planifiés d’un dépôt public resté 60 jours sans activité. Le workflow écrit chaque jour `data/last_run.txt` et le committe, ce qui crée de l’activité tant que la veille tourne. Si l’exécution échoue plusieurs jours de suite, GitHub envoie un email : ne pas laisser un échec s’installer.
+Point de vigilance : GitHub désactive les workflows planifiés d’un dépôt public resté 60 jours sans activité. Le workflow enregistre son passage dans `data/last_run.txt`. L’étape de persistance s’exécute aussi après un échec d’email ou d’export pour conserver la collecte ; une panne de GitHub ou du push peut toutefois empêcher cet enregistrement. Après un échec d’envoi le lundi, relancer le même jour ou utiliser volontairement `send_now` : les jours suivants ne déclenchent pas de rattrapage automatique.
 
 ## Ajouter une source
 
-Ouvrir `data/sources.yaml`, copier une ligne, renseigner `rss` si un flux valide existe, sinon `domaine` (requête Google News `site:`). Le champ `filtre` vaut `aucun` pour une source spécialisée, `mots_cles` pour une source généraliste, `mots_cles_large` pour les fonds et fondations. Lancer ensuite `python src/news_watch.py --check-sources`.
+Ouvrir `data/sources.yaml`, copier une ligne, renseigner `rss` si un flux valide existe, sinon `domaine` (Google News `site:`). Choisir le filtre : `aucun`, `mots_cles`, `mots_cles_large`, `science` ou `reglementation`. Le filtre scientifique accepte notamment le génie écologique et la restauration sans mention de finance ; le filtre réglementaire accepte CSRD/SFDR/ISSB sans mention explicite de nature.
+
+La section `profils` définit l’autorité par catégorie ; une source peut la surcharger avec `autorite: primaire|analyse|presse|communication`. `axe: science|reglementation|financement|pratiques` force une rubrique lorsque cela se justifie. `acces: abonnement` signale un accès payant connu (AEF Info) ; aucun contenu protégé n’est contourné. La disponibilité d’un domaine ne garantit pas son indexation exhaustive par Google News.
+
+Les sources ajoutées sont Vert, Boursorama, AEF Info, ESG Today, IFRS/ISSB, INRAE, MNHN et CNRS. ESG Today reste classée « International », car sa couverture ne se limite pas aux États-Unis. IPBES est rattachée à la recherche.
+
+`canaux_complementaires` recense séparément les événements Finance for Biodiversity, les financements européens et les marchés/missions du Green Climate Fund. Ce sont des points d’entrée documentés, pas encore des collecteurs actifs. CSP reste à identifier ; Symbiosis et les fondations américaines restent à préciser. Vérifier ensuite les sources avec `.venv/bin/python src/news_watch.py --check-sources`.
+
+## Ajouter une synthèse de rapport
+
+Compléter `data/reports.yaml` selon le modèle commenté : identifiant de version stable, référence, URL du rapport, date de publication, date de vérification, résultats avec pages justificatives, méthode, limites et implications pratiques. Mettre `valide: true` seulement après lecture et relecture humaine.
+
+Les fiches validées pendant les sept derniers jours sont proposées à l’édition, dans la limite de deux et sans renvoyer un identifiant déjà diffusé. Une nouvelle version substantielle doit porter un nouvel identifiant. Aucun résumé automatique ni appel à une API d’IA n’a été ajouté.
 
 ## Ajouter un événement
 
@@ -75,23 +107,66 @@ Ouvrir `data/events.yaml`, copier un bloc, renseigner tous les champs obligatoir
 
 Dans les deux cas, vérifier les liens avant de citer une information.
 
-## Mini-formation
 
-Dossier `formation/` : fiche programme (`programme.md`), plan des diapositives avec notes et sources (`support.md`), exercices et corrigés (`exercices.md`). Les faits cités ont été vérifiés sur sources primaires le 7 octobre 2026 ; la fiche de vérification du formateur indique quoi revérifier avant chaque séance.
+## Bibliothèque Notion
+
+Le connecteur `src/notion_sync.py` synchronise les données publiques locales vers la base Notion, sans télécharger ses contributions privées dans le dépôt. Il utilise l’API Notion version `2026-03-11`, avec les identifiants de **source de données**, distincts des identifiants de base.
+
+Configuration GitHub Actions :
+- secret `NOTION_TOKEN` : jeton de l’intégration interne autorisée sur la base ;
+- variable `NOTION_DATA_SOURCE_ID` : identifiant de la source de données qui contient les propriétés ;
+- permissions Notion : lecture, insertion et modification du contenu. Aucun accès aux données des utilisateurs n’est nécessaire.
+
+Le jeton n’est jamais fourni en argument, dans un fichier ou dans les journaux. En local, les deux variables doivent être injectées dans l’environnement par un mécanisme sûr avant d’exécuter les commandes.
+
+```bash
+.venv/bin/python src/notion_sync.py --init-schema --dry-run  # prévisualiser les propriétés manquantes
+.venv/bin/python src/notion_sync.py --init-schema            # migration additive, sans suppression
+.venv/bin/python src/notion_sync.py --check-schema
+.venv/bin/python src/notion_sync.py --dry-run                # lire et comparer, sans écrire
+.venv/bin/python src/notion_sync.py --limit 5                # synchronisation réelle limitée
+.venv/bin/python src/notion_sync.py                          # articles des 14 derniers jours
+.venv/bin/python src/notion_sync.py --days 0                 # reprendre tout l’historique d’articles
+```
+
+### Contenus et propriétés
+
+Le connecteur reprend l’archive JSON et le journal CSV des actualités, l’agenda complet (y compris ses événements passés pour conserver l’historique), toutes les fiches de rapports validées et le dernier instantané des appels. Les types « actualité », « rapport », « événement », « financement », « AO/RfP pour structures » et « mission de consultant » sont séparés.
+
+La migration conserve `Nom` et ajoute les propriétés absentes : identifiant technique, type, URL, source, publication, détection, dates d’événement, clôture, thématiques, mots-clés, écosystèmes, zone, rubrique, autorité, accès, origine, validation, vérification, lieu, horaires, contenu source, notes, dernière diffusion et dernière synchronisation. Un type de propriété incompatible arrête le traitement au lieu de convertir ou supprimer des données.
+
+Les articles et opportunités issus de la collecte entrent **« À valider »**, jamais automatiquement « Validé ». L’agenda reprend la validation éditoriale locale et marque **« À revérifier »** les événements à confiance moyenne ; les fiches de rapports déjà relues entrent « Validé ». La dernière diffusion n’est renseignée que lorsque l’historique de la newsletter fournit une date connue.
+
+Après création, **`Validation`, `Vérifié le`, `Notes` et `Écosystèmes` ne sont jamais réécrits**. Le corps des pages n’est pas modifié. Les autres propriétés des fiches gérées par le connecteur reflètent les sources locales ; pour conserver une annotation ou une correction éditoriale, utiliser `Notes` ou le corps de page. Ne pas modifier `Identifiant sync`, qui sert au rapprochement.
+
+### Doublons, reprises et cadence
+
+L’identifiant stable utilise l’URL pour les articles/opportunités, et l’identifiant local pour les événements/versions de rapports. Les paramètres publicitaires usuels et fragments sont ignorés pour le rapprochement. Les mises à jour ne sont envoyées que si les propriétés ont changé ; une seconde passe identique ne modifie rien.
+
+Les entrées manuelles portant déjà la même URL sont ignorées, pas absorbées ni remplacées. Le connecteur ne supprime aucune fiche et ne recrée pas les fiches archivées accessibles à la requête API. Des identifiants techniques distants en double provoquent une erreur avant écriture.
+
+Le workflow actualise chaque jour les appels avec `src/calls_watch.py --snapshot`, puis synchronise Notion, même si l’email a échoué. Une panne Carenews conserve l’instantané précédent ; une panne Notion est signalée par l’échec de l’étape, sans empêcher la persistance de la collecte. Les essais `dry_run` du workflow ne déclenchent aucune écriture Notion.
+
+Les requêtes sont paginées et limitées en débit ; les réponses de quota respectent `Retry-After`. Une création avec résultat réseau incertain n’est pas répétée aveuglément : relancer le script, qui relira les identifiants déjà présents. Notion n’impose pas d’unicité transactionnelle : conserver **un seul processus de synchronisation à la fois**, comme le fait le groupe de concurrence du workflow.
+
+Cette première version est **unidirectionnelle vers Notion**. Modifier un statut dans Notion ne modifie pas encore la sélection de la newsletter et n’ajoute pas un événement communautaire à `data/events.yaml`. Le formulaire, le circuit de retour éditorial et WhatsApp restent des lots distincts. Si la base est publiée sur le web, vérifier les droits avant d’y ajouter des notes ou contributions confidentielles.
+
 
 ## Limites connues
 
 - Google News trie par pertinence et non par date, et ses requêtes bruitent parfois les résultats ; les filtres par mots-clés réduisent ce bruit sans le supprimer. Les liens des articles passent par une redirection Google.
-- Les articles issus des requêtes par zone sont classés par édition de recherche, pas par pays de la source : ils figurent donc sous « Presse et veille thématique » et non sous un pays.
+- Pour les articles issus des requêtes par zone, la zone indiquée est celle de l’édition de recherche, pas nécessairement le pays de l’éditeur.
 - La lecture de Carenews dépend de la structure HTML de sa page. Si elle change, l’email le signale (« Source Carenews indisponible ») au lieu de masquer la panne.
-- L’agenda est tenu à la main : il est fiable mais incomplet. Aucun événement suisse spécifique à la finance et à la nature n’y figure encore dans les 60 prochains jours, à part Building Bridges (Genève, jusqu’au 8 octobre 2026).
+- L’agenda est tenu à la main : il reste incomplet et nécessite une vérification régulière.
+- L’autorité décrit la provenance, pas le degré de preuve de chaque article : la distinction prépublication/étude évaluée et engagement/résultat mesuré exige une lecture éditoriale.
+- La synchronisation vers Notion est implémentée ; la reprise du chat WhatsApp, le retour des validations dans la newsletter et les contributions mensuelles restent à réaliser. Le dépôt étant public, ne pas y ajouter de coordonnées, d’exports de conversations privées ni de secrets.
 
 ## Licence
 
 Deux licences, selon la nature du fichier. Titulaire des droits : fidestra.
 
 - **Code** – licence MIT (`LICENSE`) : `src/`, `tests/`, `.github/`, `requirements.txt`. Réutilisation libre, y compris commerciale, en conservant l’avis de copyright.
-- **Contenus et données** – licence CC BY 4.0 (`LICENSE-CONTENT`) : `formation/`, `dist/`, `data/`, `README.md` et les autres textes. Réutilisation libre, y compris commerciale et modifiée, à condition de citer la source et de signaler les modifications.
+- **Contenus et données** – licence CC BY 4.0 (`LICENSE-CONTENT`) : `dist/`, `data/`, `README.md` et les autres textes. Réutilisation libre, y compris commerciale et modifiée, à condition de citer la source et de signaler les modifications.
 
 Attribution demandée pour les contenus :
 

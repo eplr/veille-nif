@@ -12,23 +12,44 @@
 #   filtre     "aucun" : tous les articles sont retenus (source spécialisée)
 #              "mots_cles" : seuls les articles qui parlent de nature et de biodiversité sont retenus
 #              "mots_cles_large" : idem, plus agriculture, paysans, environnement (fonds et fondations)
+#              "science" : nature, écologie, restauration et génie écologique, sans condition financière
+#              "reglementation" : nature ou CSRD/SFDR/ESRS/ISSB, sans condition de vocabulaire nature
 #   verif      date de la dernière vérification du flux (AAAA-MM-JJ)
+#   axe        reglementation | science | financement | pratiques (facultatif, complète la détection)
+#   autorite   primaire | analyse | presse | communication (profil par catégorie ci-dessous)
+#   acces      libre | abonnement (libre par défaut ; aucun contournement d’abonnement)
 #
 # Pour ajouter une source : copier un bloc, renseigner rss si un flux valide existe,
 # sinon renseigner domaine. Lancer ensuite `python src/news_watch.py --check-sources`.
 
+profils:
+  institution: {autorite: primaire}
+  standard: {autorite: primaire}
+  recherche: {autorite: primaire, axe: science}
+  think_tank: {autorite: analyse}
+  presse: {autorite: presse}
+
+# Canaux identifiés, non collectés par news_watch : connecteurs dédiés à réaliser.
+canaux_complementaires:
+  - {id: ffb-events, type: agenda, url: "https://www.financeforbiodiversity.org/news-events/events/"}
+  - {id: eu-funding, type: financement, url: "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/calls-for-proposals"}
+  - {id: life-nature, type: financement, url: "https://cinea.ec.europa.eu/programmes/life/nature-and-biodiversity_en"}
+  - {id: eu-tenders, type: ao_structure, url: "https://environment.ec.europa.eu/funding/calls-tender_en"}
+  - {id: gcf-tenders, type: ao_structure, url: "https://www.greenclimate.fund/about/procurement"}
+  - {id: gcf-consultants, type: mission_consultant, url: "https://www.greenclimate.fund/about/careers"}
+
 sources:
   # --- Institutions et régulateurs ---
-  - {id: amf, nom: "AMF", pays: FR, categorie: institution, langue: fr, url: "https://www.amf-france.org", rss: null, domaine: "amf-france.org", filtre: mots_cles, verif: "2026-10-07"}
+  - {id: amf, nom: "AMF", pays: FR, categorie: institution, langue: fr, url: "https://www.amf-france.org", rss: null, domaine: "amf-france.org", filtre: reglementation, verif: "2026-10-07"}
   - {id: acpr, nom: "ACPR", pays: FR, categorie: institution, langue: fr, url: "https://acpr.banque-france.fr", rss: null, domaine: "acpr.banque-france.fr", filtre: mots_cles, verif: "2026-10-07"}
   - {id: banque-de-france, nom: "Banque de France", pays: FR, categorie: institution, langue: fr, url: "https://www.banque-france.fr", rss: null, domaine: "banque-france.fr", filtre: mots_cles, verif: "2026-10-07"}
   - {id: ofb, nom: "Office français de la biodiversité", pays: FR, categorie: institution, langue: fr, url: "https://www.ofb.gouv.fr", rss: null, domaine: "ofb.gouv.fr", filtre: aucun, verif: "2026-10-07"}
   - {id: mtect, nom: "Ministère de la Transition écologique", pays: FR, categorie: institution, langue: fr, url: "https://www.ecologie.gouv.fr", rss: null, domaine: "ecologie.gouv.fr", filtre: mots_cles, verif: "2026-10-07"}
   - {id: commission-env, nom: "Commission européenne – Environnement", pays: UE, categorie: institution, langue: en, url: "https://environment.ec.europa.eu", rss: null, domaine: "environment.ec.europa.eu", filtre: mots_cles, verif: "2026-10-07"}
-  - {id: esma, nom: "ESMA", pays: UE, categorie: institution, langue: en, url: "https://www.esma.europa.eu", rss: "https://www.esma.europa.eu/rss.xml", domaine: null, filtre: mots_cles, verif: "2026-10-07"}
+  - {id: esma, nom: "ESMA", pays: UE, categorie: institution, langue: en, url: "https://www.esma.europa.eu", rss: "https://www.esma.europa.eu/rss.xml", domaine: null, filtre: reglementation, verif: "2026-10-07"}
   - {id: eba, nom: "EBA", pays: UE, categorie: institution, langue: en, url: "https://www.eba.europa.eu", rss: "https://www.eba.europa.eu/rss.xml", domaine: null, filtre: mots_cles, verif: "2026-10-07"}
   - {id: bce, nom: "BCE", pays: UE, categorie: institution, langue: en, url: "https://www.ecb.europa.eu", rss: "https://www.ecb.europa.eu/rss/press.xml", domaine: null, filtre: mots_cles, verif: "2026-10-07"}
-  - {id: efrag, nom: "EFRAG", pays: UE, categorie: institution, langue: en, url: "https://www.efrag.org", rss: null, domaine: "efrag.org", filtre: mots_cles, verif: "2026-10-07"}
+  - {id: efrag, nom: "EFRAG", pays: UE, categorie: institution, langue: en, url: "https://www.efrag.org", rss: null, domaine: "efrag.org", filtre: reglementation, verif: "2026-10-07"}
   - {id: eea, nom: "Agence européenne pour l'environnement", pays: UE, categorie: institution, langue: en, url: "https://www.eea.europa.eu", rss: null, domaine: "eea.europa.eu", filtre: mots_cles, verif: "2026-10-07"}
   - {id: finma, nom: "FINMA", pays: CH, categorie: institution, langue: en, url: "https://www.finma.ch", rss: null, domaine: "finma.ch", filtre: mots_cles, verif: "2026-10-07"}
   - {id: ofev, nom: "OFEV", pays: CH, categorie: institution, langue: fr, url: "https://www.bafu.admin.ch", rss: null, domaine: "bafu.admin.ch", filtre: mots_cles, verif: "2026-10-07"}
@@ -37,12 +58,13 @@ sources:
   - {id: jncc, nom: "JNCC", pays: UK, categorie: institution, langue: en, url: "https://jncc.gov.uk", rss: null, domaine: "jncc.gov.uk", filtre: aucun, verif: "2026-10-07"}
 
   # --- Standards et initiatives ---
+  - {id: ifrs-issb, nom: "IFRS Foundation / ISSB", pays: INT, categorie: standard, langue: en, url: "https://www.ifrs.org/groups/international-sustainability-standards-board/", rss: null, domaine: "ifrs.org", filtre: reglementation, axe: reglementation, verif: "2026-10-28"}
   - {id: tnfd, nom: "TNFD", pays: INT, categorie: standard, langue: en, url: "https://tnfd.global", rss: "https://tnfd.global/feed/", domaine: null, filtre: aucun, verif: "2026-10-07"}
   - {id: sbtn, nom: "Science Based Targets Network", pays: INT, categorie: standard, langue: en, url: "https://sciencebasedtargets.org", rss: null, domaine: "sciencebasedtargets.org", filtre: mots_cles, verif: "2026-10-07"}
   - {id: ngfs, nom: "NGFS", pays: INT, categorie: standard, langue: en, url: "https://www.ngfs.net", rss: null, domaine: "ngfs.net", filtre: mots_cles, verif: "2026-10-07"}
   - {id: ffb, nom: "Finance for Biodiversity Foundation", pays: INT, categorie: standard, langue: en, url: "https://www.financeforbiodiversity.org", rss: null, domaine: "financeforbiodiversity.org", filtre: aucun, verif: "2026-10-07"}
   - {id: naturefinance, nom: "Nature Finance", pays: INT, categorie: standard, langue: en, url: "https://www.naturefinance.net", rss: "https://www.naturefinance.net/feed/", domaine: null, filtre: aucun, verif: "2026-10-07"}
-  - {id: ipbes, nom: "IPBES", pays: INT, categorie: standard, langue: en, url: "https://www.ipbes.net", rss: "https://www.ipbes.net/rss.xml", domaine: null, filtre: aucun, verif: "2026-10-07"}
+  - {id: ipbes, nom: "IPBES", pays: INT, categorie: recherche, langue: en, url: "https://www.ipbes.net", rss: "https://www.ipbes.net/rss.xml", domaine: null, filtre: aucun, verif: "2026-10-07"}
   - {id: cbd, nom: "Convention sur la diversité biologique", pays: INT, categorie: standard, langue: en, url: "https://www.cbd.int", rss: null, domaine: "cbd.int", filtre: aucun, verif: "2026-10-07"}
   - {id: unepfi, nom: "UNEP FI", pays: INT, categorie: standard, langue: en, url: "https://www.unepfi.org", rss: "https://www.unepfi.org/feed/", domaine: null, filtre: mots_cles, verif: "2026-10-07"}
   - {id: capitals-coalition, nom: "Capitals Coalition", pays: INT, categorie: standard, langue: en, url: "https://capitalscoalition.org", rss: null, domaine: "capitalscoalition.org", filtre: aucun, verif: "2026-10-07"}
@@ -65,7 +87,16 @@ sources:
   - {id: iucn-urban-alliance, nom: "Urban Alliance (UICN)", pays: INT, categorie: think_tank, langue: en, url: "https://iucn.org/our-work/topic/nature-based-solutions-urban-challenges", rss: null, domaine: "iucn.org", requete_extra: '"Urban Alliance"', filtre: aucun, verif: "2026-10-07"}
   - {id: business-for-nature, nom: "Business for Nature", pays: INT, categorie: think_tank, langue: en, url: "https://www.businessfornature.org", rss: null, domaine: "businessfornature.org", filtre: aucun, verif: "2026-10-07"}
 
-  # --- Presse spécialisée ---
+  # --- Science et génie écologique : pas de condition de vocabulaire financier ---
+  - {id: inrae, nom: "INRAE", pays: FR, categorie: recherche, langue: fr, url: "https://www.inrae.fr", rss: null, domaine: "inrae.fr", filtre: science, verif: "2026-10-28"}
+  - {id: mnhn, nom: "Muséum national d’histoire naturelle", pays: FR, categorie: recherche, langue: fr, url: "https://www.mnhn.fr", rss: null, domaine: "mnhn.fr", filtre: science, verif: "2026-10-28"}
+  - {id: cnrs, nom: "CNRS", pays: FR, categorie: recherche, langue: fr, url: "https://www.cnrs.fr", rss: null, domaine: "cnrs.fr", filtre: science, verif: "2026-10-28"}
+
+  # --- Presse spécialisée et généraliste filtrée ---
+  - {id: vert, nom: "Vert", pays: FR, categorie: presse, langue: fr, url: "https://vert.eco", rss: "https://vert.eco/feed/", domaine: null, filtre: mots_cles_large, verif: "2026-10-28"}
+  - {id: boursorama, nom: "Boursorama", pays: FR, categorie: presse, langue: fr, url: "https://www.boursorama.com", rss: null, domaine: "boursorama.com", filtre: reglementation, verif: "2026-10-28"}
+  - {id: aef-info, nom: "AEF Info", pays: FR, categorie: presse, langue: fr, url: "https://www.aefinfo.fr", rss: null, domaine: "aefinfo.fr", filtre: reglementation, acces: abonnement, verif: "2026-10-28"}
+  - {id: esg-today, nom: "ESG Today", pays: INT, categorie: presse, langue: en, url: "https://www.esgtoday.com", rss: "https://www.esgtoday.com/feed/", domaine: null, filtre: reglementation, verif: "2026-10-28"}
   - {id: novethic, nom: "Novethic", pays: FR, categorie: presse, langue: fr, url: "https://www.novethic.fr", rss: "https://www.novethic.fr/feed/", domaine: null, filtre: mots_cles, verif: "2026-10-07"}
   - {id: responsible-investor, nom: "Responsible Investor", pays: INT, categorie: presse, langue: en, url: "https://www.responsible-investor.com", rss: "https://www.responsible-investor.com/feed/", domaine: null, filtre: mots_cles, verif: "2026-10-07"}
   - {id: environmental-finance, nom: "Environmental Finance", pays: INT, categorie: presse, langue: en, url: "https://www.environmental-finance.com", rss: null, domaine: "environmental-finance.com", filtre: mots_cles, verif: "2026-10-07"}

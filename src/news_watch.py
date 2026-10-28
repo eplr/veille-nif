@@ -18,8 +18,8 @@ import time
 
 from lib import (
     INTERIM, OUTPUT, append_csv, detect_themes, fetch_feed, google_news_rss, http_get,
-    is_generic_landing_title, is_land_related, is_nature_related, is_noise, load_seen, load_sources,
-    normalize_title, parse_feed, save_seen, today_utc, within_lookback,
+    is_generic_landing_title, is_nature_related, is_noise, load_seen, load_sources,
+    matches_source_filter, normalize_title, parse_feed, save_seen, today_utc, within_lookback,
 )
 
 SEEN_FILE = INTERIM / "news_seen.json"
@@ -41,6 +41,8 @@ SITE_KEYWORDS = {
     "en": '(biodiversity OR "nature-related" OR TNFD OR "natural capital")',
     "de": "(Biodiversität OR Naturkapital OR TNFD)",
 }
+SCIENCE_KEYWORDS = '(biodiversity OR biodiversité OR ecology OR écologie OR "génie écologique" OR restoration OR "stratégie territoriale")'
+REGULATION_KEYWORDS = '(biodiversité OR biodiversity OR TNFD OR CSRD OR SFDR OR ESRS OR ISSB OR "natural capital")'
 
 # Requêtes thématiques par zone. Syntaxe Google : espace = ET, OR en majuscules,
 # guillemets pour une expression exacte.
@@ -55,6 +57,7 @@ ZONES = [
             '"capital naturel" (finance OR entreprise OR comptabilité)',
             '"article 29" "loi énergie-climat" biodiversité',
             '"risques liés à la nature" (banque OR assureur OR superviseur)',
+            '"génie écologique" OR "restauration écologique" OR "stratégie territoriale biodiversité"',
         ],
     },
     {
@@ -64,6 +67,7 @@ ZONES = [
             '("ESRS E4" OR EFRAG) (biodiversity OR nature)',
             '"EU taxonomy" (biodiversity OR nature)',
             'SFDR (biodiversity OR "nature-related")',
+            'CSRD OR SFDR OR "ISSB biodiversity"',
             '(ECB OR "European Central Bank") (nature OR biodiversity) risk',
             '"EU biodiversity" finance strategy',
         ],
@@ -101,7 +105,11 @@ def site_query(source: dict, lookback_days: int = LOOKBACK_DAYS) -> str:
     q = f"site:{source['domaine']} when:{lookback_days}d"
     if source.get("requete_extra"):
         q += f" {source['requete_extra']}"
-    if source["filtre"] == "mots_cles":
+    if source["filtre"] == "science":
+        q += " " + SCIENCE_KEYWORDS
+    elif source["filtre"] == "reglementation":
+        q += " " + REGULATION_KEYWORDS
+    elif source["filtre"] == "mots_cles":
         q += " " + SITE_KEYWORDS.get(source["langue"], SITE_KEYWORDS["en"])
     elif source["filtre"] == "mots_cles_large":
         q += " " + SITE_KEYWORDS_LARGE
@@ -160,8 +168,8 @@ def _accept(item: dict, seen: Seen, lookback_days: int) -> bool:
 def collect(lookback_days: int = LOOKBACK_DAYS, ignore_seen: bool = False) -> tuple[list[dict], "Seen"]:
     """Interroge toutes les sources. Renvoie (articles nouveaux, état de déduplication non enregistré).
 
-    Rien n'est écrit sur disque : l'appelant enregistre avec commit() une fois l'email envoyé, pour qu'un
-    échec d'envoi ne fasse pas perdre d'articles.
+    Rien n'est écrit sur disque : l'appelant archive avec commit() indépendamment de la diffusion.
+    L’historique des envois est géré séparément dans news_archive.
 
     ignore_seen : renvoie aussi les articles déjà envoyés (renvoi d'un email de test).
     """
@@ -169,7 +177,7 @@ def collect(lookback_days: int = LOOKBACK_DAYS, ignore_seen: bool = False) -> tu
     new_items: list[dict] = []
     now_str = today_utc().strftime("%Y-%m-%d %H:%M")
 
-    def keep(item: dict, pays: str, source_name: str, canal: str):
+    def keep(item: dict, pays: str, source_name: str, canal: str, source: dict | None = None):
         text = f"{item['title']} {item.get('summary', '')}"
         new_items.append({
             "date_detection": now_str,
@@ -180,9 +188,15 @@ def collect(lookback_days: int = LOOKBACK_DAYS, ignore_seen: bool = False) -> tu
             "date_publication": item["pub_date"],
             "lien": item["link"],
             "canal": canal,
+            "source_id": source["id"] if source else None,
+            "autorite": source.get("autorite", "presse") if source else "presse",
+            "axe": source.get("axe") if source else None,
+            "acces": source.get("acces", "libre") if source else "libre",
         })
 
-    sources = load_sources()
+    from editorial import AUTHORITY_ORDER
+
+    sources = sorted(load_sources(), key=lambda s: AUTHORITY_ORDER[s["autorite"]])
 
     # 1 et 2. Sources du registre
     for src in sources:
@@ -200,13 +214,11 @@ def collect(lookback_days: int = LOOKBACK_DAYS, ignore_seen: bool = False) -> tu
             # Les requêtes « site: » remontent aussi des pages dont le menu contient les mots-clés
             # (taux de change, échéances…) : on revérifie donc le titre, et on écarte les titres très courts.
             text = f"{item['title']} {item.get('summary', '')}"
-            if src["filtre"] == "mots_cles" and not is_nature_related(text):
-                continue
-            if src["filtre"] == "mots_cles_large" and not is_land_related(text):
+            if not matches_source_filter(text, src["filtre"]):
                 continue
             if canal == "site" and len(item["title"]) < SITE_MIN_TITLE:
                 continue
-            keep(item, src["pays"], src["nom"], canal)
+            keep(item, src["pays"], src["nom"], canal, src)
         time.sleep(THROTTLE_S if canal != "rss" else 0.3)
 
     # 3. Requêtes thématiques par zone
@@ -214,7 +226,10 @@ def collect(lookback_days: int = LOOKBACK_DAYS, ignore_seen: bool = False) -> tu
         for query in zone["queries"]:
             for item in google_news_rss(f"{query} when:{lookback_days}d", hl=zone["hl"], gl=zone["gl"], ceid=zone["ceid"]):
                 # Google News traite mal les opérateurs booléens : on revérifie le titre.
-                if _accept(item, seen, lookback_days) and is_nature_related(item["title"], wide=True):
+                if (_accept(item, seen, lookback_days)
+                        and (is_nature_related(item["title"], wide=True)
+                             or matches_source_filter(item["title"], "science")
+                             or matches_source_filter(item["title"], "reglementation"))):
                     keep(item, zone["pays"], item["source"] or "Google News", "zone")
             time.sleep(THROTTLE_S)
 
@@ -228,9 +243,13 @@ def commit(new_items: list[dict], seen: "Seen"):
     En mode rejeu, le journal n'est pas alimenté : ces articles y figurent déjà, et le pack
     dist/ en reprendrait des doublons.
     """
-    seen.save()
     if seen.replay:
         return
+    # Archiver avant de marquer la collecte comme vue, indépendamment de l’envoi.
+    import news_archive
+
+    news_archive.save(news_archive.merge(news_archive.load(), new_items))
+    seen.save()
     append_csv(LOG_OUT, LOG_FIELDS, [{**i, "themes": " | ".join(i["themes"])} for i in new_items])
 
 

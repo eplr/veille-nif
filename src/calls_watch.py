@@ -28,6 +28,7 @@ BASE = "https://www.carenews.com"
 LIST_URL = BASE + "/appels_a_projets/{page}/?page=0"
 SEEN_FILE = INTERIM / "calls_seen.json"
 LOG_OUT = OUTPUT / "calls_log.csv"
+SNAPSHOT_FILE = OUTPUT / "calls_current.json"
 LOG_FIELDS = ["date_detection", "titre", "porteur", "publie_le", "cloture", "lien"]
 
 MAX_PAGES = 10          # 20 appels par page : les 200 plus récents
@@ -60,6 +61,7 @@ def parse_listing(html: str) -> list[dict]:
         start = card.select_one(".job-thumbnail__date-start")
         end = card.select_one(".job-thumbnail__date-end")
         calls.append({
+            "type": "financement",
             "titre": re.sub(r"\s+", " ", link.get_text(" ", strip=True)),
             "porteur": company.get_text(strip=True) if company else "",
             "resume": re.sub(r"\s+", " ", text.get_text(" ", strip=True)) if text else "",
@@ -101,6 +103,19 @@ def collect(max_pages: int = MAX_PAGES, today: date | None = None) -> tuple[list
     return select_open(unique, today), health
 
 
+def save_snapshot(calls: list[dict], health: dict):
+    """La bibliothèque conserve le dernier instantané sain sans acquitter d’envoi."""
+    if not health.get("ok"):
+        raise ValueError("Collecte Carenews indisponible : instantané précédent conservé")
+    from news_archive import write_json
+
+    write_json(SNAPSHOT_FILE, [
+        {**call, "publie_le": call["publie_le"].isoformat() if call["publie_le"] else None,
+         "cloture": call["cloture"].isoformat() if call["cloture"] else None}
+        for call in calls
+    ])
+
+
 def commit(flagged: list[dict]):
     """Enregistre les appels nouveaux comme vus et les ajoute au journal (après un envoi réussi)."""
     new = [c for c in flagged if c["nouveau"]]
@@ -132,8 +147,14 @@ def run(max_pages: int = MAX_PAGES, today: date | None = None, persist: bool = T
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--pages", type=int, default=MAX_PAGES)
+    parser.add_argument("--snapshot", action="store_true", help="enregistrer les appels pour Notion, sans les marquer envoyés")
     args = parser.parse_args()
     open_calls, health = collect(args.pages)
+    if args.snapshot:
+        try:
+            save_snapshot(open_calls, health)
+        except ValueError as error:
+            raise SystemExit(str(error)) from None
     print(health)
     for c in open_calls:
         end = c["cloture"].isoformat() if c["cloture"] else "non précisée"

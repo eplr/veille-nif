@@ -66,7 +66,22 @@ def http_get(url: str, timeout: int = 25, retries: int = 3, backoff: float = 3.0
 # --------------------------------------------------------------------------
 def load_sources() -> list[dict]:
     with (DATA / "sources.yaml").open(encoding="utf-8") as f:
-        return yaml.safe_load(f)["sources"]
+        registry = yaml.safe_load(f)
+    profiles = registry.get("profils", {})
+    sources, ids = [], set()
+    for raw in registry["sources"]:
+        source = {"acces": "libre", **profiles.get(raw["categorie"], {}), **raw}
+        if source["id"] in ids:
+            raise ValueError(f"Source en double : {source['id']}")
+        ids.add(source["id"])
+        if source.get("autorite") not in {"primaire", "analyse", "presse", "communication"}:
+            raise ValueError(f"Source {source['id']} : autorité invalide")
+        if source.get("axe") not in {None, "science", "reglementation", "financement", "pratiques"}:
+            raise ValueError(f"Source {source['id']} : axe invalide")
+        if source["filtre"] not in {"aucun", "mots_cles", "mots_cles_large", "science", "reglementation"}:
+            raise ValueError(f"Source {source['id']} : filtre invalide")
+        sources.append(source)
+    return sources
 
 
 # --------------------------------------------------------------------------
@@ -202,6 +217,18 @@ NATURE_RE = re.compile(
 # où un titre comme « Chiffrer la nature pour enfin la prendre en compte ? » doit passer.
 NATURE_WIDE_RE = re.compile(r"\bnature\b|risques? naturels?|\bnaturkapital|\bnaturrisiken", re.IGNORECASE)
 
+SCIENCE_RE = re.compile(
+    r"g[ée]nie [ée]cologique|ecological engineering|[ée]cologi|ecolog|restauration|restoration"
+    r"|strat[ée]gies? (de )?territ|zones? humides?|wetlands?|habitats?|connectivit[ée]|pollinis|pollinat"
+    r"|agro[ée]colog|conservation|services? [ée]cosyst[ée]miques?|ecosystem services",
+    re.IGNORECASE,
+)
+REGULATION_RE = re.compile(
+    r"\bCSRD\b|\bSFDR\b|\bESRS\b|\bISSB\b|IFRS S[12]|sustainability (reporting|disclosure)"
+    r"|taxonomie|taxonomy|reporting de durabilit[ée]",
+    re.IGNORECASE,
+)
+
 # Vocabulaire agricole et environnemental, pour les sources de fonds et fondations (Carenews) dont les
 # titres parlent de paysans, d'alimentation ou d'environnement sans citer la biodiversité.
 FARM_ENV_RE = re.compile(
@@ -224,6 +251,7 @@ THEMES = {
     "Instruments et marchés": r"cr[ée]dits? (biodiversit[ée]|nature)|(biodiversity|nature) credits?|obligation|\bbonds?\b|\bfonds?\b|\bfunds?\b|blended|financement|financing|investissement|investment|investor",
     "Cadre mondial et science": r"kunming|montr[ée]al|\bGBF\b|\bCOP ?(1[6-9]|[2-9]\d)\b|\bIPBES\b|\bCBD\b|diversit[ée] biologique|biodiversity framework|planetary boundaries|limites plan[ée]taires",
     "Solutions fondées sur la nature": r"nature.based solution|solutions? fond[ée]es? sur la nature|restoration|restauration|reforest|reboisement|agro[ée]cologi|regenerative|net gain",
+    "Science et génie écologique": SCIENCE_RE.pattern + r"|\bIPBES\b",
 }
 THEME_RES = {name: re.compile(rx, re.IGNORECASE) for name, rx in THEMES.items()}
 DEFAULT_THEME = "Autres signaux"
@@ -238,6 +266,18 @@ def is_land_related(text: str) -> bool:
     """Nature au sens large : biodiversité, nature, mais aussi agriculture et environnement."""
     text = text or ""
     return bool(NATURE_RE.search(text) or NATURE_WIDE_RE.search(text) or FARM_ENV_RE.search(text))
+
+
+def matches_source_filter(text: str, mode: str) -> bool:
+    if mode == "aucun":
+        return True
+    if mode == "science":
+        return bool(is_nature_related(text) or SCIENCE_RE.search(text))
+    if mode == "reglementation":
+        return bool(is_nature_related(text) or REGULATION_RE.search(text))
+    if mode == "mots_cles_large":
+        return is_land_related(text)
+    return is_nature_related(text)
 
 
 def is_noise(title: str) -> bool:

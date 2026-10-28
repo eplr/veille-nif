@@ -102,7 +102,7 @@ class TestFilters(unittest.TestCase):
     def test_registre_valide(self):
         for s in lib.load_sources():
             self.assertIn(s["pays"], lib.PAYS_LABELS, s["id"])
-            self.assertIn(s["filtre"], {"aucun", "mots_cles", "mots_cles_large"}, s["id"])
+            self.assertIn(s["filtre"], {"aucun", "mots_cles", "mots_cles_large", "science", "reglementation"}, s["id"])
             self.assertTrue(s.get("rss") or s.get("domaine"), f"{s['id']} : ni flux ni domaine")
 
 
@@ -225,7 +225,8 @@ class TestDigest(unittest.TestCase):
 
     def test_sections_et_alerte_source(self):
         md = daily_digest.compose_markdown(self.items, self.window, self.new, [], {"ok": False}, self.today)
-        for needle in ["## Nouveautés", "### France", "Presse et veille thématique", "## Agenda", "Carenews indisponible"]:
+        for needle in ["## Nouveautés", "Réglementation et standards", "Financement et marchés",
+                       "Synthèses de rapports", "## Agenda", "Carenews indisponible"]:
             self.assertIn(needle, md)
         self.assertNotIn("## Appels à projets", md)  # section absente quand il n'y a rien
 

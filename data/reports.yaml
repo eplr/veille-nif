@@ -1,0 +1,14 @@
+# Fiches éditoriales, jamais générées à partir d’un seul titre.
+# Ajouter une fiche après lecture du rapport, puis validation humaine :
+# - id: identifiant-version-stable
+#   titre: "Titre du rapport"
+#   lien: "https://.../rapport"
+#   source: "Éditeur"
+#   date: "AAAA-MM-JJ"             # date de publication du rapport
+#   verifie_le: "AAAA-MM-JJ"       # date de validation de la fiche
+#   valide: true
+#   resultats: ["Résultat factuel (p. 12)", "Autre résultat (p. 18)"]
+#   methode: "Méthode et périmètre (p. 8)"
+#   limites: "Limites documentées (p. 30)"
+#   implications: "Lecture : implications pratiques, distinctes des résultats"
+rapports: []

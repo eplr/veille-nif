@@ -6,3 +6,6 @@ __pycache__/
 
 # Notes de session locales : le dépôt est public, ne pas les publier
 SESSION_*.md
+
+# Supports conservés séparément dans _SHARED, hors du dépôt public
+formation/
