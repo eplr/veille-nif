@@ -1023,5 +1023,561 @@
     "autorite": "presse",
     "axe": null,
     "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "Ministère de la Transition écologique",
+    "titre": "Prix du carburant : un soutien renforcé pour les entreprises de travaux forestiers",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 16:10:20 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNWHpyQlZ0NERSY2dWaFhwRXVMVTdDVndpU2tPcnBOWlFMWVh3Q0tsR05HZEQ5anpKYzdlazJKRGxFSWgxX184U0ROaW5ReDVTN3IxQ2ZwZWU1SWN0R0VjOHlUVFp3X0NhOE1lcUpQUFBTSEdSTEVvUzI4UXpTSHVGak1GcThsUlNyaFBCVlR0d1IxYjRjOUdnclE0NVkzNmVPZ1BOSEtteEc?oc=5",
+    "canal": "site",
+    "source_id": "mtect",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "UK",
+    "source": "Defra",
+    "titre": "Apply to become a CITES registered breeder",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "2026-10-29T09:00:00Z",
+    "lien": "https://www.gov.uk/guidance/apply-to-become-a-cites-registered-breeder",
+    "canal": "rss",
+    "source_id": "defra",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "INT",
+    "source": "IPBES",
+    "titre": "CBD COP-17: Opportunities for Action on Business and Biodiversity",
+    "themes": [
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 11:16:57 +0000",
+    "lien": "https://www.ipbes.net/node/110607",
+    "canal": "rss",
+    "source_id": "ipbes",
+    "autorite": "primaire",
+    "axe": "science",
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "INT",
+    "source": "Convention sur la diversité biologique",
+    "titre": "Engagement with subnational governments, cities and other local authorities to enhance the implementation of the Kunming-Montrea",
+    "themes": [
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Wed, 28 Oct 2026 07:00:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQbDU4SVNma3BoeHhQdWs1dXpQSHdvZXk5ak1GdHlDaGlNdjQzQUVGNUYybEhMWUhDWEJiMFlTQVFfWUdNc1dyX1JFWGlkZDJLb09Ba3l1WnZSUXJ5NWxBSWNCT2NNVkNCeXJwWVRUWGo0NzdIWHBkckZfaXFZTGhnZVhUMldBYTljY1FrUHJMV1NwLU9u?oc=5",
+    "canal": "site",
+    "source_id": "cbd",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "INT",
+    "source": "Convention sur la diversité biologique",
+    "titre": "Scientific and technical needs to support the implementation of the Kunming-Montreal Global Biodiversity Framework",
+    "themes": [
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Wed, 28 Oct 2026 07:00:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQTndIOWpUNGJlbmx0Wl9SVkdIYkktTTBQclpNOElGYXRWUV9OdElDTXJRM3FFOGJ3Qnc0T1Z5cWFNQS1NZTl4YjJvS05nYUg3Ulk3NTRvMkV2LWtlTmp5R0wzQnRhRmVESU16eG4wNGEzTURZbjNvOU5uZUQ0emc1VW0xQ0NyalBqdWNEbjhR?oc=5",
+    "canal": "site",
+    "source_id": "cbd",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "INRAE",
+    "titre": "Biodiversité aquatique des villes et des champs en Ile-de-France: Influence relative de l’urbanisation et de l’agriculture sur les macroinvertébrés des petits cours d’eau franciliens",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 28 Oct 2026 02:23:48 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1JSzh5eXRBbGdXcm1oekppYjdBNWpGdURRRTBzaWtRYjNJVEl0bktiMk5RQmZJZ3BwaUpuUW5wOHl4RGtRdnpHZ0JIbkx1MUQ4QVlz?oc=5",
+    "canal": "site",
+    "source_id": "inrae",
+    "autorite": "primaire",
+    "axe": "science",
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "UICN France",
+    "titre": "Commission de sauvegarde des espèces",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 04:03:01 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQa3lSLURTVzFnbmtNM040cWxYaVI0dE9acDRmb3M1amdJeHE0N1k1WmZWYk5jSXVveDQwUVI4bks5d2dSV2ZQSFJsZHJIb1AtTWtmWDFwS1pMYmY4Mzk0YzlaQ28xRGlIZEZHYmF5SFdvSTBxbGtJNm82bjVkREtZR2QyUHVjOW83bVYxS3VQQXJlTVNJOWdKZ2J6SzBmRmlOelE?oc=5",
+    "canal": "site",
+    "source_id": "uicn-france",
+    "autorite": "analyse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "Boursorama",
+    "titre": "Biodiversité : pas d'accord à l'horizon, au dernier jour de la COP17",
+    "themes": [
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 06:17:21 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOVEg0UTZYX2xRUnFaYUkzTG5tY1JkaVFQdll3VEprU3M5bXB2aktHMW1nUTlJQ29YaVQxOWxKb1lBcnNaLXB3Q2syY25SdHU2b2FLZEVMTWtMQ1ZSQ1M2NlpXbTd0RTU2Vk1ldkpoamdGUi1GY2ZJa0xYS3lxa3hEX2lsWEpJNGRSamFYMmwwVV9yYWRmU1FVSnRtOGlyVEw1VXJwQU5TbHFzbk1JdmFaQVRtRGpPQWlBcGtBSzBWT3VrQVJNMlhBbXRZOXg0M2YxdEVsb2dWVVpPRWt5bFNvWXd2bEc4dUJrU2U5am0yQW5IYzjSAfMBQVVfeXFMTlRINFE2WF9sUVJxWmFJM0xubWNSZGlRUHZZd1RKa1NzOW1wdmpLRzFtZ1E5SUNvWGlUMTlsSm9ZQXJzWi1wd0NrMmNuUnR1Nm9hS2RFTE1rTENWUkNTNjZaV203dEU1NlZNZXZKaGpnRlItRmNmSWtMWEt5cWt4RF9pbFhKSTRkUmphWDJsMFVfcmFkZlNRVUp0bThpclRMNVVycEFOU2xxc25NSXZhWkFUbURqT0FpQXBrQUswVk91a0FSTTJYQW10WTl4NDNmMXRFbG9nVlVaT0VreWxTb1l3dmxHOHVCa1NlOWptMkFuSGM4?oc=5",
+    "canal": "site",
+    "source_id": "boursorama",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "Boursorama",
+    "titre": "Biodiversité: à quelques heures de la fin de la COP17, peu d'optimisme sur un consensus",
+    "themes": [
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 13:28:15 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxOTGpWYXp3QVdITTFZd0g2RkQ5RHRSakFkOS1NSC1rNlk5dlcyVG5tZ3NmSlFtWXJveDdzZ21hSFhsd2dlNzdVVk1SMU5acUozWnpJYlR4VzNlSUNrZmptZllPMG91QjhGMlFKLUpnbDVqcTJTZk9TMWF3LVg0enYwbUhRR3RiTXhWWFljUWhsczA3RERvWmduVjVxTUEyOHFibmliX1VINGZNSVpoQzdoQWI4d3FyTEd3TXNLZjRpeWVaZ3piNTdtTVdOREtQU084aHh1c3ZScTBIS0ZNSHowX2pkcFpwZFgyeXdoSm1BdTZScWY4azdOZU1jcXBKSWM5eGhmVnVwMkfSAY4CQVVfeXFMTklJTFpHWkFuR2ZHUWlSYkREaDBHcUlqb2NTZkROeTM3eWw4VzB5UlJLT1J3QW1zdVd6MEdSMFA1dExyQlpuYzRsMzNhZnh1TkRlRnNyQVl5LUEyZS1tSDdyWVNaVENJOE4tZ0loRG1hYnFBRWxzTFFBYnJYM09wbXVLRGFYZU1sM1BESExjZmd5M1BMY2pMQmNfTWlGeDB6U2QzLWN0QUVFZ3R6LW5YdFJJdGNSZF96dHFuNVh0UjRpeno1Z21UUV9fQjNnS0xLVEk2VlRPQlp1RF8tZTFPb09uUTJpa2FZaWFzdURoM0l6dVZUcFhybU1xR2piX2M1dW51cWRNYnk0WTQzRUlB?oc=5",
+    "canal": "site",
+    "source_id": "boursorama",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "Boursorama",
+    "titre": "Restauration de la nature : l'ONU appelle le monde à accélérer les efforts",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 16:55:49 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQc3l1WERIX093eG9VOU1uVHpoeDFfcFlwUFN5cG5tLTJpM1RVeGxpbVllR3dhQXdaczJIa3R5X3N5Y0oyUG5vX3RYRk5pVzlnX2dtVi1rRnczUTdMdE5QUkNaN2ZmYW1KMGpFaFE2LWJXcWxGSC1oY3VZZ3FEaUJINHhJS3FRNVFmelAxdVlmUzcxVHZlank0OXF4MGZYeU55WGpfRGZYbDBnbDV1Q2Vfb2VBcHowdUtfRTBNTDc4RGZMd0Jxal9lOUdVdWVXNkg3blVURVJURDgwYXJ6N01uVmNvbmJjSmRLNGfSAeoBQVVfeXFMUHN5dVhESF9Pd3hvVTlNblR6aHgxX3BZcFBTeXBubS0yaTNUVXhsaW1ZZUd3YUF3WnMySGt0eV9zeWNKMlBub190WEZOaVc5Z19nbVYta0Z3M1E3THROUFJDWjdmZmFtSjBqRWhRNi1iV3FsRkgtaGN1WWdxRGlCSDR4SUtxUTVRZnpQMXVZZlM3MVR2ZWp5NDlxeDBmWHlOeVhqX0RmWGwwZ2w1dUNlX29lQXB6MHVLX0UwTUw3OERmTHdCcWpfZTlHVXVlVzZIN25VVEVSVEQ4MGFyejdNblZjb25iY0pkSzRn?oc=5",
+    "canal": "site",
+    "source_id": "boursorama",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "Boursorama",
+    "titre": "Entre l'Arménie et l'Azerbaïdjan, la destruction de forêts met à l'épreuve les efforts de paix",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 08:38:05 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMimAJBVV95cUxPSFBhTEJOTjVoazdoZkF3QUlmOUxVLVFmWnhlLWU3UUFUTUZiQ25KV3JUbG1GeFd5UmFBbDJ5S0hwaUkycmZGeXRIeTZfNEZTZkVjSnFQQk1UY2FnTUNmNkdCb1pxOUQzb0ZLLWZHUzZJZmstbUtTVHRBclVkczJoYjBGZXBpOURCRXNYbksxU3U2Wm81ZGhDcVNlZHpac1lNMEZyX0FJUVBhd21SUFBTbmwzU3E3X3RfdkwzRjVLWlBmVlZ0Y3NjcHNiNElILTdvbC1PTnhGYjhqbnJ5YWtseWk0OVdoMDU1SjFPYzJPY3dpOVloQ3lhY1ZLc3dQbjVnVjZOM0hzazV1Mk5FVzJMMHZNYU1TNnFa0gGYAkFVX3lxTE9IUGFMQk5ONWhrN2hmQXdBSWY5TFUtUWZaeGUtZTdRQVRNRmJDbkpXclRsbUZ4V3lSYUFsMnlLSHBpSTJyZkZ5dEh5Nl80RlNmRWNKcVBCTVRjYWdNQ2Y2R0JvWnE5RDNvRkstZkdTNklmay1tS1NUdEFyVWRzMmhiMEZlcGk5REJFc1huSzFTdTZabzVkaENxU2VkelpzWU0wRnJfQUlRUGF3bVJQUFNubDNTcTdfdF92TDNGNUtaUGZWVnRjc2Nwc2I0SUgtN29sLU9OeEZiOGpucnlha2x5aTQ5V2gwNTVKMU9jMk9jd2k5WWhDeWFjVktzd1BuNWdWNk4zSHNrNXUyTkVXMkwwdk1hTVM2cVo?oc=5",
+    "canal": "site",
+    "source_id": "boursorama",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "INT",
+    "source": "Environmental Finance",
+    "titre": "COP17: ISSB keeping 'door open' to nature risk quantification",
+    "themes": [
+      "Reporting et standards",
+      "Risques et dépendances",
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 07:51:23 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNQkZfdUpraXo2SVp2NWw4aUZmME0wME5jVEsxMUJqSHR3NHFDU2hpY0xCem54akUtdnI2Vm1CaElJMFRNYXg4cGRnX0x0Nk5FSlVGcU5LWGpTRXdnUnNkeWR2U2h3a1hzcE5naTVScElzQ1B1QUtRelNsalc2VHJNNFpKM0JyMGNxTFY5QW5DUUJUOW56aTV2aGt6TFZhNW5CZU5CTm0yY001a2FWRDkwdDVael8?oc=5",
+    "canal": "site",
+    "source_id": "environmental-finance",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "Yahoo Actualités",
+    "titre": "COP17 Biodiversité à Erevan: pas d'accord à l'horizon au dernier jour de la conférence",
+    "themes": [
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 10:26:52 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOeTZMeUFmMmtmZFVJX1VzOFBveDNnNDVwemozMXNGTGtTQnA4UTZBMGRxSFBvYWxzUHZmVG9oODBseVBURjIxRGl3Q1JUMlBpRXFwbm1JdHgyaGZkeGJQNkZjdXRkSndYbXQtYUVSTTdpU2FNZ2lpTHFTYlMyaS0wUWFCdDloNFVMNmxRY0lwMA?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "Le Temps",
+    "titre": "Maria J. Santos, écologue: «Pour résoudre la crise de la biodiversité, il faut des engagements financiers, des pays et des entreprises",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 04:30:15 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOaTM1ZnRUM2tPbW5abTZWMDFYLWd1bjN2aUJfb05pU3lQRER2bVllSXBiVDR1ZjdidEM4Z2ZYN1laUHF1aG1iYkVkbEhOTS1Bc19haTVnZ2xkZEJIVGdtR0hUcG9iWm1Oa0NEbS1FS2tNX3VyTkxQVkRMbktBU3ptSDd3ZHd1cWlzRUFwRzA1emNYUzhDT2ZRdVlmTGlNV0lYeE0yZEh3dkcyV2FTclA3V1VTS1FZM1RVWWgwTGxUaGRMYmoyUEFLOHQ2QlJuaXNEOTZoSDk2SzBzdGVYcHJMV3pjbTNBMk12RFp4ZGpBeVppbVNVWG1iRFk4cTlQOFhGd2RiZA?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "African Development Bank Group",
+    "titre": "CDB COP17 : la Banque africaine de développement fait avancer l’action pour la biodiversité et le financement de la nature",
+    "themes": [
+      "Instruments et marchés",
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 19:04:04 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOWnh1aWtidGsxUG5MS3MtcnFXd1F4bEliNFl6X09MZ2hFTjA2cjkzNUM0ajJNYUtZMlQxQVc4Wl8wQXVWSW5PdzVXMDl3ZXo5Z20yeElkb0lPeFlKTzE2eW1wMDV0NzRPNlo3UGhmaDRyMGpuWGVud3RzY1VYRU1yZWNaOWVQTkVYVEsxT2hnMDJOR19Wa0E?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "rsedatanews.net",
+    "titre": "Biodiversité : “Le levier pour attirer le secteur privé n’est pas encore confirmé”",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 23:26:04 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQbkpqODZ3LV9FanM0TVBEb1JzNG1QNUlreVlkX0Uwc2ptR1pSRG1lRDc2dTU1VmkyTThINDU2U0g5Tnp6SWF4SjU4d3AtalhzUFk2ZkIwNnI4NnBSTUpaNE9GLUNXWmVZWGlMMlV3UGhXNlVyN1Q0NXpuSWJaMkhqcEc2N2lMSnY5U1lLa3k5VWFMVnc2emhneEtCc3MwcHVJbWZZdHV2eGJoZ0U3VHR5Z1RaTFVtalFkR0xYTzNDNjJodEh6a3dYelhOQnpLMzVjVklZYUpwZw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "Yahoo Actualités",
+    "titre": "Rétablissement de la nature en retard: COP17 peut-elle relancer l'action mondiale ?",
+    "themes": [
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 13:00:24 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNbWJnN085NldEWFR2c0VoUTQzQmh5OWdjbUY2S1J1UkswdXlYSDhRbTRtdXl0RmRfX2xGMUFRaDZwdGVZSHhGdGpINWppajJUM3JOQ0ZuZThEeDdzUTR5ejJTb2dMZ3RpcUZuRUdZM0tNZU1iM1dBWVRUUGp0V3cxLXFhbmJvb1lLeXNkOTZ3?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "Yahoo Actualités",
+    "titre": "Angleterre: une ONG lève 30 millions de livres pour transformer un immense domaine en sanctuaire de biodiversité",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 09:16:24 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOWnhoNjVjN0JBOVVYNkxtVkpIUWE1OUZ3YXk0QzBxYjFGdjRPcTk4VGs3dXoxaW02XzhqSm83VGhXOHB2WEVCQnZudTlOMjVjSjFCc25ldHpicl9WNWRzWkx2UmUzTGpiWlJOcElqZkYzbUwyNm1ER0JhNzBvRFVZQkxIRQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "Yahoo Actualités",
+    "titre": "Pour protéger la nature, il faut quadrupler les financements",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 12:15:19 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPMV85ZHZ2LWU2NTRGRVlWMk4zcDBMRmdjV0xXb250akhFN1hqdFliRzJOQ1l2VkVrN29oQUN6TVJpME9sQzZMZXJOSjI2bmRPSUEyR2hrSUZKQ3czRUlleVcwaUxySkVVQkgxakI4UnVFSkhQZmo5MUphTTYzVGVFU1FVQXAwQzkwYnJ6UjFKMURiT3Nn?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "Gouvernement Princier de Monaco",
+    "titre": "À la COP17, Monaco réaffirme son engagement en faveur de la biodiversité",
+    "themes": [
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Wed, 28 Oct 2026 17:51:14 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMioAFBVV95cUxON3JPU3RnejlrUjNwTXFMWGh3bTZZOW5MZlR2RHdyNHBwU2hpMDlIRFdzRWF6RGQzR054VEQ4MTV3VUV6ZGZwLWMtM3dEeVJsWXdRZ2hGS1VyMk41eUJ4UDlKM25LZVRydWpBbGJidnJiSFlIWmVYak8tM0NQR3ItQ0pkcUVEZzBGZ3pkTHpIdWNsVzVNcTRHS2k3dHJKZVo0?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "IndexBox",
+    "titre": "Rapport de l'ONU : 252 millions d'hectares en restauration, un million d'emplois verts - Actualités et statistiques",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 12:52:03 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOVHJtR0pTcmUxYWI0WFhfa3hZM3FIS01ldmYwV0owYXE3c1JBZ0l2SU1Kb0pRYk1UTVdoVEkta2VTeXhyaHc1b0FVU25ZeWlTc0xMSXlISmlpM1RCV3QxaGhjZVNmRk1XTUh6SjdOWDhQaEQ3UnBENWpGdjJwWjktNW5SSG45cWxSb1VJMlhLcUZNQWE3SXpFYVNfYlc5M0FBdHozOA?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "https://malijet.com/",
+    "titre": "Biodiversité : un « Park Bond » pour mobiliser 300 millions d’euros",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 12:38:25 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNYnh2NFVLNXVlQW9PYzFrXzY5aFcyb3B5YjU4QmRaUEt0Sm8zUnZFNWc3NVZydE1CLWtjMzYzRG16aVBIUHp5ZGVUWEZpV2lGQ2ZJMi0wRS1qd0dOeWc3YUdNcUtDbS1vZ3F2anlSYldObmxMZW1Ga1JtSnYtamZfRVItN25aTEQyY1hLSUx6cFBqZVpPQmhMVkx5Rk1UeVBtOXFUSGp0MHNockNaNDZMaXcwTng?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "www.agra.fr",
+    "titre": "Biodiversité : l’UE fait la promotion des crédits nature à la COP17 d’Erevan",
+    "themes": [
+      "Instruments et marchés",
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 15:46:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPSXM3OEZsY0s4YVRQMFdXQXhkZThzSlRzekhDOTJ4d1FfVGtJckpIYzZTUXVtWWwzeUhnYkRpTW8xUUZrYWp6dm9jUmk5M3ZWQkR5Zm54WlJJOF9kY0ZzTjNjX19iMUl0NzFSRFhaT2o4Ri0yaGxqYnB1cWRyeVdoSFBiRE5rRWpoaWI3bjV2bEdVSFk4T2VqaWtHLVpSNlZR?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "Ouest-France",
+    "titre": "Restaurer l’huître plate, surveiller les forêts de laminaires : deux projets au chevet de la biodiversité marine",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 28 Oct 2026 14:56:42 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMipwJBVV95cUxOT2xwdFp5TVRXMVFQVGMwTWV0SnpGdTAzT2FsM1hvTHY2QUgycHd4VnFnTHUzWERjLWZKOEsyVWg3R19fVTFFQ25NVFFGWFlUWkluRDJCbHdfRHpQVWg2aUV5Yk1yTlRnSEo1TlVZcmhrMVQyVklYOW9vellFSDJhU0RUZnlmUVczZ3pJS2VoOEFCQ09ZV2ZfclRpd0RTbkltWUdyd0U2NGpIejhEYlEyUENST2ZCd2h0VUxkZ3R6NVNYaVhxWDlfUDFlbjhhQ3BWYm91ZXFUU055am0wRnF0NG1INW9uSk5rWndzUTBkdm9LT3NRQ2h0TVJTblVvc3h4WFgwdU5RcHd0eXVGbEpkQ3VyZGNZcjVDVzlQQXlUOHhwRGtEcWFB?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "FR",
+    "source": "https://horticulture-abadie-pyrenees.com/",
+    "titre": "Les élus des Antilles unissent leurs forces pour sauver la biodiversité",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 09:34:55 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9LVGIyVU92Qkg1eVF2NFlVb19qZUctVUptZXNpOTQtdnpzZXNocU9DQ2k0dWQ1bkdWMnhXMjl3UVg0SEU3RGpRVmN4eFotYnFnNTFTUlU5ZDZkNjctWnpDOERBaXFHbng1REE?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "UE",
+    "source": "Irish Farmers Journal",
+    "titre": "€500m restoration bill for blanket bog likely as State to scope out new funds",
+    "themes": [
+      "Instruments et marchés",
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 11:49:41 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZEI0bzgwOWEwN1Zxdnc1eHN2eEg3XzFuVGY4X3JBZExGazhQM1NEQmw3V01pT1d1TkJIN3VtZDYwZUZ2ZmFPbDJSMzhkNGNsa2lBalgyLVJYYVhqdnJBaUdKaDczMnd4REdrT2x4VHZOY3kyNHQxRFV6djY0T3hvQS1kZWFGdlRPWFdGa2tYVzFkUkZ3d2FDRVI3WjNiZXNhVXZWd0dOc3hFTi1QSkxSOW1zY0kwN1pVOXdfdjlGQnM?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "UE",
+    "source": "www.marketscreener.com",
+    "titre": "Mitsui Fudosan Retail Fund Investment : SFDR Sustainability-Related Disclosures",
+    "themes": [
+      "Reporting et standards",
+      "Réglementation et supervision",
+      "Instruments et marchés"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 02:31:09 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQaExmc0kwdW9rZk1EdmtyZ3RnVkx0RlV1Y0k4SUxucFQwdkNnaFBhOXZhM3FtOVNMNkVQVXpncy1WUk5xb0hPa0R0QlM4dEFRbFNfQ0JiU19EVlo2WVIwb1ZPblh4Z19yN0RGRjlvNlhLbFFaamZ2NUFOUDZiLVVkOFZGZEdJTlNfZUxMdkd4ZzBlMjh5eVQya0JQaUw2UUs0bzdyb1p1dnlDZy1vaTRfZHJObVFHemZfWnoxdVZlRUh6dTZ2ZkxacWl3?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "UE",
+    "source": "Castanet",
+    "titre": "CSRD encourages eco-friendly Halloween with waste reduction tips",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 18:17:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQMTRvRHNvYmRPZGlCZjBGYk5XNzVHaFFvWldkUnVZVlZuSHAzZnJTNHhJaEZZYWoteS1uQkdfOV9YM1VpMlpTS0ozUGFDOEhkOUd5OERLbFhsdjBFMFRuLUtod0RTMUJHQ1lIZ2RzWG8tbW96SlBIS3RQWkRnQWpmNHpYam9sSmt3aE01THp1TEcxczB3X2JtTEMxbXRIdmVFSnhxTFZDajFnTHV6TGZ6dDhB?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "UK",
+    "source": "PwC",
+    "titre": "A leap forward for nature reporting: Bringing nature risk into business decision-making",
+    "themes": [
+      "Reporting et standards",
+      "Risques et dépendances"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 06:23:37 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPVjkyTlBCcU1iMmZGTm1QM0xSOEtVZnlaNHhyXzRHVUpTLUxib2pRSjN2NGdGYWVkdE5KdzJqdW5vMVNEOGQtRlRXTlJaWF9zRXBUUm5aR3dvR3lBcGhwNnpDSHMyUXlUMEdqYkdwT1hQWjQ1SndYeWV6d0hISGRfWUx2YUlaZDdOX0ktWTgwSVBRZl9fVUR0RXgtZnhTWmM?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "UK",
+    "source": "African Development Bank Group",
+    "titre": "African Development Bank Group advances biodiversity action and nature finance at CBD COP17",
+    "themes": [
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 19:07:33 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOYm1qNEVCWExuaXJSZ3oza2pHWjJ1RVFaWjdqeThWUUZvckRnUWo0RVlwY2dLNXdFU2I3QlJHR0JETm1fRk4tOTZIbXFGWURDdFJrMFlldFpoMEJwcUZfdkxIbEtNSGZXQllDRzJRT3UzUnU2YVNzVFVDaFlEeVFTQjV5TTBfTUVEdmJaMEhR?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "UK",
+    "source": "Devdiscourse",
+    "titre": "AfDB Pushes Nature Finance Partnerships to Turn Africa’s Biodiversity Goals into Action",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 06:58:41 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZFpyVEk5VF9JMGxCUXMwbkFJcUpBcFVCc3hjUmRYbUdwUFJNX2RmTms1Mm1wc3VVMUhROGMtZl9hSk9MYVBWWHFJVm55TkctbV9vNm8wNDZLbGlDUXhCRG14alJkdlVFUDgzRUQ3RnlINi04OThYbktMdzRqS0JwMWR0WjVJbTc3dFM5SVUyOGwxcERWb0FxWVhzNUtYbXZvamFZZmpsSTE2emFZeXZ1cl9OTGtjQ3hDVEcwT19PUGhZWHZBaU90eWxLd0tPTG9KUFdsUEloeXJJclVp0gHcAUFVX3lxTE1kWnJUSTlUX0kwbEJRczBuQUlxSkFwVUJzeGNSZFhtR3BQUk1fZGZOazUybXBzdVUxSFE4Yy1mX2FKT0xhUFZYcUlWbnlORy1tX282bzA0NktsaUNReEJEbXhqUmR2VUVQODNFRDdGeUg2LTg5OFhuS0x3NGpLQnAxZHRaNUltNzd0UzlJVTI4bDFwRFZvQXFZWHM1S1htdm9qYVlmamxJMTZ6YVl5dnVyX05Ma2NDeENURzBPX09QaFlYdkFpT3R5bEt3S09Mb0pQV2xQSWh5cklyVWk?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "UK",
+    "source": "Phys.org",
+    "titre": "Nature finance needs a fundamental rethink, researchers argue",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 21:40:04 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1TREluOWFPbEtHTk1obWp2blBpT3ROWmVtQmVUNDJGUDlHUkMxbk1ENnlCU1JwbUgwMXhtSks3bzRyX3A1dUlzTGR1dTB4WnRNLVRGNGN1ZWYxXzdXUFFfLUZ2dXdNNm4zM3hKbi1B?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "UK",
+    "source": "Head Topics",
+    "titre": "CBD COP17: Nigeria deploys BIOFIN, Net-Zero Plan to link biodiversity with national investments",
+    "themes": [
+      "Instruments et marchés",
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 07:37:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPMGFSblpEdm1RVEE3SV9vNV9ERGZud0hCTDZZMnFhNmRXMXctbmxrUWw0aFhObTNUZzdSTG9VQi1EVXY2aHpqQUNLNVNYam1LWUcycG5MbXBEYmQtaXgyQlBENUQxSVV6YVBUTUY0enotbU5zcm8xUGFtdm9fSFRTcVdsVHJtOGRUQTdIdEdoc0FsdlBxSkstbHdR?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-10-30 13:42",
+    "pays": "UK",
+    "source": "edie",
+    "titre": "UK SRS: Streamlining sustainability reporting and preparing for new requirements",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Wed, 28 Oct 2026 16:42:07 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbmlZLXM2UG5Sb0lYTmgzQmRlTWZVcVRna1dobEZCbkF4dm05NTJDdWZnRF80SFpnbkI4SF90MVZVSHl0d0xpUGFPaGNIZFNhQ3JjVlBPOE5xcS1pUmw5bl9tYVY0VFhsNG9qNmZCU2k5NkNKNE5Wd0tLOTJJOWMzczZsVkJtc0tkZTJSTWdkcldvZ0w0OW82RVNpWW4tblItQi1Z0gGvAUFVX3lxTE9odlRJVlpybDZhZ29nUTlFcDcyWlJfWElQeWlyaVVhT1hCb0VRNU40XzE0bkpSS1k4ZjhhVVBFYWNuZmRuaGc1N01pMlBTWmRRRmp1VXhOeG11emkzdzh1b3BsMUZvV1RHa3ZMQVZWa2dscUo4N21HcnNnQlFEZ290dXk1VjIzYVNhM1VHNlRjN1lBUktib3J4c3NIRDAwck9qRVVoZi1OenBBZHNybUE?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
   }
 ]
