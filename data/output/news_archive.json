@@ -1918,5 +1918,183 @@
     "autorite": "presse",
     "axe": null,
     "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-01 13:55",
+    "pays": "INT",
+    "source": "IFRS Foundation / ISSB",
+    "titre": "AC5 - ISSB Proposed Practice Statement - FINAL.pptx",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Sun, 01 Nov 2026 06:51:31 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNOUxkQUZxVjRnZ3VjcjctOUVDbGdZd1VPbE9tT1k0QUFPVm92Z05NWDA3aUFkZEFLcnplZXYweDJLQjhaclROYnVzS2tiR1ZxNkxUSDRzNmF1dDBMdDI1XzBkaEJTLU1fQ1U5UmNvemltOGxLSWk4ekpFUHB1M2xqWUFHVHNDQzJpd1N3bHFlRzBZdVlLSDlOZS0yX0l4MnZ5TXFPR2pXZ0htMVI4T01kQkNJa0QyaUMxMnAzVVJVMnJ6UEdJejc4Wm1ueFk?oc=5",
+    "canal": "site",
+    "source_id": "ifrs-issb",
+    "autorite": "primaire",
+    "axe": "reglementation",
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-01 13:55",
+    "pays": "INT",
+    "source": "Convention sur la diversité biologique",
+    "titre": "UN Biodiversity Conference charts Yerevan Pathway to accelerate global action for nature",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sat, 31 Oct 2026 12:46:12 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5MWlV6bm15aWJJbE9qaEp3clJnTTBGZzZEcGpMR2VEbGgwU2hDaTNjS0lkSlZlbmJrOTQwZWdfUkhiNmR1a19lX3NpUVZ5SDNTdUd3Rm9xWEF4aDBJM2lmRjB2VDMxOUE2NHlNZ1VB?oc=5",
+    "canal": "site",
+    "source_id": "cbd",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-01 13:55",
+    "pays": "FR",
+    "source": "AEF Info",
+    "titre": "Biodiversité : le Cese appelle à des moyens suffisants et un portage politique fort pour faire de la stratégie nationale un succès",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 19:11:57 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNaEl1LUdnSzdUOWVTSmVhXzNfblF4VVowUHZxN1VKbDV2UXZZclNMYzRUdG1KUEVmMzRpWVYyazZuVGdqUkE5Rnl6c0pOX1JHN19ETTllSzktd2VsTURONThFRlpUM3lpbjFTWkF2T2JQQU1pa1dWc3BDc2lQeEFQSDhsdjM0U0FEWVc1Mmt1aU13cnJvdWxqd1JvVG8xNTlOZHdFQUJGY1pRamtXM1QxWWVySlo3SWRCdkVZWXdKM19WT2FKdlZYbDAtelBqS0xkbDlqNU8tbUVMWDB5MmE2eS03YzZ3ZGFUVU5YTDVIbUt3cGJ2b0FUTzJvRQ?oc=5",
+    "canal": "site",
+    "source_id": "aef-info",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "abonnement"
+  },
+  {
+    "date_detection": "2026-11-01 13:55",
+    "pays": "FR",
+    "source": "Zoom Eco",
+    "titre": "RDC : marché carbone et transition énergétique, le pays veut convertir son capital naturel en richesse économique",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sun, 01 Nov 2026 10:10:07 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQZ1QwTjNsVTdDQXQyeVF0QnZ5MkxaSjlHSUFQcGdkMTdiVmF6MGN6OTFtNFc2bUdnZFp0VThBZzZ4b0xXX2VqZklYODJNMnp4SGg4TmZDNWVweHpzRU1Ha2Z5R1RPcGxzdHhjX0E5RERrM29FeTlfam9aaFdRYkYxRWs5aFBTZVZWRklNdkRqem1PUG5CcWtWRWZiUFV1TTFRbEZKM21RdndsbGtGSDhYQUVYVlp3amtfUmN2RHdjVUtVWTZURThaNkJyMEg5ejJtc1RRNnJOTldoMFdkLVhRVTh1Zko?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-01 13:55",
+    "pays": "FR",
+    "source": "La Montagne",
+    "titre": "Restauration écologique à Valuéjols : le Cen Auvergne et ses partenaires revitalisent les zones humides",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Sun, 01 Nov 2026 04:28:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxOQWlLRkFRb1c4ck1DM1E1SnhGcllrWG15VVBoZHFTUVFRS1dGa0NsazB4dVJ4UWZoSlNuSWpZU0FFWEZkQzI0S3dRaGd1TGV2ekp4UVZzT3pISDJsMXhPRGlQeWw4OExpQnB5ZWQyWlJDV1haMEhacXVRbVp5UGJobnFaNGpYUWh3U1FOajRXN2Y1Tm9mX0Q4QWQwblpIRUs1LWFRVm5UT2dZcEVXczVSUFlxSHAyRnNTSVVhMDQ3ZGpCVWlQLVZ3akNxSGdSY2RiYS0ybnZGN2N1Zlk2djVJdC1uQWROQVJ3SUJHSHFDVkZReUdFR1hF?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-01 13:55",
+    "pays": "UE",
+    "source": "https://carrzee.org/",
+    "titre": "Expect 50% jump (maybe) in biodiversity law in 3 years after slightly tighter international deal",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sat, 31 Oct 2026 14:18:51 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPQnJERFN5MEtjbW40X3BKcGU5a2tfUnNHVlpGVEhZZkxhc2FObHpOWHh0dlZOTnhmaHRCSVZzOUJ3LW9EWkxvaTV3ZG41LXhmUVlDMUR4dzJ4QW1OOEtLb2p4QjRmTFZpVXZBamlXTDI4Y3NDTEZ1RW9ITXJhaDJGaVRiRUJBYVV3WG1EM1YxM0gzb3V0SXhFRmNZQTFMa0gxWW8xS1hqU0FBOEdXT2pxTjFaQjByMTdHTnplN2tMX0YxczQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-01 13:55",
+    "pays": "UK",
+    "source": "London Daily News",
+    "titre": "Guyana Calls on Biodiversity Alliance to Back UN Targets and Close Finance Gap",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sun, 01 Nov 2026 08:33:14 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOcS1lcVlHclpxSGJZZlpxMmxTbk1GaUVEbHhMQ2d1T01fV2dzc3ZaU3E1dGZZSFZPaGhiT3ZaVi02MG85cjA4bGtmZnJMV3ZWekNnOXZ3YWp5Zng2VWVid1ltcWNZMjBlRURNaHB3V1R1VnlfSVhmeTE3TnpDTHNjSkRldDNLdWNsdnFpOG15NUtrZ1B1bEQ2eFREN0ZtOGJZU21sMUJLNGR3cG5t?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-01 13:55",
+    "pays": "UK",
+    "source": "Guyana Chronicle",
+    "titre": "Regional leaders call for greater integration of biodiversity into policy",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sun, 01 Nov 2026 09:05:48 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQXN2TVlITG1GOHdJZ2ZFX2FBV0lWenlwRVk4a3RLdEpGRWRtbnd3VnRHZGpLZEFmcHJITVg4dXVFR1lpSFVQQjY5QnItQWhXc1dlZG5MVjVWdUpvVXFrSFQtcVFTS01wX0s3QUZCOU1NbzNKR0VBWUJ4SzI5b0hhcmVnRWF2RThxRTc4WkdTd3p0UmwyQ2JUQ2Uta2NqbWdGVmYwUk9QbVFsQWpLTWZ0RXp6RQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-01 13:55",
+    "pays": "UK",
+    "source": "IndexBox",
+    "titre": "ICC Calls for Action at COP17: From Biodiversity Commitments to Policy and Investment - News and Statistics",
+    "themes": [
+      "Instruments et marchés",
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Thu, 29 Oct 2026 15:10:33 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPeHNxU25udVozRWlZTHNIZ3lRU3pSVDNjWGZubDFLaUh2ZUE2amRrV1dOaHVYbXlnNWpvM3FTalB3V0FOWUhPaktlUENYSmswWDlGdEkzbTdwZTZBSWE5SF9Pck9jaElzVkF6dElUdEhRdHVtbFdLOWJiWHlBN3JkV0RRWGNVQVRRUEFaOXJYWVFqOC1ORms4QnltNFNLVmM4WHFjODlja2lkRzY1cEgxSjRGMA?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-01 13:55",
+    "pays": "UK",
+    "source": "News Room Guyana",
+    "titre": "Political will, strong institutions key to unlocking nature finance, Georgetown biodiversity conference hears",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sun, 01 Nov 2026 10:12:06 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNTHF0aUoxcENqTWV4ZVNHeE40RTMyMld0Y1hNeHkteHdnRmp4enRfaDZkV05mS3hJOTdJcVBvMF9zV3RkU0ZQc3RISW1PT1MtOWNUNEdsQU9zd3hhcVExUzZldXZLWUVEMkRhRmw0dXFkdFp3NnFRYXUzTU5VVW11NVJKbFFwTEZYd0NOdnJoN2UwbmZYRG1UNXd4Z0JhMHlQS1JlWi1nOXpSX3pKdE1rNlc5Q1k4VUJjX3Vma0RfM21xekpIUVNUaVo3QjFydkxWTkx6Sy1n?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-01 13:55",
+    "pays": "UK",
+    "source": "Saffery",
+    "titre": "Natural capital after the Budget: what should landowners consider now?",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 30 Oct 2026 12:57:20 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQZ3ZTV2w3SmsxX1Z3bDlTTW9SOTczanJtR2hxaUhpTXdDUnJxZjlIcHhUb053elZQV0xEanNGcWhsRXlzSDRnOEgzNENaaC10V1Z0R3RnaFRWSm4zNGVWQ1hKS0JIa1M0LUdXQU1kVUNGLTRsRzFNQnM2eWRjTS12VnZaaXE3NTRvM3Y2eWJhTVI0WFA3MnlHalN4bTRzTUdLei1sLU5BQVNDVU8ySjlFbw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
   }
 ]
