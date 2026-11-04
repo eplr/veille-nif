@@ -3310,5 +3310,248 @@
     "autorite": "presse",
     "axe": null,
     "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "UK",
+    "source": "Defra",
+    "titre": "Protecting the world’s most biodiverse coral reef ecosystems",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "2026-11-04T09:30:06Z",
+    "lien": "https://www.gov.uk/government/case-studies/protecting-the-worlds-most-biodiverse-coral-reef-ecosystems",
+    "canal": "rss",
+    "source_id": "defra",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "INT",
+    "source": "IPBES",
+    "titre": "Media Release: Biodiversity and the economy - more than 30 networks sign a joint statement to take action",
+    "themes": [
+      "Cadre mondial et science",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Wed, 04 Nov 2026 09:37:08 +0000",
+    "lien": "https://www.ipbes.net/node/110617",
+    "canal": "rss",
+    "source_id": "ipbes",
+    "autorite": "primaire",
+    "axe": "science",
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "FR",
+    "source": "CNRS",
+    "titre": "Véronique Éparvier explore la chimiodiversité en forêt tropicale",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Tue, 03 Nov 2026 12:57:58 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPMUItWjliYngtQmZ3NDhZaVpPVTRBbDhQczhmMjVzN1h3ZzBBeGNBMG9PTVU3Y1lhd29JQjlfY3FVcEhHNl80RWJfLXhnZHBWYUlCRHRhZ3AtS2JZNlA3cFdFMG9MSEc2NnV4NThXaHRkbUJRNGMtWENILUNkVjRHYmxBTVkzdldyN18xSDl1WkQzOXRDUV8zQ2tORlNtdDE4cTBKY3hQZW96YjQ?oc=5",
+    "canal": "site",
+    "source_id": "cnrs",
+    "autorite": "primaire",
+    "axe": "science",
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "FR",
+    "source": "Vert",
+    "titre": "Bâtons de charbon, carafes filtrantes, réduction des pollutions… Quelles solutions pour éviter les pesticides dans l’eau potable ?",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 04 Nov 2026 05:00:00 +0000",
+    "lien": "https://vert.eco/sante-environnement/batons-de-charbon-carafes-filtrantes-reduction-des-pollutions-quelles-solutions-pour-eviter-les-pesticides-dans-leau-potable/",
+    "canal": "rss",
+    "source_id": "vert",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "INT",
+    "source": "ESG Today",
+    "titre": "Brazil Launches Roadmaps to Phase Out Fossil Fuels, End Deforestation",
+    "themes": [
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Wed, 04 Nov 2026 14:32:25 +0000",
+    "lien": "https://www.esgtoday.com/brazil-launches-roadmaps-to-phase-out-fossil-fuels-end-deforestation/?utm_source=rss&utm_medium=rss&utm_campaign=brazil-launches-roadmaps-to-phase-out-fossil-fuels-end-deforestation",
+    "canal": "rss",
+    "source_id": "esg-today",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "INT",
+    "source": "ESG Today",
+    "titre": "EU Regulators Propose Simplification of Taxonomy Reporting Rules for Banks, Insurers and Investors",
+    "themes": [
+      "Reporting et standards",
+      "Réglementation et supervision",
+      "Instruments et marchés"
+    ],
+    "date_publication": "Wed, 04 Nov 2026 11:53:46 +0000",
+    "lien": "https://www.esgtoday.com/eu-regulators-propose-simplification-of-taxonomy-reporting-rules-for-banks-insurers-and-investors/?utm_source=rss&utm_medium=rss&utm_campaign=eu-regulators-propose-simplification-of-taxonomy-reporting-rules-for-banks-insurers-and-investors",
+    "canal": "rss",
+    "source_id": "esg-today",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "INT",
+    "source": "Environmental Finance",
+    "titre": "Biodiversity credits: green colonialism, or the saviour of nature?",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Tue, 03 Nov 2026 22:54:25 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPaHRXT3RoRDZRYVEwd3pBa3o4dUpsekpYUjgwXzlfM1BLMWhLT204OGlmZWlOaWRvZUxjS3BzbjMtamlldF9ydGdKNjZCQW9pZE5yazJKNl9vNGw0UlJHSEo4Y0NmZ2N3SnpxaVUyMU5ZZGswYVZyZ2RwRkQwN0JUMnVrUDFvTHBEQmtNejRFMlFsQURqVmRTQWFOMDNRTE5ETzZhWGRHV3haR1hLZEJya1JqanBvcUhiUE43bl9peUo?oc=5",
+    "canal": "site",
+    "source_id": "environmental-finance",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "FR",
+    "source": "RFJ",
+    "titre": "La biodiversité s’épanouit à l’école",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 04 Nov 2026 13:10:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWDlFYU1Vc211TGd4OWlZbEx1azcxbEMzN3d0ZXRtdlBLX1lDdmpLN3VidGthdWkzc1ZZRndlNWladkNiRnM3aUphQ0tBcDdscGE3UVZFY20xcUQ0b0NzZ09VSDV2MjNZc0MxZ1FZaTJZWWVxNHZrcE01VHpkMm9sdzhrMk9PTVU5SVdYZDRZMmVidW9K?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "FR",
+    "source": "Les Echos",
+    "titre": "Comment SNCF Réseau veut transformer les abords ferroviaires en réservoir de biodiversité",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 04 Nov 2026 09:44:18 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQNEV0ZjFZUy1jdW1GNENqeHJCVlFCNmUzZVJMOF9tdnB5RlFsek93QWZhcG04SjM5VmFLQjI0UzhuNFFQM1dySmExLTVydnZzS2dhRGhsN3B3WkJkeHhOaENRSENBREhUb1V2V0QzVXl6VzJKX3RaSEtpUDR0UVRMSkFHd0NheEJGb0xEVW8zNE9LWVNpYkJuUk8tRFJ1OUlkTzBWWFR1N2lNbm9wYTE3dW9rVnNEVUpNX3VNRF9kSG1KYk0tZzl1dVAyUnM3TF9MaVBoUTU1WFNYaVlvaE9lcVVGOVF1VE14SWV1ZGpn?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "UE",
+    "source": "Panda.org",
+    "titre": "New research examines the integration of climate and biodiversity in government bonds within t",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Wed, 04 Nov 2026 07:49:42 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMijwJBVV95cUxONGx4cHZYS1pBYlFEODFIT1ZNZm96YnBNRk5meUVGdWt1aXY2b1VNV1hjUWVJSktGSGRmcnpBbDNrX3d3SnV1NzUyZGVWZmc1cjQ3Qklsa0x6X1h2QTB4UUZleFlzeUR2SUZtbU40OFltbmg1Tmc0YzRma293Vk1xYlRfVlpTSmp0UTROdmVOSXpQR0tFaFRLa0R1QjhpMzJoalNnVFdRbUtKWVVIMnRFbGpIaVZEOGVubExwTzBhZy1WTk5iRDNZQzhsWmRoUW02MWhvc1QtcGlVeHpkbUt4eDk4NzVfWVgzU2V2UnJOQkdWaV9NajlnQ3VTTmRYdjJhMEhLS0FGNE0zMmh3QzdF?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "UE",
+    "source": "Web corporativa - Mapfre",
+    "titre": "Biodiversity loss also affects insurance",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 04 Nov 2026 11:04:13 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPdWpnTnUwd1BYbjF6THlxa3VZVDd1dnZYZlU4ZEc0TUItcm5ocXE5LVZmX05aSUJJTlpYaGZZSnRoZjFtdjFOS1ZBTUJ4TmYzTVN1UWhtMWZ3cVliTHZCV20zTlFUZVJaV09ZVXFPdU5HNU1sQ3RJWjBsSmt3M1kxX25jUVo?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "UK",
+    "source": "Bloomberg.com",
+    "titre": "Developing Countries Eye Debt Deals for Food Instead of Nature",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 04 Nov 2026 13:22:52 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNN3RoaF9FUTJzdW9YaG5EYzM2dHRZRnpfSU9UN2VkTWQ3ZUFWLWZCdGREeEVNZi1mdVQ1UFpIcmpYV2ZleWlaRXZwSFA5VlRQbGY1Mzh5SmNub2VsZWEtVXNjbnRwdGNHYWVOTWxrRzFJaXVrTVdydmFDNXJTdmRXbHkzSmVPYnFVX1VPbEFXR21vbG9PdU1UQ0ZOa0NTdXZtWktMSWVWZ2RiMTlTeU00VXJwTQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "UK",
+    "source": "The World Business Council for Sustainable Development (WBCSD)",
+    "titre": "WBCSD launches practical guidance to help companies apply TNFD LEAP approach",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Mon, 02 Nov 2026 13:41:20 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNOFRuSWpRSE9YVVV5NTlBUUdGaTFGZ2xYbWFTQXQyZVJ2QmxpZ3IwTFA2ZVl5MkNqSExzdzVhelFQMDZMZHZPMGtyR0xJSW43eXZpeGoydUIya2k2SFo0aVNxZHU2NnNxWk9rdDZoYktDUjhNTXlKYmd1S3BUVVVmU0drdHVITno1WWxZNVRnZEUtZ2Y0TndaSjZGRjlnSEVMV1Bud2tHYw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "UK",
+    "source": "CEO Insights Asia",
+    "titre": "WWF-Singapore, Great Eastern Partner on Nature Project Insurance",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 04 Nov 2026 04:55:52 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPLXRiY00yTnhMOW5xa2F3YlN3dnRJZ2Z4bUdMS09xWUV0QnlXa2k4LU5US210eW1VT3ZlOWlhMzFyZVdzZ3FZYmpYNkpJZDBvLWNkbnVHVXhnejhUUmtPUlVVcEpSOTFlZlhFcGV2S09rc3FDazFnalc5SjBoQ1dQQndWNmVSRWpkMU5Wak90X1F2R3lDdjg4aUNsM21ZcVRLX0c3WXZpQlRNMFRnTjRlOUFoNml3UQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-04 14:57",
+    "pays": "UK",
+    "source": "ICAEW.com",
+    "titre": "ISSB at five: building a global language for sustainability reporting",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Tue, 03 Nov 2026 15:17:50 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTTctVkVXYjJQQXB2b29vbmJVTUVXZ3RuNkpsd1V5OWhtY25OWFlyNzQ0RkdKVWJTS05PUk91LUZIaXI0NURJMVRwa2xFeno3SDFwM01kc2tPSkdqUGM5NWRQcHg0SnBWTmVndzRWRXlCQXVnbmdRUFBUeHFvdFprN0dKWi15clZVRHBBVlFfV3NUdkVvbl9qQUJud0M1cVBveW9RUWpwVUhuZFpnQXJDMDhpWE4zVVNiWXEyYW5QRWc1QQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
   }
 ]
