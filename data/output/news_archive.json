@@ -4329,5 +4329,118 @@
     "autorite": "presse",
     "axe": null,
     "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-07 13:39",
+    "pays": "FR",
+    "source": "Ministère de la Transition écologique",
+    "titre": "Évolution des concours des ingénieurs des ponts, des eaux et des forêts en 2027",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 05 Nov 2026 08:00:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOWnpBUVFqRm5HU2VBUUNpdnQ4VWUtTTREZDZ0aFRnLW54VFp5Q1Y0TlQyWmt6SXFPOHh5aHBKNzdCWFZDc0hJOVZJN2NqNF9TT1Z3cWFwU0NhVlcwbzcwdE9Pa0lGMUl0OUhsVlhIYXhNbV9NUW92SDU0czdJRGNMLTB4d1pmM2xILUZaaHZGREpkZVc0SWdSb2s4Vl9xZElOR0E?oc=5",
+    "canal": "site",
+    "source_id": "mtect",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-07 13:39",
+    "pays": "INT",
+    "source": "Nature Finance",
+    "titre": "The bioeconomy currently has a seat at the wrong table",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 06 Nov 2026 14:59:55 +0000",
+    "lien": "https://www.naturefinance.net/the-bioeconomy-currently-has-a-seat-at-the-wrong-table/",
+    "canal": "rss",
+    "source_id": "naturefinance",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-07 13:39",
+    "pays": "FR",
+    "source": "Vert",
+    "titre": "En plein «embrasement autoritaire», la Turquie accueille la COP31 sur le climat",
+    "themes": [
+      "Cadre mondial et science",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Sat, 07 Nov 2026 06:00:00 +0000",
+    "lien": "https://vert.eco/international/en-plein-embrasement-autoritaire-la-turquie-accueille-la-cop31-sur-le-climat/",
+    "canal": "rss",
+    "source_id": "vert",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-07 13:39",
+    "pays": "INT",
+    "source": "Environmental Finance",
+    "titre": "UK consults on climate and nature elements in pensions' fiduciary guidance",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 05 Nov 2026 20:33:15 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQeC1zYWtYdVA3Zm5qdERhNUlQTXk4d0UwN2laLVZTbnpPSlFUYjZRczhBNVJmc1BOQWQ4a19HeEpnbHo1SVpjMUwtMENPLWd2Rm5BRnBsTHBhSmdBSHExeHZpNGxhU3pFOXlZQ21lMU5jaGp6Y25zbFdJQ0c3SHBGTDloMkUyZFE4dDM4V1FwUWlJbUJuQnNkRHV3RmxyVTBfZzZsYUs1djFXT1kxckt3bHdkWkhISXotVGhYT21QTkxKQ0pzRzVFTk1jc29hZw?oc=5",
+    "canal": "site",
+    "source_id": "environmental-finance",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-07 13:39",
+    "pays": "FR",
+    "source": "Ministère de l'Europe et des Affaires étrangères",
+    "titre": "La France poursuit ses engagements en matière de financements pour le climat et la biodiversité dans les pays en développement en 2025 | France Diplomatie",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Fri, 06 Nov 2026 22:42:52 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOTmdlNFZVZXhma21YZ0ktYnJFM1A5RnQ4VlF6M0RYNVA3M3d2S1RJV0NGVndFZlI5cTlLdlptMmRZRC12b1FzWFVVMWRidjVOSld3V3U3T0h1V29udmdlX3lDU1hwYlhxME5Ca2plSUY3OWhoTzVWb0VmQzF3Z09OTFBmeGRvX1EwREdoV2lQQU1XYTNCZm1hVWc5dUxfc3F5bFplZEM0b01iUVd3ay15N0c0WFJ4VnlUQkNrckd4Y2k1alpGOFB5TDkwUlJvcHM?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-07 13:39",
+    "pays": "UK",
+    "source": "The Scottish Farmer",
+    "titre": "Renewables drive brings 12,000-tree nature project to historic Fife deer farm",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sat, 07 Nov 2026 11:00:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQZ0FCa3dzRDZUc3RpOVkwYjRZWE9Tek1IZ2lUWV92NXEyY0o3eXlDLXNsUHkwSFFEOUhzcGhha2xPMnl6Zi1XVDJLYlU2N3J4NGVMMzNCVnhiRFY3UGU3bkE3SVRMbFByeVo3QkVHTmVoUXBxaXB4cEt2Nk5GRkMzX0k1cEt6NVFjMkFRYTNKOTFyRlhEUTNVdWhIVmplRVJyLXlPcnYydlI2RFZxWDVfcnp6Zw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-07 13:39",
+    "pays": "UK",
+    "source": "Open Access Government",
+    "titre": "Major infrastructure projects in England must now deliver 10% biodiversity net gain",
+    "themes": [
+      "Solutions fondées sur la nature"
+    ],
+    "date_publication": "Fri, 06 Nov 2026 14:49:44 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQdkJra0NONGloNmVreG9Fdl9wRzEwaUhYZU9nVHp4UXFJQU5XbmQ3LUhhMFlOUUp2dEVFX1BQSl9KdnFHelZ1d0pPNUxHcFVjYkZfWDNiWmdiYS13bU45UElXSEhGaW1mcG44SFZFdy1OMWN5bHBsNVgybXRSOExYM050XzhhS0MxRHU0OUtMTWdaLS1XT0kwNmo4d0FSeEt6SlBxSTloYjJNMkhhRmRjMHZHWUpISHpNOFd3MW5kVkRsX1p3Ync?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
   }
 ]
