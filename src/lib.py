@@ -80,6 +80,9 @@ def load_sources() -> list[dict]:
             raise ValueError(f"Source {source['id']} : axe invalide")
         if source["filtre"] not in {"aucun", "mots_cles", "mots_cles_large", "science", "reglementation"}:
             raise ValueError(f"Source {source['id']} : filtre invalide")
+        pages = source.get("rss_pages", 1)
+        if not isinstance(pages, int) or isinstance(pages, bool) or not 1 <= pages <= 10:
+            raise ValueError(f"Source {source['id']} : rss_pages doit être un entier entre 1 et 10")
         sources.append(source)
     return sources
 
@@ -213,9 +216,26 @@ NATURE_RE = re.compile(
     re.IGNORECASE,
 )
 
+SECONDARY_RE = re.compile(
+    r"(?:^|\bde\s+)stages?\b|\bstagiaires?\b|\binternship\b|\bjob (offer|opening|vacanc)"
+    r"|\bcareers?\b|\brecrut(?:e|er|ement)\b|\b(?:CDI|CDD|alternance)\b"
+    r"|\b(?:H/F|F/H|M/F|F/M)\b|ing[ée]nieur[·.-]e\b|charg[ée][·.-]e\b"
+    r"|concours(?! financier)|troph[ée]es?|awards? (ceremony|programme|program)|\bnominations?\b"
+    r"|\bappoints?\b|appointed as|\bnamed (?:as |new )?(?:CEO|president|head)"
+    r"|ESG Today: Week in Review|^finance Archives|Archives\s*[–—-]\s*Page|^Placements plaisir",
+    re.IGNORECASE,
+)
+
 # Plus large que NATURE_RE : utilisé sur les requêtes thématiques, déjà ciblées sur la nature,
 # où un titre comme « Chiffrer la nature pour enfin la prendre en compte ? » doit passer.
 NATURE_WIDE_RE = re.compile(r"\bnature\b|risques? naturels?|\bnaturkapital|\bnaturrisiken", re.IGNORECASE)
+
+BLUE_WATER_RE = re.compile(
+    r"\bblue economy\b|[ée]conomie bleue|water (projects?|stewardship|restoration|resilience)"
+    r"|projets? (pour l.eau|hydriques)|gestion (durable )?de l.eau|mangroves?|coral reefs?"
+    r"|marine (conservation|ecosystems?)|sustainable fisheries",
+    re.IGNORECASE,
+)
 
 SCIENCE_RE = re.compile(
     r"g[ée]nie [ée]cologique|ecological engineering|[ée]cologi|ecolog|restauration|restoration"
@@ -260,7 +280,7 @@ DEFAULT_THEME = "Autres signaux"
 
 def is_nature_related(text: str, wide: bool = False) -> bool:
     text = text or ""
-    return bool(NATURE_RE.search(text) or (wide and NATURE_WIDE_RE.search(text)))
+    return bool(NATURE_RE.search(text) or BLUE_WATER_RE.search(text) or (wide and NATURE_WIDE_RE.search(text)))
 
 
 def is_land_related(text: str) -> bool:
@@ -282,7 +302,7 @@ def matches_source_filter(text: str, mode: str) -> bool:
 
 
 def is_noise(title: str) -> bool:
-    return bool(NOISE_RE.search(title or ""))
+    return bool(NOISE_RE.search(title or "") or SECONDARY_RE.search(title or ""))
 
 
 def detect_themes(text: str) -> list[str]:
@@ -299,7 +319,11 @@ GENERIC_TITLES = {"accueil", "home", "homepage", "actualités", "news", "newsroo
 
 
 def is_generic_landing_title(title: str) -> bool:
-    return normalize_title(title) in GENERIC_TITLES or len((title or "").strip()) < 12
+    return (normalize_title(title) in GENERIC_TITLES or len((title or "").strip()) < 12
+            or bool(re.search(r"\barchives?\b.*\bpage\s+\d+", title or "", re.IGNORECASE))
+            or bool(re.match(r"(buy(ing)? statutory biodiversity credits|statutory biodiversity credit prices"
+                             r"|estimate the cost of statutory biodiversity credits)$",
+                             title or "", re.IGNORECASE)))
 
 
 # --------------------------------------------------------------------------

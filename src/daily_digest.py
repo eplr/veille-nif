@@ -9,7 +9,7 @@ Usage :
 import argparse
 import html
 import sys
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 import calls_watch
@@ -75,7 +75,8 @@ def _article_meta(item: dict) -> str:
 
 
 def _period(today: date) -> str:
-    return f"Du {(today - timedelta(days=6)).strftime('%d/%m/%Y')} au {today.strftime('%d/%m/%Y')}"
+    _, start, end = editorial.edition_calendar(datetime.combine(today, datetime.min.time(), timezone.utc))
+    return editorial.news_period(start.date(), end.date() - timedelta(days=1))
 
 
 def _event_tags(e: dict, new_ids: set) -> list[str]:
@@ -301,7 +302,9 @@ def main():
 
     if args.lookback_days < 1 or args.max_articles < 1:
         parser.error("lookback-days et max-articles doivent être strictement positifs")
-    today = today_utc().date()
+    now = today_utc()
+    today = now.date()
+    edition, period_start, period_end = editorial.edition_calendar(now)
     if args.collection_file:
         path = Path(args.collection_file)
         if not path.is_file():
@@ -322,15 +325,16 @@ def main():
         return 0
     # Un rejeu utilise les dates de détection courantes sans réécrire l’archive.
     candidates = news_archive.merge(incoming, archive) if args.ignore_seen else news_archive.unsent(archive, history)
-    items = editorial.select_news(candidates, today, args.max_articles)
+    items = editorial.select_news(candidates, today, args.max_articles,
+                                  publication_window=(period_start, min(now, period_end)))
     sent_reports = {rid for edition in history.values() for rid in edition["rapports"]}
     reports = [r for r in report_files.load(today) if args.ignore_seen or r["id"] not in sent_reports][:2]
     window, new_events = events_watch.run(today, persist=False)
     calls, health = calls_watch.run(today=today, persist=False)
 
     has_content = bool(items or reports or new_events or calls)
-    body_md = compose_markdown(items, window, new_events, calls, health, today, reports)
-    body_html = compose_html(items, window, new_events, calls, health, today, reports)
+    body_md = compose_markdown(items, window, new_events, calls, health, edition, reports)
+    body_html = compose_html(items, window, new_events, calls, health, edition, reports)
 
     if args.html_out:
         with open(args.html_out, "w", encoding="utf-8") as f:
@@ -341,7 +345,7 @@ def main():
         print(body_md)
         return 0
 
-    subject = f"{TITRE} – {today.strftime('%d/%m/%Y')}" + ("" if has_content else " (rien de nouveau)")
+    subject = f"{TITRE} – {edition.strftime('%d/%m/%Y')}" + ("" if has_content else " (rien de nouveau)")
     send_email(subject=subject, body_markdown=body_md, body_html=body_html)
     print("[daily-digest] email envoyé")
 

@@ -3,7 +3,7 @@
 Outil de veille sur la finance durable, axe nature et biodiversité, pour la communauté Nature in Finance. Périmètre : France, Europe, Suisse, Royaume-Uni, avec quelques références internationales (TNFD, ISSB, CBD, IPBES).
 
 Il produit trois choses :
-1. **Une page Notion hebdomadaire à lien fixe** : sélection des sept derniers jours et agenda à 60 jours, sans propriétés techniques, à partager sur WhatsApp.
+1. **Une page Notion hebdomadaire à lien fixe** : sélection de la semaine civile précédente et agenda à 60 jours, sans propriétés techniques, à partager sur WhatsApp.
 2. **Une newsletter hebdomadaire** : actualités par rubrique, synthèses de rapports validées, agenda court et appels à projets ouverts.
 3. **Des versions « copier-coller »** pour Claude, ChatGPT ou tout autre assistant (`dist/`).
 
@@ -13,7 +13,7 @@ La collecte et l’hebdomadaire tournent en Python dans GitHub Actions, **sans a
 
 ```mermaid
 flowchart LR
-  S["data/sources.yaml<br/>53 sources"] --> N["news_watch.py<br/>collecte quotidienne"]
+  S["data/sources.yaml<br/>registre des sources"] --> N["news_watch.py<br/>collecte quotidienne"]
   E["data/events.yaml<br/>agenda validé à la main"] --> D
   C["calls_watch.py<br/>appels à projets Carenews"] --> D
   N --> A["news_archive.json<br/>archive indépendante des envois"]
@@ -30,16 +30,24 @@ flowchart LR
 - **Actualités** (`src/news_watch.py`) : flux RSS, requêtes Google News `site:` et requêtes thématiques par zone/langue. Les filtres couvrent aussi la science sans condition de vocabulaire financier et la réglementation CSRD/SFDR/ISSB. Chaque article conserve sa source, sa zone de recherche, ses thèmes, son axe éventuel, son niveau d’autorité et les restrictions d’accès connues.
 - **Agenda** (`src/events_watch.py`) : lit `data/events.yaml`, un agenda tenu à la main. Aucun événement n’y entre sans vérification sur une source officielle. Le script cherche aussi des événements candidats, écrits dans `data/interim/events_candidates.csv` pour relecture, jamais dans l’agenda.
 - **Appels à projets** (`src/calls_watch.py`) : lit la liste publique de Carenews, filtre sur la nature et l’agriculture, signale les appels nouveaux ou qui se clôturent sous 14 jours.
-- **Newsletter** (`src/daily_digest.py`, `src/editorial.py`) : collecte chaque jour à partir de 06 h UTC, diffusion le lundi seulement (07 h en hiver ou 08 h en été à Paris). La diffusion intervient après le traitement, avec les éventuels délais de GitHub : ce n’est pas une garantie de réception à 06 h précises. L’édition retient au plus 15 articles détectés dans les 7 derniers jours, avec une place réservée à la science lorsqu’un contenu est disponible. Les sources primaires sont prioritaires, puis les analyses, la presse et les communications ; à autorité égale, les publications les plus récentes passent d’abord. Ce classement est un repère éditorial, pas une validation de chaque affirmation.
+- **Newsletter** (`src/daily_digest.py`, `src/editorial.py`) : collecte chaque jour à partir de 06 h UTC, diffusion le lundi seulement (07 h en hiver ou 08 h en été à Paris). La diffusion intervient après le traitement, avec les éventuels délais de GitHub : ce n’est pas une garantie de réception à 06 h précises. L’édition retient au plus 15 articles publiés pendant la semaine civile précédente en UTC, avec une place réservée à la science sans la placer systématiquement en tête. Le classement privilégie les annonces de mobilisation de capitaux pour le vivant, les autres financements et les projets concrets. L’autorité de la source, son rattachement au registre et la récence départagent ensuite les contenus. Ce classement lexical est un repère éditorial, pas une validation de chaque affirmation ni de l’impact annoncé.
 - **Archive et états** (`src/news_archive.py`) : les contenus collectés sont conservés dans `data/output/news_archive.json` avant l’envoi. L’historique `data/interim/newsletter_delivery.json` ne marque comme diffusés que les articles et rapports effectivement envoyés. Un plafond de sélection ou un échec d’email ne supprime pas l’archive. Les articles non retenus restent archivés, mais ne sont plus candidats à l’email une fois leur période éditoriale dépassée.
-- **Page hebdomadaire** (`src/notion_weekly.py`) : une page de lecture ordinaire, sans les propriétés de la base. Couverture vert sombre, cartes de chiffres clés, trois signaux à retenir, sélection de 15 actualités par rubrique et agenda bleu reprennent la charte. Les tags détaillés restent dans la bibliothèque, pas sur la page publique.
+- **Page hebdomadaire** (`src/notion_weekly.py`) : une page de lecture ordinaire, sans les propriétés de la base. Couverture photographique de forêt, voile émeraude et titre à empattements, cartes de chiffres clés, trois signaux à retenir, sélection de 15 actualités par rubrique et agenda bleu. Les tags détaillés restent dans la bibliothèque, pas sur la page publique.
+
+## Ligne éditoriale : financer le vivant
+
+La veille aide le collectif à passer des idées à l’action et à flécher davantage de financements vers le vivant. Elle relie finance, ONG, scientifiques, économistes, entreprises et acteurs publics : fonds biodiversité, économie bleue, restauration des écosystèmes, eau, paiements pour services écosystémiques et partenariats de terrain. La science et la réglementation restent présentes comme leviers de décision, sans réduire la veille à la conformité ESG.
+
+Les offres d’emploi, stages, recrutements, concours, trophées, nominations de dirigeants, récapitulatifs généralistes et pages de navigation sont écartés de la sélection principale, y compris s’ils sont déjà archivés. Les reprises d’annonces de financement sont rapprochées lexicalement pour éviter qu’un lancement de fonds occupe plusieurs places. Ce rapprochement peut confondre des sujets proches ; la bibliothèque conserve les ressources originales.
+
+ESG Today est collecté sur quatre pages RSS au maximum, au lieu de la seule page récente. Les articles individuels sur les fonds biodiversité, l’économie bleue, l’eau et la déforestation sont retenus selon leur pertinence ; ni la newsletter complète ni ses publicités ne sont reproduites. Une annonce reste une annonce : un montant cible n’est pas un montant déjà levé et un objectif écologique n’est pas un résultat mesuré.
 
 ## Structure de l’hebdomadaire
 
-1. **Réglementation et standards** : CSRD, SFDR, ESRS, IFRS/ISSB, TNFD.
-2. **Science et génie écologique** : IPBES, INRAE, MNHN, CNRS, restauration et stratégies territoriales.
-3. **Financement et marchés**.
-4. **Pratiques et engagements**.
+1. **Financement et marchés** : mobilisation des capitaux pour la nature.
+2. **Pratiques et engagements** : projets et partenariats.
+3. **Réglementation et standards** : CSRD, SFDR, ESRS, IFRS/ISSB, TNFD.
+4. **Science et génie écologique** : IPBES, INRAE, MNHN, CNRS, restauration et stratégies territoriales.
 5. **Synthèses de rapports** : jusqu’à deux fiches lues et validées humainement ; sinon, l’absence de nouvelle fiche est indiquée.
 6. **Agenda** : les cinq premières rencontres, avec un lien vers l’agenda complet à 60 jours.
 7. **Opportunités** : types séparés « appels à projets et financements », « AO/RfP pour structures » et « missions de consultants indépendants ». À ce stade, seul le premier type est alimenté automatiquement, par Carenews ; une rubrique sans contenu est omise.
@@ -96,6 +104,8 @@ Le planificateur est celui de **GitHub Actions**, pas un agent Warp. Warp peut s
 - Les secrets d’envoi et Notion restent dans GitHub Actions ; aucune clé d’API de modèle d’IA n’est nécessaire.
 - Le contrôle des liens dans `ci.yml` le lundi ne publie rien et reste indépendant.
 
+**Édition du lundi 9 novembre 2026** : déclenchement à **07 h, heure de Paris (CET, UTC+1)**, soit 06 h UTC. Elle couvre les actualités du 2 au 8 novembre. La collecte et la composition précèdent l’envoi ; annoncer une diffusion « à partir de 7 h » plutôt qu’une réception garantie à 7 h précises. Les délais de GitHub Actions et de la messagerie peuvent retarder la réception.
+
 Avant déploiement :
 
 1. Exécuter les tests locaux dans `.venv`.
@@ -124,6 +134,8 @@ Ouvrir `data/sources.yaml`, copier une ligne, renseigner `rss` si un flux valide
 La section `profils` définit l’autorité par catégorie ; une source peut la surcharger avec `autorite: primaire|analyse|presse|communication`. `axe: science|reglementation|financement|pratiques` force une rubrique lorsque cela se justifie. `acces: abonnement` signale un accès payant connu (AEF Info) ; aucun contenu protégé n’est contourné. La disponibilité d’un domaine ne garantit pas son indexation exhaustive par Google News.
 
 Les sources ajoutées sont Vert, Boursorama, AEF Info, ESG Today, IFRS/ISSB, INRAE, MNHN et CNRS. ESG Today reste classée « International », car sa couverture ne se limite pas aux États-Unis. IPBES est rattachée à la recherche.
+
+CINEA/LIFE et l’AFD complètent les sources sur les financements et leur mise en œuvre. Leurs actualités sont recherchées par domaine ; cela ne constitue pas encore un connecteur structuré vers leurs appels à projets. `rss_pages` active une pagination WordPress bornée (1 par défaut, 4 pour ESG Today).
 
 `canaux_complementaires` recense séparément les événements Finance for Biodiversity, les financements européens et les marchés/missions du Green Climate Fund. Ce sont des points d’entrée documentés, pas encore des collecteurs actifs. CSP reste à identifier ; Symbiosis et les fondations américaines restent à préciser. Vérifier ensuite les sources avec `.venv/bin/python src/news_watch.py --check-sources`.
 
@@ -194,11 +206,19 @@ Cette première version est **unidirectionnelle vers Notion**. Modifier un statu
 
 La page « Veille – Nature in Finance » est une **page ordinaire**, pas une ligne de base de données : elle ne possède que son titre. Une fiche « Gestion de la veille hebdomadaire », d’identifiant technique `veille-nif:weekly-publication:management`, reste dans la bibliothèque pour les métadonnées. La page de lecture est sa sous-page, repérée par `NOTION_WEEKLY_PAGE_ID`. La migration du prototype quotidien sauvegarde d’abord ses propriétés dans la fiche de gestion puis déplace la même page, sans changer son identifiant ni effacer son contenu. Un champ non copiable arrête la migration plutôt que de perdre une annotation. L’ancien `NOTION_DAILY_PAGE_ID` est accepté comme repli pendant cette transition.
 
-La sélection compare les publications à une fenêtre glissante de **sept jours**, en UTC, bornes incluses. Les dates absentes, illisibles, futures ou sans heure sont exclues. La sélection est plafonnée à 15 articles par défaut (`--max-articles`), privilégie les sources primaires et réserve une place à la science si un contenu pertinent existe. Elle est indépendante des articles déjà envoyés par email. La période est affichée en heure de Paris.
+La sélection suit la **semaine civile précédente en UTC**, du lundi 00 h inclus au lundi suivant 00 h exclu. Par exemple : **« Édition du 9 novembre 2026 »**, puis sur une ligne distincte **« Actualités du 2 au 8 novembre 2026 »**. Une prévisualisation dominicale porte déjà la date du lundi suivant ; l’instant réel de collecte reste indiqué dans « Sources et méthode ». Aucun article futur n’est ajouté pour compléter un aperçu avant la fin de la semaine. Les dates absentes, illisibles, futures ou sans heure sont exclues. Le plafond reste de 15 articles (`--max-articles`), avec une place pour la science et indépendamment de l’historique d’envoi de l’email.
+
+`--edition-date 2026-11-09` fixe explicitement le lundi de diffusion ; le workflow expose le même champ `edition_date`, qui ne modifie que la page Notion. Laisser ce champ vide pour l’automatisation. `start_date` peut avancer ou reculer la borne de début d’une reprise manuelle, mais la fin reste celle de l’édition choisie.
 
 La page présente une couverture haute définition (`assets/notion-cover.png`), trois chiffres clés lisibles sans colonnes étroites, trois liens « à retenir », les autres articles par rubrique et l’agenda à 60 jours. Les titres ne sont pas répétés dans plusieurs sections. Les sources, dates et accès payants restent visibles ; les tags et propriétés techniques restent dans la base. Un lien vers la bibliothèque est placé sous l’introduction et rappelé en bas de page.
 
+Le pied de page affiche le dépôt `https://github.com/eplr/veille-nif` et la signature « © 2026 fidestra » ; le millésime suit automatiquement l’année de l’édition.
+
 La couverture est téléversée une seule fois via l’API officielle, sans hébergement externe ni dépendance graphique à l’exécution. Une couverture choisie manuellement n’est pas remplacée, sauf demande explicite `--refresh-cover`. Les autres blocs utilisent les couleurs natives de Notion ; le thème du lecteur reste libre. Conserver les annotations dans `Notes` de la fiche de gestion ou dans des blocs **hors de la zone générée**.
+
+Le workflow expose `refresh_cover` pour remplacer volontairement le visuel existant. La couverture est composée hors pipeline par `tools/render_cover.py` avec Pillow dans un venv et des chemins de polices explicites ; elle n’ajoute aucune dépendance au run hebdomadaire. Les crédits et la licence de la photo figurent dans `assets/credits.txt`. La typographie du titre est intégrée à l’image : le script ne peut pas imposer une police arbitraire au corps natif de la page Notion.
+
+L’aperçu HTML utilise un fond vert profond, des liens bleu glacier et un encadré bronze pour les sources (`assets/weekly-preview.css`). Les contrastes de lecture ont été contrôlés à au moins 7:1. Cette palette CSS n’est pas injectée dans Notion : la page native conserve le thème du lecteur et ses couleurs de blocs. `tools/preview_weekly.py` génère un aperçu autonome depuis le JSON des blocs, avec la couverture intégrée au fichier pour éviter les images locales bloquées.
 
 ### Navigation de la bibliothèque
 
@@ -235,7 +255,7 @@ Le workflow collecte et alimente la bibliothèque chaque jour. Il actualise la p
 
 Deux licences, selon la nature du fichier. Titulaire des droits : fidestra.
 
-- **Code** – licence MIT (`LICENSE`) : `src/`, `tests/`, `.github/`, `requirements.txt`. Réutilisation libre, y compris commerciale, en conservant l’avis de copyright.
+- **Code** – licence MIT (`LICENSE`) : `src/`, `tests/`, `tools/`, `.github/`, `requirements.txt`. Réutilisation libre, y compris commerciale, en conservant l’avis de copyright.
 - **Contenus et données** – licence CC BY 4.0 (`LICENSE-CONTENT`) : `assets/`, `dist/`, `data/`, `README.md` et les autres textes. Réutilisation libre, y compris commerciale et modifiée, à condition de citer la source et de signaler les modifications.
 
 Attribution demandée pour les contenus :
@@ -243,5 +263,7 @@ Attribution demandée pour les contenus :
 > Veille Nature in Finance – fidestra, CC BY 4.0, https://github.com/eplr/veille-nif
 
 Les contenus de tiers cités ou liés depuis le dépôt (articles de presse, textes réglementaires, pages d’événements, appels à projets) restent soumis à leurs propres conditions : ces licences ne portent que sur ce qui est produit dans le cadre du projet.
+
+La photographie de la couverture reste sous licence Unsplash, distincte de CC BY 4.0 ; voir `assets/credits.txt`.
 
 En contribuant, vous acceptez que votre apport soit diffusé sous la licence correspondant au fichier modifié.

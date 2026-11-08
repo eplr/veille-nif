@@ -1,0 +1,17 @@
+Couverture photographique Nature in Finance
+
+Photographie de forêt : Łukasz Szmigiel / Unsplash.
+Source : https://images.unsplash.com/photo-1441974231531-c6227db76b6e
+Licence : Unsplash License, consultée avant utilisation.
+https://unsplash.com/license
+Page consultée le 8 novembre 2026.
+
+Adaptations : recadrage panoramique, voile émeraude, composition typographique.
+La photographie conserve sa licence d’origine ; elle n’est pas soumise à
+l’attribution CC BY 4.0 des textes et données propres au projet.
+Téléchargement : largeur native reçue 2 560 pixels ; composition 3 600 pixels.
+
+Visuel final : notion-cover.png, 3 600 × 1 080 pixels.
+Titre composé en Georgia ; les polices ne sont pas redistribuées.
+Le script tools/render_cover.py accepte des chemins de polices explicites,
+y compris sous Linux AMD64 ; les polices ne sont pas requises à la publication.

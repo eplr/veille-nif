@@ -39,8 +39,8 @@ SOURCE_BLOCKLIST = {"orange actualités", "vietnam.vn"}
 # Pour le filtre « mots_cles_large » (Carenews) : vocabulaire agricole et environnemental inclus.
 SITE_KEYWORDS_LARGE = "(biodiversité OR nature OR agriculture OR paysans OR environnement OR écologie)"
 SITE_KEYWORDS = {
-    "fr": '(biodiversité OR nature OR TNFD OR "capital naturel")',
-    "en": '(biodiversity OR "nature-related" OR TNFD OR "natural capital")',
+    "fr": '(biodiversité OR nature OR TNFD OR "capital naturel" OR "économie bleue")',
+    "en": '(biodiversity OR "nature-related" OR TNFD OR "natural capital" OR "blue economy")',
     "de": "(Biodiversität OR Naturkapital OR TNFD)",
 }
 SCIENCE_KEYWORDS = '(biodiversity OR biodiversité OR ecology OR écologie OR "génie écologique" OR restoration OR "stratégie territoriale")'
@@ -57,6 +57,7 @@ ZONES = [
             '("ESRS E4" OR CSRD) (biodiversité OR nature)',
             '"crédits biodiversité" OR "crédits nature" OR "compensation biodiversité"',
             '"capital naturel" (finance OR entreprise OR comptabilité)',
+            '(biodiversité OR restauration) (financement OR fonds OR partenariat OR "services écosystémiques")',
             '"article 29" "loi énergie-climat" biodiversité',
             '"risques liés à la nature" (banque OR assureur OR superviseur)',
             '"génie écologique" OR "restauration écologique" OR "stratégie territoriale biodiversité"',
@@ -72,6 +73,7 @@ ZONES = [
             'CSRD OR SFDR OR "ISSB biodiversity"',
             '(ECB OR "European Central Bank") (nature OR biodiversity) risk',
             '"EU biodiversity" finance strategy',
+            '(biodiversity OR "blue economy" OR "nature restoration") (fund OR investment OR "blended finance")',
         ],
     },
     {
@@ -206,7 +208,13 @@ def collect(lookback_days: int = LOOKBACK_DAYS, ignore_seen: bool = False,
     # 1 et 2. Sources du registre
     for src in sources:
         if src.get("rss"):
-            items = fetch_feed(src["rss"])
+            items = []
+            for page in range(1, src.get("rss_pages", 1) + 1):
+                url = src["rss"] if page == 1 else f"{src['rss']}?paged={page}"
+                page_items = fetch_feed(url)
+                items.extend(page_items)
+                if not page_items:
+                    break
             canal = "rss"
         elif src.get("domaine"):
             items = _site_news(src, lookback_days)

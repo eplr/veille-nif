@@ -12,6 +12,14 @@ on:
         description: "Fenêtre de recherche en jours (7 pour une première exécution)"
         default: "3"
         type: string
+      edition_date:
+        description: "Lundi de diffusion (YYYY-MM-DD, vide = lundi courant ou suivant)"
+        default: ""
+        type: string
+      refresh_cover:
+        description: "Remplacer explicitement la couverture Notion par le visuel du dépôt"
+        type: boolean
+        default: false
       start_date:
         description: "Premier jour UTC inclus pour la collecte et la page Notion (YYYY-MM-DD, vide = fenêtre habituelle)"
         default: ""
@@ -140,18 +148,23 @@ jobs:
           INPUT_PUBLISH_NOW: ${{ inputs.publish_now }}
           INPUT_START_DATE: ${{ inputs.start_date }}
           CALLS_OUTCOME: ${{ steps.calls.outcome }}
+          INPUT_EDITION_DATE: ${{ inputs.edition_date }}
+          INPUT_REFRESH_COVER: ${{ inputs.refresh_cover }}
         run: |
-          args="--collection-file /tmp/veille-collection.json --json-out /tmp/notion-weekly.json"
+          args=(--collection-file /tmp/veille-collection.json --json-out /tmp/notion-weekly.json)
           if [ "$INPUT_PUBLISH_NOW" != "true" ] && [ "$INPUT_DRY_RUN" != "true" ]; then
-            args="$args --weekly"
+            args+=(--weekly)
           fi
-          [ "$INPUT_DRY_RUN" = "true" ] && args="$args --dry-run"
-          [ "$CALLS_OUTCOME" != "success" ] && args="$args --calls-unavailable"
-          if [ -n "$INPUT_START_DATE" ]; then
-            .venv/bin/python src/notion_weekly.py $args --start-date "$INPUT_START_DATE"
-          else
-            .venv/bin/python src/notion_weekly.py $args
-          fi
+          [ "$INPUT_DRY_RUN" = "true" ] && args+=(--dry-run)
+          [ "$CALLS_OUTCOME" != "success" ] && args+=(--calls-unavailable)
+          [ "$INPUT_REFRESH_COVER" = "true" ] && args+=(--refresh-cover)
+          [ -n "$INPUT_START_DATE" ] && args+=(--start-date "$INPUT_START_DATE")
+          [ -n "$INPUT_EDITION_DATE" ] && args+=(--edition-date "$INPUT_EDITION_DATE")
+          .venv/bin/python src/notion_weekly.py "${args[@]}"
+
+      - name: Composer l’aperçu HTML autonome
+        if: ${{ success() && inputs.dry_run == true }}
+        run: .venv/bin/python tools/preview_weekly.py --blocks /tmp/notion-weekly.json --output /tmp/veille-public-preview.html
 
       - name: Conserver les aperçus du dry run
         if: ${{ always() && !cancelled() && inputs.dry_run == true }}
@@ -162,6 +175,7 @@ jobs:
             /tmp/veille.html
             /tmp/notion-weekly.json
             /tmp/veille-collection.json
+            /tmp/veille-public-preview.html
           if-no-files-found: error
           retention-days: 7
 

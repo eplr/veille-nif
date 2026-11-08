@@ -40,8 +40,9 @@ class TestStartDate(unittest.TestCase):
         selected = notion_weekly.select_weekly(items, NOW, start=START)
         self.assertEqual({item["lien"] for item in selected}, {items[1]["lien"], items[2]["lien"]})
         content = json.dumps(notion_weekly.build_blocks(selected, [], [], NOW, start=START), ensure_ascii=False)
-        self.assertIn("du 02/11 au 08/11/2026", content)
-        self.assertIn("02/11 à 01:00 CET", content)
+        self.assertIn("Édition du 9 novembre 2026", content)
+        self.assertIn("Actualités du 2 au 8 novembre 2026", content)
+        self.assertIn("02/11/2026 à 00:00 UTC", content)
         self.assertIn(items[0], notion_weekly.select_weekly(items, NOW))
 
     def test_collecte_elargie_et_bornee_sans_persistance_en_apercu(self):

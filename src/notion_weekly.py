@@ -20,7 +20,7 @@ import daily_digest
 import editorial
 import events_watch
 import news_archive
-from lib import DEFAULT_THEME, is_noise, load_sources, normalize_title, parse_date, today_utc
+from lib import DEFAULT_THEME, load_sources, normalize_title, parse_date, today_utc
 from notion_content import canonical_url, load_articles, notion_date, rich_text, select
 from notion_sync import NotionClient, NotionError, property_value
 from notion_library import DEFAULT_LIBRARY_URL
@@ -44,7 +44,7 @@ def select_weekly(items, now, limit=15, start=None):
     sources = {source["nom"]: source for source in load_sources()}
     candidates = []
     for item in items:
-        if is_noise(item["titre"]):
+        if not editorial.eligible(item):
             continue
         raw = item.get("date_publication", "")
         # Une simple date calendaire ne permet pas de garantir les bornes horaires.
@@ -62,7 +62,7 @@ def select_weekly(items, now, limit=15, start=None):
     for item in sorted(candidates, key=editorial.priority):
         url = canonical_url(item["lien"])
         title = re.sub(r"\bcop\s+(\d+)\b", r"cop\1", normalize_title(item["titre"]))
-        duplicate = url in links or title in titles
+        duplicate = url in links or title in titles or any(editorial.same_story(item, previous) for previous in selected)
         links.add(url)
         titles.add(title)
         if not duplicate:
@@ -73,7 +73,8 @@ def select_weekly(items, now, limit=15, start=None):
         raise ValueError("Le nombre d’actualités doit être strictement positif")
     science = next((item for item in selected if editorial.section_for(item) == "science"), None)
     chosen = [science] if science else []
-    return chosen + [item for item in selected if item is not science][:limit - len(chosen)]
+    return sorted(chosen + [item for item in selected if item is not science][:limit - len(chosen)],
+                  key=editorial.priority)
 
 
 def text(value, *, color="default", bold=False, link=None):
@@ -107,14 +108,18 @@ def article_blocks(item):
     ]
 
 
-def build_blocks(items, events, calls, now, calls_available=True, total_articles=None, library_url=None, start=None):
+def build_blocks(items, events, calls, now, calls_available=True, total_articles=None, library_url=None,
+                 start=None, edition_date=None):
     library_url = canonical_url(library_url or DEFAULT_LIBRARY_URL)
-    local, start = now.astimezone(PARIS), (start if start is not None else now - timedelta(days=7)).astimezone(PARIS)
+    edition, default_start, end = editorial.edition_calendar(now, edition_date)
+    start = start if start is not None else default_start
+    last_day = end.date() - timedelta(days=1)
     blocks = [
         block("heading_1", "L’essentiel de la semaine"),
-        block("paragraph", f"Édition du {local.strftime('%d/%m/%Y')} · "
-              f"du {start.strftime('%d/%m')} au {local.strftime('%d/%m/%Y')}",
-              color="gray"),
+        block("paragraph", f"Édition du {editorial.french_date(edition)}", bold=True),
+        block("paragraph", editorial.news_period(start.date(), last_day), color="gray"),
+        block("paragraph", "Passer des idées à l’action pour flécher davantage de financements vers le vivant.",
+              color="green"),
         *[
             block("quote", f"{number} {label}", color=color, bold=True)
             for number, label, color in (
@@ -181,11 +186,18 @@ def build_blocks(items, events, calls, now, calls_available=True, total_articles
     blocks.append({"object": "block", "type": "toggle", "toggle": {
         "rich_text": text("Sources et méthode", color="gray"),
         "children": [block("paragraph", "Sélection automatique, non exhaustive : vérifiez la source avant de la citer. "
-                           f"Publications du {start.strftime('%d/%m à %H:%M %Z')} au "
-                           f"{local.strftime('%d/%m à %H:%M %Z')}. "
-                           "Les dates absentes ou inexploitables sont exclues. L’agenda est validé à la main ; "
-                           "les mentions « à revérifier » signalent une incertitude.", color="gray")],
+                           f"Publications à partir du {start.strftime('%d/%m/%Y à %H:%M UTC')}, "
+                           f"jusqu’au {end.strftime('%d/%m/%Y à %H:%M UTC')} exclu. "
+                           f"Dernière collecte prise en compte : {now.strftime('%d/%m/%Y à %H:%M %Z')}. "
+                           "Le classement privilégie les financements du vivant et les projets concrets, "
+                           "puis l’autorité de la source et la récence. Les annonces ne prouvent pas l’impact. "
+                           "Les dates absentes ou inexploitables sont exclues.", color="gray")],
     }})
+    blocks += [
+        block("divider"),
+        block("paragraph", daily_digest.REPO_URL, color="blue", link=daily_digest.REPO_URL),
+        block("paragraph", f"© {edition.year} fidestra", color="gray"),
+    ]
     return blocks
 
 
@@ -395,7 +407,9 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="composer sans accès ni écriture Notion")
     parser.add_argument("--collection-file", help="collecte JSON préparée à ajouter à l’archive")
     parser.add_argument("--start-date", type=date.fromisoformat,
-                        help="premier jour UTC inclus (YYYY-MM-DD), sinon fenêtre glissante de sept jours")
+                        help="premier jour UTC inclus (YYYY-MM-DD), sinon début de la semaine éditoriale")
+    parser.add_argument("--edition-date", type=date.fromisoformat,
+                        help="lundi de diffusion (YYYY-MM-DD), par défaut lundi courant ou suivant")
     parser.add_argument("--json-out", help="aperçu JSON des blocs, hors des historiques")
     parser.add_argument("--calls-unavailable", action="store_true", help="signaler l’échec de collecte Carenews")
     parser.add_argument("--weekly", action="store_true", help="publier uniquement le lundi (sauf aperçu)")
@@ -404,9 +418,12 @@ def main():
     args = parser.parse_args()
     try:
         now = today_utc()
-        start = datetime.combine(args.start_date, datetime.min.time(), timezone.utc) if args.start_date else None
+        edition, start, end = editorial.edition_calendar(now, args.edition_date)
+        start = datetime.combine(args.start_date, datetime.min.time(), timezone.utc) if args.start_date else start
         if start and start > now:
             raise ValueError("start-date ne doit pas être dans le futur")
+        if start >= end:
+            raise ValueError("La période d’actualités doit précéder la date d’édition")
         if args.max_articles < 1:
             raise ValueError("max-articles doit être strictement positif")
         if args.weekly and now.astimezone(PARIS).weekday() != 0 and not args.dry_run:
@@ -418,8 +435,9 @@ def main():
             if not path.is_file():
                 raise ValueError("Fichier de collecte introuvable")
             articles = news_archive.merge(articles, news_archive.read_json(path, []))
-        all_items = select_weekly(articles, now, limit=None, start=start)
-        items = select_weekly(articles, now, limit=args.max_articles, start=start)
+        cutoff = min(now, end - timedelta(microseconds=1))
+        all_items = select_weekly(articles, cutoff, limit=None, start=start)
+        items = select_weekly(articles, cutoff, limit=args.max_articles, start=start)
         today = now.astimezone(PARIS).date()
         events = events_watch.in_window(events_watch.load_events(), today)
         calls = news_archive.read_json(calls_watch.SNAPSHOT_FILE, [])
@@ -427,10 +445,10 @@ def main():
         blocks = build_blocks(items, events, calls, now,
                               calls_available=calls_watch.SNAPSHOT_FILE.exists() and not args.calls_unavailable,
                               total_articles=len(all_items), library_url=os.environ.get("NOTION_LIBRARY_URL"),
-                              start=start)
+                              start=start, edition_date=edition)
         if args.json_out:
             news_archive.write_json(Path(args.json_out), blocks)
-        period = f"depuis le {args.start_date.isoformat()} UTC" if args.start_date else "sur sept jours"
+        period = f"pour l’édition du {edition.isoformat()}, depuis le {start.date().isoformat()} UTC"
         print(f"[notion-weekly] {len(items)} actualité(s) retenues sur {len(all_items)} {period}, "
               f"{len(events)} événement(s), {len(blocks)} blocs")
         if args.dry_run:

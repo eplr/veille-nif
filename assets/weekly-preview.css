@@ -1,0 +1,24 @@
+:root{color-scheme:dark;--bg:#091f19;--surface:#123328;--card:#1b4032;--text:#edf5ef;--muted:#bdd2c4;--link:#a9d9ef;--border:#355c49}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.75 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+header{background:var(--surface);border-bottom:1px solid var(--border)}
+header img{width:100%;height:auto;aspect-ratio:10/3;object-fit:cover;display:block}
+main{max-width:940px;margin:40px auto 72px;padding:36px 48px 56px;background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:0 20px 64px #00000024}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:normal;color:var(--text);line-height:1.35}
+h1{font-size:36px;margin-top:0}
+h2{font-size:27px;margin-top:44px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+h3{font-size:18px;font-weight:600;line-height:1.55;margin:24px 0 6px}
+p{margin:10px 0;color:var(--muted)}
+a{color:var(--link);text-decoration:none;text-underline-offset:4px}
+a:hover{text-decoration:underline;color:#d6effa}
+a:focus-visible,summary:focus-visible{outline:2px solid #d8cd9f;outline-offset:5px;border-radius:3px}
+blockquote{display:inline-block;margin:16px 10px 16px 0;padding:13px 20px;background:var(--card);border:1px solid var(--border);border-radius:10px;color:var(--text)}
+blockquote.sources{background:#443921;border-color:#8d7950;color:#f3dfac}
+blockquote.agenda{background:#173b46;border-color:#436777;color:#e5f2fa}
+h2.agenda{color:#b7e2f5;border-bottom-color:#4a7182}
+hr{border:0;border-top:1px solid var(--border);margin:30px 0}
+aside{background:#18382c;color:#c9dccc;border-bottom:1px solid var(--border);padding:11px 24px;font-size:13px}
+details{font-size:14px;margin-top:32px;padding:18px 20px;background:var(--card);border-radius:10px;color:var(--muted)}
+summary{cursor:pointer;color:var(--link)}
+::selection{background:#446d53;color:#fff9e9}
+@media(max-width:640px){body{font-size:16px}main{margin:20px 12px 32px;padding:24px 20px;border-radius:12px}h1{font-size:29px}h2{font-size:24px}blockquote{display:block;margin:10px 0}header img{min-height:180px;object-fit:cover}}

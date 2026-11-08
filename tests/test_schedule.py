@@ -31,14 +31,14 @@ class TestSchedule(unittest.TestCase):
         ):
             with self.subTest(step=name):
                 script = self.steps[name]["run"]
+                argument = 'args+=(--weekly)' if force == "INPUT_PUBLISH_NOW" else 'args="$args --weekly"'
                 self.assertIn(
                     f'if [ "${force}" != "true" ] && [ "$INPUT_DRY_RUN" != "true" ]; then\n'
-                    '  args="$args --weekly"',
+                    f'  {argument}',
                     script,
                 )
-                self.assertIn(
-                    '[ "$INPUT_DRY_RUN" = "true" ] && args="$args --dry-run"', script,
-                )
+                dry_argument = 'args+=(--dry-run)' if force == "INPUT_PUBLISH_NOW" else 'args="$args --dry-run"'
+                self.assertIn(f'[ "$INPUT_DRY_RUN" = "true" ] && {dry_argument}', script)
 
     def test_dry_run_sans_persistance_avec_apercus(self):
         for name in (

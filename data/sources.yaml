@@ -8,6 +8,7 @@
 #   langue     fr, en ou de
 #   url        page d'accueil de la source (citée dans le pack copier-coller)
 #   rss        URL d'un flux RSS/Atom vérifié, ou null
+#   rss_pages  nombre de pages du flux WordPress (défaut 1 ; reprise hebdomadaire ESG Today)
 #   domaine    domaine utilisé pour la requête Google News « site: » quand il n'y a pas de flux
 #   filtre     "aucun" : tous les articles sont retenus (source spécialisée)
 #              "mots_cles" : seuls les articles qui parlent de nature et de biodiversité sont retenus
@@ -46,6 +47,8 @@ sources:
   - {id: ofb, nom: "Office français de la biodiversité", pays: FR, categorie: institution, langue: fr, url: "https://www.ofb.gouv.fr", rss: null, domaine: "ofb.gouv.fr", filtre: aucun, verif: "2026-10-07"}
   - {id: mtect, nom: "Ministère de la Transition écologique", pays: FR, categorie: institution, langue: fr, url: "https://www.ecologie.gouv.fr", rss: null, domaine: "ecologie.gouv.fr", filtre: mots_cles, verif: "2026-10-07"}
   - {id: commission-env, nom: "Commission européenne – Environnement", pays: UE, categorie: institution, langue: en, url: "https://environment.ec.europa.eu", rss: null, domaine: "environment.ec.europa.eu", filtre: mots_cles, verif: "2026-10-07"}
+  - {id: cinea-life, nom: "CINEA / LIFE", pays: UE, categorie: institution, langue: en, url: "https://cinea.ec.europa.eu/programmes/life/nature-and-biodiversity_en", rss: null, domaine: "cinea.ec.europa.eu", filtre: mots_cles, verif: "2026-11-08"}
+  - {id: afd, nom: "AFD", pays: FR, categorie: institution, langue: fr, url: "https://www.afd.fr/fr/thematiques/biodiversite", rss: null, domaine: "afd.fr", filtre: mots_cles, verif: "2026-11-08"}
   - {id: esma, nom: "ESMA", pays: UE, categorie: institution, langue: en, url: "https://www.esma.europa.eu", rss: "https://www.esma.europa.eu/rss.xml", domaine: null, filtre: reglementation, verif: "2026-10-07"}
   - {id: eba, nom: "EBA", pays: UE, categorie: institution, langue: en, url: "https://www.eba.europa.eu", rss: "https://www.eba.europa.eu/rss.xml", domaine: null, filtre: mots_cles, verif: "2026-10-07"}
   - {id: bce, nom: "BCE", pays: UE, categorie: institution, langue: en, url: "https://www.ecb.europa.eu", rss: "https://www.ecb.europa.eu/rss/press.xml", domaine: null, filtre: mots_cles, verif: "2026-10-07"}
@@ -96,7 +99,7 @@ sources:
   - {id: vert, nom: "Vert", pays: FR, categorie: presse, langue: fr, url: "https://vert.eco", rss: "https://vert.eco/feed/", domaine: null, filtre: mots_cles_large, verif: "2026-10-28"}
   - {id: boursorama, nom: "Boursorama", pays: FR, categorie: presse, langue: fr, url: "https://www.boursorama.com", rss: null, domaine: "boursorama.com", filtre: reglementation, verif: "2026-10-28"}
   - {id: aef-info, nom: "AEF Info", pays: FR, categorie: presse, langue: fr, url: "https://www.aefinfo.fr", rss: null, domaine: "aefinfo.fr", filtre: reglementation, acces: abonnement, verif: "2026-10-28"}
-  - {id: esg-today, nom: "ESG Today", pays: INT, categorie: presse, langue: en, url: "https://www.esgtoday.com", rss: "https://www.esgtoday.com/feed/", domaine: null, filtre: reglementation, verif: "2026-10-28"}
+  - {id: esg-today, nom: "ESG Today", pays: INT, categorie: presse, langue: en, url: "https://www.esgtoday.com", rss: "https://www.esgtoday.com/feed/", rss_pages: 4, domaine: null, filtre: reglementation, verif: "2026-11-08"}
   - {id: novethic, nom: "Novethic", pays: FR, categorie: presse, langue: fr, url: "https://www.novethic.fr", rss: "https://www.novethic.fr/feed/", domaine: null, filtre: mots_cles, verif: "2026-10-07"}
   - {id: responsible-investor, nom: "Responsible Investor", pays: INT, categorie: presse, langue: en, url: "https://www.responsible-investor.com", rss: "https://www.responsible-investor.com/feed/", domaine: null, filtre: mots_cles, verif: "2026-10-07"}
   - {id: environmental-finance, nom: "Environmental Finance", pays: INT, categorie: presse, langue: en, url: "https://www.environmental-finance.com", rss: null, domaine: "environmental-finance.com", filtre: mots_cles, verif: "2026-10-07"}
