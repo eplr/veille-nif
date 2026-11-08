@@ -218,6 +218,8 @@ La couverture est téléversée une seule fois via l’API officielle, sans héb
 
 Le workflow expose `refresh_cover` pour remplacer volontairement le visuel existant. La couverture est composée hors pipeline par `tools/render_cover.py` avec Pillow dans un venv et des chemins de polices explicites ; elle n’ajoute aucune dépendance au run hebdomadaire. Les crédits et la licence de la photo figurent dans `assets/credits.txt`. La typographie du titre est intégrée à l’image : le script ne peut pas imposer une police arbitraire au corps natif de la page Notion.
 
+Le PNG final mesure 2 560 × 768 pixels et reste sous 5 Mio pour respecter la limite des espaces Notion gratuits. Cette limite est contrôlée avant tout transfert et dans les tests.
+
 L’aperçu HTML utilise un fond vert profond, des liens bleu glacier et un encadré bronze pour les sources (`assets/weekly-preview.css`). Les contrastes de lecture ont été contrôlés à au moins 7:1. Cette palette CSS n’est pas injectée dans Notion : la page native conserve le thème du lecteur et ses couleurs de blocs. `tools/preview_weekly.py` génère un aperçu autonome depuis le JSON des blocs, avec la couverture intégrée au fichier pour éviter les images locales bloquées.
 
 ### Navigation de la bibliothèque

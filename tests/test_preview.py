@@ -9,6 +9,11 @@ import preview_weekly
 
 
 class TestPreview(unittest.TestCase):
+    def test_couverture_sous_limite_notion_gratuite(self):
+        cover = (ROOT / "assets/notion-cover.png").read_bytes()
+        self.assertTrue(cover.startswith(b"\x89PNG\r\n\x1a\n"))
+        self.assertLessEqual(len(cover), 5 * 1024 * 1024)
+
     def test_image_integree_et_texte_echappe(self):
         blocks = [{"type": "paragraph", "paragraph": {"rich_text": [
             {"text": {"content": "<script>test</script>", "link": {"url": "javascript:alert(1)"}}},

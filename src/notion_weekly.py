@@ -387,8 +387,8 @@ def ensure_cover(client, page, force=False):
         return
     path = Path(__file__).resolve().parents[1] / "assets" / "notion-cover.png"
     content = path.read_bytes()
-    if not content.startswith(b"\x89PNG\r\n\x1a\n") or len(content) > 20 * 1024 * 1024:
-        raise NotionError("Couverture PNG invalide ou trop volumineuse")
+    if not content.startswith(b"\x89PNG\r\n\x1a\n") or len(content) > 5 * 1024 * 1024:
+        raise NotionError("Couverture PNG invalide ou supérieure à 5 Mio")
     upload = client.request("POST", "/file_uploads", {
         "mode": "single_part", "filename": path.name, "content_type": "image/png",
     })

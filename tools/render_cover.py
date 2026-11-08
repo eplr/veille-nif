@@ -34,7 +34,11 @@ def render(photo, serif_font, sans_font, output):
     centered("Financer le vivant", 420, serif, "#fffaf0")
     draw.line((1650, 615, 1950, 615), fill="#d4c591", width=3)
     centered("Des idées à l’action", 650, subtitle, "#e4f0e5")
-    image.convert("RGB").save(output, optimize=True)
+    image = image.convert("RGB")
+    image.thumbnail((2560, 768), Image.Resampling.LANCZOS)
+    image.save(output, optimize=True)
+    if Path(output).stat().st_size > 5 * 1024 * 1024:
+        raise ValueError("La couverture doit rester sous 5 Mio pour Notion")
 
 
 def main():
