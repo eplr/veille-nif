@@ -195,6 +195,8 @@ def build_blocks(items, events, calls, now, calls_available=True, total_articles
     }})
     blocks += [
         block("divider"),
+        block("paragraph", "Consulter les archives des éditions", color="blue",
+              link=daily_digest.REPO_URL + "/tree/main/data/editions"),
         block("paragraph", daily_digest.REPO_URL, color="blue", link=daily_digest.REPO_URL),
         block("paragraph", f"© {edition.year} fidestra", color="gray"),
     ]

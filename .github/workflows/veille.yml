@@ -89,6 +89,7 @@ jobs:
           fi
 
       - name: Composer et envoyer l’hebdomadaire
+        id: email
         if: ${{ inputs.publish_now != true || inputs.send_now == true || inputs.dry_run == true }}
         env:
           # Secrets à définir dans Settings > Secrets and variables > Actions. Aucun n'est dans le dépôt.
@@ -138,6 +139,7 @@ jobs:
         run: .venv/bin/python src/notion_sync.py
 
       - name: Actualiser la veille Notion hebdomadaire
+        id: weekly_page
         if: ${{ always() && !cancelled() && steps.collect.outcome == 'success' }}
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
@@ -179,6 +181,17 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      - name: Archiver l’édition hebdomadaire
+        if: ${{ always() && !cancelled() && inputs.dry_run != true && steps.collect.outcome == 'success' }}
+        env:
+          INPUT_EDITION_DATE: ${{ inputs.edition_date }}
+          NOTION_OUTCOME: ${{ steps.weekly_page.outcome }}
+          EMAIL_OUTCOME: ${{ steps.email.outcome }}
+        run: |
+          args=()
+          [ -n "$INPUT_EDITION_DATE" ] && args+=(--edition-date "$INPUT_EDITION_DATE")
+          .venv/bin/python src/archive_edition.py "${args[@]}"
+
       - name: Enregistrer l'état et les livrables
         # Conserver la collecte même si l’email ou l’export échoue ensuite.
         if: ${{ always() && !cancelled() && inputs.dry_run != true }}
@@ -188,7 +201,7 @@ jobs:
           date -u +"%Y-%m-%dT%H:%M:%SZ" > data/last_run.txt
           git config user.name "veille-nif[bot]"
           git config user.email "veille-nif@users.noreply.github.com"
-          git add data/interim data/output data/last_run.txt dist
+          git add data/interim data/output data/editions data/last_run.txt dist
           if git diff --cached --quiet; then
             echo "Rien à enregistrer"
           else

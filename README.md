@@ -127,6 +127,18 @@ L’épuisement de crédits Warp n’a aucun effet sur cette automatisation. En 
 
 Point de vigilance : GitHub désactive les workflows planifiés d’un dépôt public resté 60 jours sans activité. Le workflow enregistre son passage dans `data/last_run.txt`. L’étape de persistance s’exécute aussi après un échec d’email ou d’export pour conserver la collecte ; une panne de GitHub ou du push peut toutefois empêcher cet enregistrement. Après un échec d’envoi le lundi, relancer le même jour ou utiliser volontairement `send_now` : les jours suivants ne déclenchent pas de rattrapage automatique.
 
+## Archives des éditions hebdomadaires
+
+L’archive des articles ne remplace pas celle des éditions. Après la composition et les tentatives de publication, chaque exécution hebdomadaire conserve un instantané dans `data/editions/YYYY-MM-DD/RUN_ID-TENTATIVE/` :
+
+- `notion.json` : les blocs de la page composés pour cette édition, lorsqu’ils sont disponibles ;
+- `newsletter.html` : le contenu exact préparé pour l’email, lorsqu’il a été composé ;
+- `metadata.json` : date d’édition, instant de capture, lien du run, commit source (pour retrouver la couverture et le style), résultat séparé de la publication Notion et de l’email, empreintes des fichiers.
+
+Un contenu composé n’est pas une preuve d’envoi : consulter les résultats dans les métadonnées. Une actualisation avant le lundi est rangée sous `previews/` et marquée comme aperçu. Les dry runs n’écrivent aucun instantané durable. Chaque tentative possède son propre dossier ; elle ne remplace ni les éditions précédentes ni les tentatives antérieures.
+
+Ces fichiers sont commités dans Git à la fin du workflow, sans expiration programmée, contrairement aux artefacts temporaires de sept jours. Un lien vers les archives figure en bas de la page Notion. Une panne du runner ou du push peut empêcher la sauvegarde ; un échec de publication reste signalé et ne doit pas être présenté comme une diffusion réussie.
+
 ## Ajouter une source
 
 Ouvrir `data/sources.yaml`, copier une ligne, renseigner `rss` si un flux valide existe, sinon `domaine` (Google News `site:`). Choisir le filtre : `aucun`, `mots_cles`, `mots_cles_large`, `science` ou `reglementation`. Le filtre scientifique accepte notamment le génie écologique et la restauration sans mention de finance ; le filtre réglementaire accepte CSRD/SFDR/ISSB sans mention explicite de nature.
