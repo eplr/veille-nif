@@ -4442,5 +4442,135 @@
     "autorite": "presse",
     "axe": null,
     "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-08 13:58",
+    "pays": "INT",
+    "source": "Capitals Coalition",
+    "titre": "finance Archives – Page 2 of 3",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 06 Nov 2026 12:38:53 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9wNEhHNjBqSGV6RWY5RG80Qk5DSlV0RDYxajYtelpTMF9YeU9ESjl4Y2tjbjBQUllramxsQURrbW1LTjBJNDQ1NFFNYVpjSG1oUjEzTEN6cEFGMkFlRmF2Z2JibmhQcEVIZFlfQ3ln?oc=5",
+    "canal": "site",
+    "source_id": "capitals-coalition",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-08 13:58",
+    "pays": "FR",
+    "source": "INRAE",
+    "titre": "STAGE : Quels sont les déterminants de la durabilité et de la résilience/robustesse des agroécosystèmes ? Construction et analyse d’une base de données de diagnostics de durabilité d’exploitations agricoles",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sat, 07 Nov 2026 02:09:49 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiREFVX3lxTE1iV2p6bzVKbmlDZm5Qb2RJcG9ULWZmUnVYVkczS1pPT19FWjVCYk1UNW1xZS15cVBjQVNmMi1QX0cwQ1N6?oc=5",
+    "canal": "site",
+    "source_id": "inrae",
+    "autorite": "primaire",
+    "axe": "science",
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-08 13:58",
+    "pays": "FR",
+    "source": "INRAE",
+    "titre": "Ingénieur-e en manipulation et analyse de données écologiques",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Sat, 07 Nov 2026 02:09:33 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiREFVX3lxTE1rRlpUaVp6cHZpSVA2a04xQ1NHcm9IN2E1b2pCb3hVcGE4amxybGpDVkRuR29WTTdPMHJOeXNrZWZ2cGZr?oc=5",
+    "canal": "site",
+    "source_id": "inrae",
+    "autorite": "primaire",
+    "axe": "science",
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-08 13:58",
+    "pays": "FR",
+    "source": "INRAE",
+    "titre": "Ingénieur-e en Agroécologie et Living Labs",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Sat, 07 Nov 2026 02:08:48 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiREFVX3lxTE1jVW9uMmVEdl96UFl3LW1vUm9pNllUR0IyWjBncGdJUHhhWHdCeTBIQXVqZ1NaV0pMTHNsV2RjcUJhdFIz?oc=5",
+    "canal": "site",
+    "source_id": "inrae",
+    "autorite": "primaire",
+    "axe": "science",
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-08 13:58",
+    "pays": "FR",
+    "source": "INRAE",
+    "titre": "Stage : Durabilité agricole et territoires : quelles données spatiales mobiliser au service de la transition agroécologique ? Application à l’enjeu préservation de la ressource Eau (qualité et quantité)",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Sat, 07 Nov 2026 02:09:48 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiREFVX3lxTE1uRGpjSmVTTGtWVUtNTTNWU1dxNkstbVBKUjdLMl9jQVBKdXFqaUlJRXZ5T3pYQVdfSWJCWUhRM0UxTnh6?oc=5",
+    "canal": "site",
+    "source_id": "inrae",
+    "autorite": "primaire",
+    "axe": "science",
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-08 13:58",
+    "pays": "FR",
+    "source": "Vert",
+    "titre": "«Il se passe quelque chose» : au Bourget, Jean-Luc Mélenchon embarque la jeunesse autour de son projet pour une écologie populaire",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Sat, 07 Nov 2026 19:03:51 +0000",
+    "lien": "https://vert.eco/politique/il-se-passe-quelque-chose-au-bourget-jean-luc-melenchon-embarque-la-jeunesse-autour-de-son-projet-pour-une-ecologie-populaire/",
+    "canal": "rss",
+    "source_id": "vert",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-08 13:58",
+    "pays": "FR",
+    "source": "J'aime la chasse",
+    "titre": "Sérothèque des chasseurs : 40 000 échantillons pour surveiller les maladies de la faune",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sun, 08 Nov 2026 10:12:29 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPSE9jbWJ1RVo2LXBaVm9fb3FCTmZJdjVFSXN2LVFvbkxnY1NPVHBQYVFQa013X1FaRElnTTF0VVg1OW0taGVfUVV1MENEM2YxMW1nYXFRa0UwTWJBcC1WWnJiejVfOGFtWWtzN194LUdhVUxiZjR2cy1sSkViSGJjMkRENnVLaXI0?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-08 13:58",
+    "pays": "FR",
+    "source": "Tribune de Genève",
+    "titre": "Mares, étangs et zones humides reprennent vie à Plan-les-Ouates",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Sun, 08 Nov 2026 11:45:35 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQdkdCN2VUMjN4clRrREZmV1lQV3liaTFwVDdSVjRHY054bDVXRkNTdkh0WDJBb252SlN0OWd2ZzJEWFFQbjFGV1pGNzliMUZGSDMtVHhsZlJCeDdrbjUzTjBFUm9RbWhHaXdycksxQU9lTjJSVHd3RVpMRmxkbWpHMW10LU83bHlXaEdVYmRPakVDX0p5?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
   }
 ]
