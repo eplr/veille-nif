@@ -7,7 +7,7 @@ Il produit trois choses :
 2. **Une newsletter hebdomadaire** : actualités par rubrique, synthèses de rapports validées, agenda court et appels à projets ouverts.
 3. **Des versions « copier-coller »** pour Claude, ChatGPT ou tout autre assistant (`dist/`).
 
-La collecte tourne en Python sans appel à un modèle d’IA, exécutée chaque jour par GitHub Actions. L’usage reste soumis aux limites des services GitHub et Notion.
+La collecte et l’hebdomadaire tournent en Python dans GitHub Actions, **sans appel à un modèle d’IA ni consommation de tokens**. La collecte est quotidienne ; l’email et la page hebdomadaire sont publiés uniquement le lundi. Aucun agent ni abonnement de crédits Warp n’est nécessaire à leur exécution. L’usage reste soumis aux limites des services GitHub et Notion.
 
 ## Comment ça marche
 
@@ -30,7 +30,7 @@ flowchart LR
 - **Actualités** (`src/news_watch.py`) : flux RSS, requêtes Google News `site:` et requêtes thématiques par zone/langue. Les filtres couvrent aussi la science sans condition de vocabulaire financier et la réglementation CSRD/SFDR/ISSB. Chaque article conserve sa source, sa zone de recherche, ses thèmes, son axe éventuel, son niveau d’autorité et les restrictions d’accès connues.
 - **Agenda** (`src/events_watch.py`) : lit `data/events.yaml`, un agenda tenu à la main. Aucun événement n’y entre sans vérification sur une source officielle. Le script cherche aussi des événements candidats, écrits dans `data/interim/events_candidates.csv` pour relecture, jamais dans l’agenda.
 - **Appels à projets** (`src/calls_watch.py`) : lit la liste publique de Carenews, filtre sur la nature et l’agriculture, signale les appels nouveaux ou qui se clôturent sous 14 jours.
-- **Newsletter** (`src/daily_digest.py`, `src/editorial.py`) : collecte chaque jour, diffusion le lundi à 07:00 UTC (08:00 ou 09:00 à Paris). L’édition retient au plus 15 articles détectés dans les 7 derniers jours, avec une place réservée à la science lorsqu’un contenu est disponible. Les sources primaires sont prioritaires, puis les analyses, la presse et les communications ; à autorité égale, les publications les plus récentes passent d’abord. Ce classement est un repère éditorial, pas une validation de chaque affirmation.
+- **Newsletter** (`src/daily_digest.py`, `src/editorial.py`) : collecte chaque jour à partir de 06 h UTC, diffusion le lundi seulement (07 h en hiver ou 08 h en été à Paris). La diffusion intervient après le traitement, avec les éventuels délais de GitHub : ce n’est pas une garantie de réception à 06 h précises. L’édition retient au plus 15 articles détectés dans les 7 derniers jours, avec une place réservée à la science lorsqu’un contenu est disponible. Les sources primaires sont prioritaires, puis les analyses, la presse et les communications ; à autorité égale, les publications les plus récentes passent d’abord. Ce classement est un repère éditorial, pas une validation de chaque affirmation.
 - **Archive et états** (`src/news_archive.py`) : les contenus collectés sont conservés dans `data/output/news_archive.json` avant l’envoi. L’historique `data/interim/newsletter_delivery.json` ne marque comme diffusés que les articles et rapports effectivement envoyés. Un plafond de sélection ou un échec d’email ne supprime pas l’archive. Les articles non retenus restent archivés, mais ne sont plus candidats à l’email une fois leur période éditoriale dépassée.
 - **Page hebdomadaire** (`src/notion_weekly.py`) : une page de lecture ordinaire, sans les propriétés de la base. Couverture vert sombre, cartes de chiffres clés, trois signaux à retenir, sélection de 15 actualités par rubrique et agenda bleu reprennent la charte. Les tags détaillés restent dans la bibliothèque, pas sur la page publique.
 
@@ -78,11 +78,42 @@ Attention : sans `--weekly`, `--collect-only` ou `--dry-run`, `daily_digest.py` 
    - Pour Microsoft 365 : `GRAPH_TENANT_ID`, `GRAPH_CLIENT_ID`, `GRAPH_CLIENT_SECRET` (permission applicative `Mail.Send`, idéalement restreinte à la boîte d’expédition).
    - Pour un SMTP classique : `EMAIL_BACKEND=smtp`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`.
 2. Lancer le workflow **Collecte quotidienne et veille hebdomadaire Notion** avec `dry_run` coché : les aperçus sont composés quel que soit le jour, sans email, écriture Notion ni modification d’état durable.
-3. Laisser le planificateur collecter chaque jour à 07:00 UTC ; seul le lundi déclenche l’email. Une première collecte avec `lookback_days = 7` peut élargir la recherche. Les articles déjà traités par l’ancienne veille quotidienne ne sont pas réexpédiés lors de la migration.
+3. Après validation du dry run et déploiement du workflow sur `main`, laisser GitHub collecter chaque jour à 06 h UTC (`0 6 * * *`) ; les scripts limitent l’email et la page hebdomadaire au lundi, sans envoi quotidien. Une première collecte avec `lookback_days = 7` peut élargir la recherche ; l’archive quotidienne alimente ensuite la sélection sur sept jours. Les articles déjà traités par l’ancienne veille quotidienne ne sont pas réexpédiés lors de la migration.
 4. Pour un envoi immédiat volontaire, cocher `send_now` et décocher `dry_run`. Pour un rejeu incluant des articles déjà vus, cocher aussi `ignore_seen` ; les historiques ne sont pas modifiés par ce rejeu.
 5. Pour actualiser uniquement la page Notion, cocher `publish_now` et laisser `send_now` décoché : l’étape d’email est alors ignorée, même le lundi. Cocher aussi `send_now` uniquement pour demander explicitement les deux publications.
 
+Pour une reprise à partir d’un jour précis, renseigner `start_date` au format `YYYY-MM-DD`, par exemple `2026-11-02`. Cette borne incluse commence à 00 h UTC et s’applique aux dates de publication de la collecte et à la sélection de la page Notion, y compris les articles déjà archivés. Les dates absentes ou illisibles sont exclues dans ce mode. La recherche est élargie automatiquement si nécessaire, sans garantie d’exhaustivité des flux. L’archive antérieure est conservée. Laisser ce champ vide pour les éditions habituelles ; la sélection de l’email reste indépendante et n’est pas modifiée par cette borne manuelle.
+
 Pour changer d’adresse d’expédition, modifier uniquement le secret `DIGEST_FROM` (et l’application Graph si besoin) : aucun changement de code.
+
+### Validation et programmation sans tokens
+
+Le planificateur est celui de **GitHub Actions**, pas un agent Warp. Warp peut servir à développer et à lancer les commandes de contrôle, mais aucun run d’agent n’intervient dans l’automatisation récurrente.
+
+- Dépôt : `eplr/veille-nif`, branche `main`, workflow `veille.yml`.
+- Cron quotidien : `0 6 * * *`, **06 h UTC**, sans changement saisonnier.
+- Publication : uniquement le lundi grâce à `--weekly`, après la collecte. Aucun email quotidien n’est envoyé.
+- Les secrets d’envoi et Notion restent dans GitHub Actions ; aucune clé d’API de modèle d’IA n’est nécessaire.
+- Le contrôle des liens dans `ci.yml` le lundi ne publie rien et reste indépendant.
+
+Avant déploiement :
+
+1. Exécuter les tests locaux dans `.venv`.
+2. Déclencher un aperçu GitHub sur sept jours :
+
+```bash
+gh workflow run veille.yml --repo eplr/veille-nif --ref main \
+  -f lookback_days=7 -f dry_run=true -f ignore_seen=false \
+  -f send_now=false -f publish_now=false
+```
+
+3. Suivre le run retourné et vérifier sa conclusion. Le dry run compose l’email et la page sans envoi, écriture Notion ni modification durable de `data/` ou `dist/`. Après déploiement du workflow mis à jour, l’artefact `veille-nif-dry-run` conserve pendant sept jours l’aperçu HTML, les blocs Notion et la collecte JSON.
+4. Vérifier que les étapes de synchronisation Notion et de persistance sont ignorées, puis relire les aperçus. Un dry run ne teste pas l’authentification réelle d’envoi ni les droits d’écriture Notion.
+5. Déployer le workflow validé sur `main` pour appliquer le nouvel horaire. Le cron déjà présent dans le dépôt suffit : ne créer aucune programmation d’agent Warp.
+
+En fonctionnement planifié, les indicateurs `send_now`, `publish_now` et `ignore_seen` sont inactifs. Les scripts gardent leur protection du lundi et de l’édition déjà envoyée ; le groupe de concurrence GitHub sérialise les traitements.
+
+L’épuisement de crédits Warp n’a aucun effet sur cette automatisation. En revanche, les quotas et incidents GitHub, Notion ou du service de messagerie restent applicables. Ne pas relancer aveuglément après une erreur : vérifier l’historique d’envoi et le résultat de la page Notion, puis choisir une reprise contrôlée.
 
 Point de vigilance : GitHub désactive les workflows planifiés d’un dépôt public resté 60 jours sans activité. Le workflow enregistre son passage dans `data/last_run.txt`. L’étape de persistance s’exécute aussi après un échec d’email ou d’export pour conserver la collecte ; une panne de GitHub ou du push peut toutefois empêcher cet enregistrement. Après un échec d’envoi le lundi, relancer le même jour ou utiliser volontairement `send_now` : les jours suivants ne déclenchent pas de rattrapage automatique.
 

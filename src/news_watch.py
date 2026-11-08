@@ -15,12 +15,13 @@ Usage :
 """
 import argparse
 import time
+from datetime import date
 from pathlib import Path
 
 from lib import (
     INTERIM, OUTPUT, append_csv, detect_themes, fetch_feed, google_news_rss, http_get,
     is_generic_landing_title, is_nature_related, is_noise, load_seen, load_sources,
-    matches_source_filter, normalize_title, parse_feed, save_seen, today_utc, within_lookback,
+    matches_source_filter, normalize_title, parse_date, parse_feed, save_seen, today_utc, within_lookback,
 )
 
 SEEN_FILE = INTERIM / "news_seen.json"
@@ -299,6 +300,8 @@ def check_sources() -> int:
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--lookback-days", type=int, default=LOOKBACK_DAYS)
+    parser.add_argument("--start-date", type=date.fromisoformat,
+                        help="premier jour UTC inclus (YYYY-MM-DD), pour une reprise manuelle")
     parser.add_argument("--check-sources", action="store_true")
     parser.add_argument("--dry-run", action="store_true", help="collecter sans modifier les historiques")
     parser.add_argument("--ignore-seen", action="store_true", help="inclure les articles déjà connus, sans modifier les historiques")
@@ -309,8 +312,17 @@ def main():
         raise SystemExit(1 if check_sources() else 0)
     if args.lookback_days < 1:
         parser.error("lookback-days doit être strictement positif")
+    now = today_utc()
+    if args.start_date and args.start_date > now.date():
+        parser.error("start-date ne doit pas être dans le futur")
+    lookback = max(args.lookback_days, (now.date() - args.start_date).days + 1) if args.start_date else args.lookback_days
     health = {}
-    items, seen = collect(args.lookback_days, ignore_seen=args.ignore_seen, health=health)
+    items, seen = collect(lookback, ignore_seen=args.ignore_seen, health=health)
+    if args.start_date:
+        items = [item for item in items
+                 if (published := parse_date(item.get("date_publication", "")))
+                 and args.start_date <= published.astimezone(now.tzinfo).date()
+                 and published <= now]
     if args.require_source_data and not health["entries_read"]:
         raise SystemExit("Aucun contenu source lisible : l’édition précédente doit être conservée")
     if args.json_out:

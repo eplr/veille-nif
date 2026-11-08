@@ -1,15 +1,20 @@
 name: Collecte quotidienne et veille hebdomadaire Notion
 
-# Collecte quotidienne à 07:00 UTC. Page Notion et email le lundi seulement.
+# Collecte quotidienne à 06:00 UTC, sans appel à un modèle d’IA.
+# Page Notion hebdomadaire et email le lundi seulement.
 # GitHub peut retarder le déclenchement.
 on:
   schedule:
-    - cron: "0 7 * * *"
+    - cron: "0 6 * * *"
   workflow_dispatch:
     inputs:
       lookback_days:
         description: "Fenêtre de recherche en jours (7 pour une première exécution)"
         default: "3"
+        type: string
+      start_date:
+        description: "Premier jour UTC inclus pour la collecte et la page Notion (YYYY-MM-DD, vide = fenêtre habituelle)"
+        default: ""
         type: string
       dry_run:
         description: "Composer sans envoyer d'email ni enregistrer l'état"
@@ -60,6 +65,7 @@ jobs:
           INPUT_LOOKBACK: ${{ inputs.lookback_days || '3' }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
           INPUT_IGNORE_SEEN: ${{ inputs.ignore_seen }}
+          INPUT_START_DATE: ${{ inputs.start_date }}
         run: |
           if ! [[ "$INPUT_LOOKBACK" =~ ^[0-9]+$ ]]; then
             echo "lookback_days doit être un entier" >&2
@@ -68,7 +74,11 @@ jobs:
           args="--lookback-days $INPUT_LOOKBACK --json-out /tmp/veille-collection.json --require-source-data"
           [ "$INPUT_DRY_RUN" = "true" ] && args="$args --dry-run"
           [ "$INPUT_IGNORE_SEEN" = "true" ] && args="$args --ignore-seen"
-          .venv/bin/python src/news_watch.py $args
+          if [ -n "$INPUT_START_DATE" ]; then
+            .venv/bin/python src/news_watch.py $args --start-date "$INPUT_START_DATE"
+          else
+            .venv/bin/python src/news_watch.py $args
+          fi
 
       - name: Composer et envoyer l’hebdomadaire
         if: ${{ inputs.publish_now != true || inputs.send_now == true || inputs.dry_run == true }}
@@ -101,7 +111,7 @@ jobs:
           fi
           [ "$INPUT_DRY_RUN" = "true" ] && args="$args --dry-run"
           [ "$INPUT_IGNORE_SEEN" = "true" ] && args="$args --ignore-seen"
-          .venv/bin/python src/daily_digest.py $args
+          .venv/bin/python src/daily_digest.py $args --html-out /tmp/veille.html
 
       - name: Mettre à jour les versions copier-coller
         if: ${{ inputs.dry_run != true }}
@@ -128,6 +138,7 @@ jobs:
           NOTION_LIBRARY_URL: ${{ vars.NOTION_LIBRARY_URL }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
           INPUT_PUBLISH_NOW: ${{ inputs.publish_now }}
+          INPUT_START_DATE: ${{ inputs.start_date }}
           CALLS_OUTCOME: ${{ steps.calls.outcome }}
         run: |
           args="--collection-file /tmp/veille-collection.json --json-out /tmp/notion-weekly.json"
@@ -136,7 +147,23 @@ jobs:
           fi
           [ "$INPUT_DRY_RUN" = "true" ] && args="$args --dry-run"
           [ "$CALLS_OUTCOME" != "success" ] && args="$args --calls-unavailable"
-          .venv/bin/python src/notion_weekly.py $args
+          if [ -n "$INPUT_START_DATE" ]; then
+            .venv/bin/python src/notion_weekly.py $args --start-date "$INPUT_START_DATE"
+          else
+            .venv/bin/python src/notion_weekly.py $args
+          fi
+
+      - name: Conserver les aperçus du dry run
+        if: ${{ always() && !cancelled() && inputs.dry_run == true }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: veille-nif-dry-run
+          path: |
+            /tmp/veille.html
+            /tmp/notion-weekly.json
+            /tmp/veille-collection.json
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Enregistrer l'état et les livrables
         # Conserver la collecte même si l’email ou l’export échoue ensuite.

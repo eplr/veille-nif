@@ -9,7 +9,7 @@ import hashlib
 import json
 import os
 import re
-from datetime import timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlencode
 from uuid import UUID
@@ -34,10 +34,13 @@ MARKER = "https://github.com/eplr/veille-nif#daily-v1-"
 PARIS = ZoneInfo("Europe/Paris")
 
 
-def select_weekly(items, now, limit=15):
+def select_weekly(items, now, limit=15, start=None):
     """Publications sur sept jours ; une sélection courte indépendante des envois."""
     if now.tzinfo is None:
         raise ValueError("L’instant de génération doit préciser son fuseau")
+    start = start if start is not None else now - timedelta(days=7)
+    if start.tzinfo is None or start > now:
+        raise ValueError("La borne de début doit préciser son fuseau et ne pas être future")
     sources = {source["nom"]: source for source in load_sources()}
     candidates = []
     for item in items:
@@ -48,7 +51,7 @@ def select_weekly(items, now, limit=15):
         if not raw or not re.search(r"\d{2}:\d{2}", str(raw)):
             continue
         published = parse_date(str(raw))
-        if not published or not now - timedelta(days=7) <= published <= now:
+        if not published or not start <= published <= now:
             continue
         source = sources.get(item.get("source"), {})
         enriched = {**source, **{k: v for k, v in item.items() if v is not None}}
@@ -104,9 +107,9 @@ def article_blocks(item):
     ]
 
 
-def build_blocks(items, events, calls, now, calls_available=True, total_articles=None, library_url=None):
+def build_blocks(items, events, calls, now, calls_available=True, total_articles=None, library_url=None, start=None):
     library_url = canonical_url(library_url or DEFAULT_LIBRARY_URL)
-    local, start = now.astimezone(PARIS), (now - timedelta(days=7)).astimezone(PARIS)
+    local, start = now.astimezone(PARIS), (start if start is not None else now - timedelta(days=7)).astimezone(PARIS)
     blocks = [
         block("heading_1", "L’essentiel de la semaine"),
         block("paragraph", f"Édition du {local.strftime('%d/%m/%Y')} · "
@@ -391,6 +394,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dry-run", action="store_true", help="composer sans accès ni écriture Notion")
     parser.add_argument("--collection-file", help="collecte JSON préparée à ajouter à l’archive")
+    parser.add_argument("--start-date", type=date.fromisoformat,
+                        help="premier jour UTC inclus (YYYY-MM-DD), sinon fenêtre glissante de sept jours")
     parser.add_argument("--json-out", help="aperçu JSON des blocs, hors des historiques")
     parser.add_argument("--calls-unavailable", action="store_true", help="signaler l’échec de collecte Carenews")
     parser.add_argument("--weekly", action="store_true", help="publier uniquement le lundi (sauf aperçu)")
@@ -399,6 +404,9 @@ def main():
     args = parser.parse_args()
     try:
         now = today_utc()
+        start = datetime.combine(args.start_date, datetime.min.time(), timezone.utc) if args.start_date else None
+        if start and start > now:
+            raise ValueError("start-date ne doit pas être dans le futur")
         if args.max_articles < 1:
             raise ValueError("max-articles doit être strictement positif")
         if args.weekly and now.astimezone(PARIS).weekday() != 0 and not args.dry_run:
@@ -410,18 +418,20 @@ def main():
             if not path.is_file():
                 raise ValueError("Fichier de collecte introuvable")
             articles = news_archive.merge(articles, news_archive.read_json(path, []))
-        all_items = select_weekly(articles, now, limit=None)
-        items = select_weekly(articles, now, limit=args.max_articles)
+        all_items = select_weekly(articles, now, limit=None, start=start)
+        items = select_weekly(articles, now, limit=args.max_articles, start=start)
         today = now.astimezone(PARIS).date()
         events = events_watch.in_window(events_watch.load_events(), today)
         calls = news_archive.read_json(calls_watch.SNAPSHOT_FILE, [])
         calls = [c for c in calls if not c.get("cloture") or str(c["cloture"])[:10] >= today.isoformat()]
         blocks = build_blocks(items, events, calls, now,
                               calls_available=calls_watch.SNAPSHOT_FILE.exists() and not args.calls_unavailable,
-                              total_articles=len(all_items), library_url=os.environ.get("NOTION_LIBRARY_URL"))
+                              total_articles=len(all_items), library_url=os.environ.get("NOTION_LIBRARY_URL"),
+                              start=start)
         if args.json_out:
             news_archive.write_json(Path(args.json_out), blocks)
-        print(f"[notion-weekly] {len(items)} actualité(s) retenues sur {len(all_items)} sur sept jours, "
+        period = f"depuis le {args.start_date.isoformat()} UTC" if args.start_date else "sur sept jours"
+        print(f"[notion-weekly] {len(items)} actualité(s) retenues sur {len(all_items)} {period}, "
               f"{len(events)} événement(s), {len(blocks)} blocs")
         if args.dry_run:
             print("[notion-weekly] aperçu uniquement ; aucune écriture Notion ni aucun email")
