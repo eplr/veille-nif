@@ -1,0 +1,13 @@
+{
+  "edition": "2026-11-09",
+  "captured_at": "2026-11-09T14:44:23.716854+00:00",
+  "preview": false,
+  "notion_outcome": "success",
+  "email_outcome": "success",
+  "source_commit": "2555997559665ba8ed6bb32d9b198d6ae307abd0",
+  "run_url": "https://github.com/eplr/veille-nif/actions/runs/42637004609/attempts/1",
+  "files_sha256": {
+    "notion.json": "93700dca71e775a4a7095443f96800745cf56f66bbb5e6901453422e0401834e",
+    "newsletter.html": "2079d89a562c04cc767ab8abfa8319a6f01ff457ea2510324228690ded2b5876"
+  }
+}

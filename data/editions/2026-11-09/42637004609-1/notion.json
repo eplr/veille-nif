@@ -1,0 +1,1341 @@
+[
+  {
+    "object": "block",
+    "type": "heading_1",
+    "heading_1": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "L’essentiel de la semaine"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Édition du 9 novembre 2026"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Actualités du 2 au 8 novembre 2026"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Passer des idées à l’action pour flécher davantage de financements vers le vivant."
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "green"
+    }
+  },
+  {
+    "object": "block",
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "15 actualités retenues"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "green_background"
+    }
+  },
+  {
+    "object": "block",
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "12 sources citées"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "yellow_background"
+    }
+  },
+  {
+    "object": "block",
+    "type": "quote",
+    "quote": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "5 rencontres à l’agenda"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "blue_background"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "15 articles retenus parmi 173 publications datées repérées cette semaine. Les autres ressources restent dans la bibliothèque."
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Consulter la bibliothèque complète",
+            "link": {
+              "url": "https://seen-whitefish-f22.notion.site/3fa773b59fa48007b568dd6a1ef36a08?v=407773b59fa48116a012000c4ca02210"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "green_background"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_2",
+    "heading_2": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "À retenir cette semaine"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "green"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Outrigger Impact Launches $100 Million Blue Economy Fund",
+            "link": {
+              "url": "https://www.esgtoday.com/outrigger-impact-launches-100-million-blue-economy-fund/"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "ESG Today · 05/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Google Invests $160 Million in Water Projects Alongside AI Infrastructure in Malaysia",
+            "link": {
+              "url": "https://www.esgtoday.com/google-invests-160-million-in-water-projects-alongside-ai-infrastructure-in-malaysia/"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "ESG Today · 03/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "BofA, SMI, Eurazeo Launch New Biodiversity Solutions Fund",
+            "link": {
+              "url": "https://www.esgtoday.com/bofa-smi-eurazeo-launch-new-biodiversity-solutions-fund/"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "ESG Today · 02/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "divider",
+    "divider": {}
+  },
+  {
+    "object": "block",
+    "type": "heading_2",
+    "heading_2": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Financement et marchés"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "purple_background"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Le Sénégal prêt à mobiliser 236 milliards FCFA pour lancer son fonds pour la biodiversité",
+            "link": {
+              "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPQmZnNHowWVJBWUk0YjVzWXY3R1NYdmxndU5rVV9RamJVbDFvV1B1VG9SNVlNSmF6OEIxeGRUQkZHN0xEQ1N3cWFLZFZfM0NpTE9lM3hZWF9nQ2NVVV83ZDRqVDRWWHY4Y0gxSUh2Ml9WREpkdjFpd2l1WnNPbHdpUUExNTh2Y0kzSUQzYS1oUWFMa0h3c1FGUk1kdWI5M0VvSnJQZmM2VUNuYmpYdXUzUTktNC1fTGJjLUx3UW5MeVp1bWtYMzlrVQ?oc=5"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Pressafrik · 06/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "EU launches nature credits initiative at COP17 to transform biodiversity funding",
+            "link": {
+              "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWURhZ3dkM0R4WHhUMnpEbXFLY0hLRkpJbkY4M0VzS0o3NHlQbFVVTTZpckdmZVlKT2paT1BBcHhQaEZRZmlqMWE0MVkxejFjMEk3TnVTYnJ4Q192eTJjSWk2ZmthWHRtZWZoY29sXzVWTW5VVHZlVGtaaTloYk9paUdrSUpDY0k0VWk2VHgxODA5QWRrUjgxZ01iaHF1bXJGYnRoU2czWVEtVGt4alByTkNGaFBvZnJ1dXc?oc=5"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "The Brussels Times · 02/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Scaling up Private Finance for Climate, Nature and Pollution",
+            "link": {
+              "url": "https://www.unepfi.org/themes/climate-change/scaling-up-private-finance-for-climate-nature-and-pollution/"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "UNEP FI · 06/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "COP31: Brazil calls for blended forest finance",
+            "link": {
+              "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZVBHU1JHdEtXUkdfZE5IR0NKSWpoa281T1NWeHplZUpUT1lySTdYN20tUTIxcGlEa3Y3cTlhUHZ1ekJJMF9FOXhXUnBLNFhITmltOTgxWUpLbUlxNDBTUzh3WnByMlVlTkw5UFpac2lFN1dSN0lIMUk0bC1uMU5ZalBITlQycFV5Z3RTbi1jSVhfX29Ubmo2S2t2ZUdJU2VtRGpr?oc=5"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Environmental Finance · 05/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Biodiversity credits: green colonialism, or the saviour of nature?",
+            "link": {
+              "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPaHRXT3RoRDZRYVEwd3pBa3o4dUpsekpYUjgwXzlfM1BLMWhLT204OGlmZWlOaWRvZUxjS3BzbjMtamlldF9ydGdKNjZCQW9pZE5yazJKNl9vNGw0UlJHSEo4Y0NmZ2N3SnpxaVUyMU5ZZGswYVZyZ2RwRkQwN0JUMnVrUDFvTHBEQmtNejRFMlFsQURqVmRTQWFOMDNRTE5ETzZhWGRHV3haR1hLZEJya1JqanBvcUhiUE43bl9peUo?oc=5"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Environmental Finance · 03/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "COP17 biodiversité: difficile recherche de financements pour sauver le vivant",
+            "link": {
+              "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNOFpWUXpfTGs1OEU4VGlRX0tZVXQ1YzRRVFp1UlJEOUNPdDU5VXZ4VlBEMzJ0bGx2ZlFMNElQaHVFVV9YN1dtbzR1X0hiTEZFODIxbUZhd1Z5cUx0MTU3d0pNbkE4aktjcTA5Z2N0MkRoMDJDd0ZUZXFLWU53TWZGVEdmTXVnNWlqZzNiWWpnQVY3S01Gb1VWODMtRGxUb2NXcTJYMHU2d2FsbDl1cDBwTV8td1pLbFZza2o0X0p1OEVBZHBDYXhVM21KMlhPeC1CdGdhNVV6N01BeHNFT25EeDlQbmg3MDlLMXfSAe8BQVVfeXFMTUJpa19HU1NkeVVkVG5Oc2Z1Tk5YQXFEMUdWOU5yUlBLX2V6MC05bDAxMWk5VFk0aTZpR3ZPMlFuZUpnRHVoQlc0Z3g2X2N3cThIYXd4dWduQ2dfVjhiSm1GTmNnVy1NRnEzYTQ4Q0NvV3hobDJvdUdMRUJZbVNoLUxLenpDa1ZkRnVZU1JzZTZXdEJvTnQ1RVh0clY5Znh5Y1ByMXhyRDZSV3loOF93X2VOWVRvdlA1T2ZuWWFxN1pMWEc1NktjQzBiS0RRWDNTZXNoRUViVkNaWWhzY2MyZjRTR3VpakNnei10UnREY2c?oc=5"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Boursorama · 02/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Fonds de Cali et subventions néfastes, les maigres avancées obtenues à la COP17 Biodiversité",
+            "link": {
+              "url": "https://www.novethic.fr/environnement/biodiversite/cop17-biodiversite-fonds-de-cali-et-subventions-nefastes-les-maigres-avancees-obtenues-a-erevan"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Novethic · 02/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "New Nature Repair Method (Biodiversity Credits) – What Queensland producers need to know",
+            "link": {
+              "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQOU9UOUo1WGY4ejV6YVlFOFZtZW9aNUo2S3NmdDJPdDZ6cE9UZGhzLW5vOFB1cTl1X0NNejRoLV80aWppQjFkWmdBdjcxdVdXSXdCaE9KRlJCQWVfdmoyMmF3WFVwa3BJUk1xNUdsYkQ0VXhOZTY4YWdLTmp4UURGdnNjLVJ5QnNHVnhqcmp2SXQzYlgzZGNNUTg3ZnA2bHJNbHE1ZDIxM3VJVElsQlQyczJzeVBuUklZRHFMQg?oc=5"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "The National Tribune · 08/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Banks in Ghana urged to increase investment in biodiversity protection",
+            "link": {
+              "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVnY3OEtQcVE5RHM1clN2Nmo4UDdaRVRHendGUkZyQURDbjA1aWZOd1ZaeVE3UzdnX1NwSXJWWFNuUExxZDZnX3BaU252UGw0NFlXM2VzRG1CTUN2eU12aXFqRUZQNVdQYkpLWVVLU2JIMlAzX00ta3M0TUNLbmcwaUEyTkZhVmZfeGlsVlJuYW1MMUptc2Qyb3RUM2t0c1lNMmhmX2s3MFRmTnRLMmJjeWJyZENDRzg?oc=5"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Ghana Business News · 08/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Clean the Sky - Blue Economy Investment Vehicles",
+            "link": {
+              "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1sa3I2THdxcDV1dTVXTE1OOEhvSWltTThaM2xPMlNVNEpocWJhMl9hS21Ud3JmWmFLTld1em43U0FIejFGMVBFT1hFTXA2Q3NLWG5obDYzLTNzNEl2dEdZWUtPSndwdw?oc=5"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Trend Hunter · 08/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Gov't accelerates blue economy investment to transform fishing industry and boost livelihoods along Lake Victoria",
+            "link": {
+              "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPMkhuWHNUMXJsTmtpOFRrVEtyRlhEVTc4c2xhQ0I4aF90R0djN3RMcmgtUnAtUkxVVFkwd3FOdzl1cDlOOEJIRGE0eU1QOVFCdUhVOUVzT3NDRnpscGFBUzZicVZMYlpaR0RsWHhsTmg0Ti11NkNmTjlMaWJWaEdxWTQxMmt4Rm1YSnNPS243Yzg0M21oY1BLM2s3b0kxVU1tbGJKdjB3SjNGeC1EeUFEYmNnRmtOdFZnck9lVFJldlREX1BWZVRycy1kc0NLTm1HREdhVXRtcERPRHRXYkE?oc=5"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "TV47 Digital · 07/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "divider",
+    "divider": {}
+  },
+  {
+    "object": "block",
+    "type": "heading_2",
+    "heading_2": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Science et génie écologique"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "green_background"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Sustaining Europe’s forest biodiversity: preservation, management and restoration",
+            "link": {
+              "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxQOTlnRWJMQjdGRG5wc19CSkQ4RUV2Wk43SGtpTTZuSnZMSXZYT3lGYTdQRUN5TnVXc0kyNzJkZjdMNWdpUDBOVmRPMm9XbUNVZVNvS2k1UGhiZ0NrSXJDeTJlNWZ4NWxYSEVUOGQ1M000TzFrb3hBX2YzY3Z0YWhKdTFNc3h1eklTeGFrbEhsRXY4cmhmTmE0THprYzZobFlIc01aY3ZBWUJKQ1lVYTRENV9LZFROcGNyakFpMGdrU05yZEJXQXlVbnJLU2poU3NPemJ0UFk2a0tHTy15ZkJzbzZmVDJlUWxLbTFfOURzbGlCZTQyVDNyRjhEa0tuX2hXcGtvSGxLdw?oc=5"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Agence européenne pour l'environnement · 02/11"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "divider",
+    "divider": {}
+  },
+  {
+    "object": "block",
+    "type": "heading_2",
+    "heading_2": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Agenda – 60 prochains jours"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "blue_background"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "mer. 11 nov. 2026"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "blue"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Blue Finance 2026 : financer la restauration de la nature, des marchés de capitaux au littoral",
+            "link": {
+              "url": "https://coastal-futures.net/blue-finance-26"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "One Birdcage Walk, Londres · présentiel · 09:00–17:00 (GMT) · À partir de 105 £ (tarif réduit selon billetterie)"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "divider",
+    "divider": {}
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "jeu. 12 nov. 2026"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "blue"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Nature Finance UK Conference 2026 (9e édition)",
+            "link": {
+              "url": "https://ecosystemsknowledge.net/event/nature-finance-uk-conference-2026/"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Queen Elizabeth II Centre, Londres · présentiel · 09:00–19:00 (GMT) · 475 £ (tarif standard) ; tarif early bird épuisé"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "divider",
+    "divider": {}
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "17–18 nov. 2026"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "blue"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Marchés de crédits nature et innovations agro-environnementales en Europe",
+            "link": {
+              "url": "https://eu-cap-network.ec.europa.eu/events/advancing-nature-credit-markets-and-agri-environmental-innovations-europe_en"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Verkatehdas, Hämeenlinna, Finlande · présentiel"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "divider",
+    "divider": {}
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "mer. 25 nov. 2026 · à revérifier"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "blue"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Rewilding Knowledge : événement science–politique sur le règlement européen sur la restauration de la nature",
+            "link": {
+              "url": "https://rewriteproject.eu/events/19/rewilding-knowledge-science-policy-event"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Comet Louise, Bruxelles · présentiel"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "divider",
+    "divider": {}
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "8–9 déc. 2026"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "blue"
+    }
+  },
+  {
+    "object": "block",
+    "type": "heading_3",
+    "heading_3": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Green Finance Research Advances 2026 (11e édition) : financer la résilience dans un monde en mutation",
+            "link": {
+              "url": "https://www.banque-france.fr/en/news/11th-green-finance-research-advances"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Auditorium de la Banque de France, Paris, et en ligne · hybride"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  },
+  {
+    "object": "block",
+    "type": "divider",
+    "divider": {}
+  },
+  {
+    "object": "block",
+    "type": "divider",
+    "divider": {}
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Explorer toutes les ressources de la bibliothèque",
+            "link": {
+              "url": "https://seen-whitefish-f22.notion.site/3fa773b59fa48007b568dd6a1ef36a08?v=407773b59fa48116a012000c4ca02210"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": true
+          }
+        }
+      ],
+      "color": "default"
+    }
+  },
+  {
+    "object": "block",
+    "type": "toggle",
+    "toggle": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Sources et méthode"
+          },
+          "annotations": {
+            "color": "gray",
+            "bold": false
+          }
+        }
+      ],
+      "children": [
+        {
+          "object": "block",
+          "type": "paragraph",
+          "paragraph": {
+            "rich_text": [
+              {
+                "type": "text",
+                "text": {
+                  "content": "Sélection automatique, non exhaustive : vérifiez la source avant de la citer. Publications à partir du 02/11/2026 à 00:00 UTC, jusqu’au 09/11/2026 à 00:00 UTC exclu. Dernière collecte prise en compte : 09/11/2026 à 14:44 UTC. Le classement privilégie les financements du vivant et les projets concrets, puis l’autorité de la source et la récence. Les annonces ne prouvent pas l’impact. Les dates absentes ou inexploitables sont exclues."
+                },
+                "annotations": {
+                  "color": "default",
+                  "bold": false
+                }
+              }
+            ],
+            "color": "gray"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "object": "block",
+    "type": "divider",
+    "divider": {}
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Consulter les archives des éditions",
+            "link": {
+              "url": "https://github.com/eplr/veille-nif/tree/main/data/editions"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "blue"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "https://github.com/eplr/veille-nif",
+            "link": {
+              "url": "https://github.com/eplr/veille-nif"
+            }
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "blue"
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "© 2026 fidestra"
+          },
+          "annotations": {
+            "color": "default",
+            "bold": false
+          }
+        }
+      ],
+      "color": "gray"
+    }
+  }
+]
