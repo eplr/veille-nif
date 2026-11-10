@@ -5805,5 +5805,344 @@
     "autorite": "presse",
     "axe": null,
     "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "FR",
+    "source": "Ministère de la Transition écologique",
+    "titre": "La France poursuit ses engagements en matière de financements pour le climat et la biodiversité dans les pays en développement en 2025",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 08:11:58 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNbjRhbi1RTk9ZTnFtMXQ2OTNhbUpRRWJZbGgyWFFZUmhqSlkzSTRLWWVxdFpZOHU0UlpCaXVfLVRiQktfZXQyZm95bTlQd2s0bjNGME1wdlJkYXRxQ1pwazVjX1owSENQUGdQTDFSQm41bzVNcWJYS1dTeWJadEpwelUzYTNEcEhUMl9MRURnNk1XcTFJRElNcm9MN3BWQU1EdGo0THdwQVhkUW1vczZWanpJaDZCR25jOGtEc1c3VXRSZHlOZ0E?oc=5",
+    "canal": "site",
+    "source_id": "mtect",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UE",
+    "source": "Agence européenne pour l'environnement",
+    "titre": "Recent progress in managing invasive alien species in the EU",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Mon, 09 Nov 2026 20:03:52 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOSEw1MFNVTE9xZ1JiNlVjbFJ1R05QbG9LdzQ3d09pcExRRlBrQ1lqaTRtcTd0TmdRYzVlRUp6WVJRX2l0cWpsTzRwYloyOUtiZXVOdlg1NTNaUnpYUVJoZjdLSjBIVmFQSkpENjliN21IVWh2RjZvMDBFc3lzREpNTEw3MXcyamFoTEVwcV9GZ0I2Z1RpZjlWMHdqRlVNa1NENUs4SFZBeEVNTGpSVlpoZmZn?oc=5",
+    "canal": "site",
+    "source_id": "eea",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UK",
+    "source": "Defra",
+    "titre": "Guidance: Statutory biodiversity metric tools and guides",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "2026-11-10T09:52:05Z",
+    "lien": "https://www.gov.uk/government/publications/statutory-biodiversity-metric-tools-and-guides",
+    "canal": "rss",
+    "source_id": "defra",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "INT",
+    "source": "NGFS",
+    "titre": "UN Water Conference - Water Resilience as an Economic and Financial Imperative: From Risk Assessment to Action (NGFS, ECB, CBUAE, OECD)",
+    "themes": [
+      "Réglementation et supervision",
+      "Risques et dépendances"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 11:27:18 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQcFZ2TjNSQ04tUHE4MHpYZjJzdG43NzVCSnNuZnhpYl9FWnZ6V0VBYzNvem9ULXZIcjlFY0dYVVN2UFpOUXBOTE1zYzAzZjdEQWd5N05WOFhzZm9RRWpnRTRhVDZ6bjU3QVh1N09mcGJhQ2pmMXc1Sm1USWZ5OXgyaC1aYXBTNjVqVGFuc1JpaWFJUGlWekJFX01PY3pZVldyNUV3WXVtekN3ZnJKSENIVmlMVFdFYnBMZU5EQ2tBLWpFV1ZNc2c?oc=5",
+    "canal": "site",
+    "source_id": "ngfs",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "FR",
+    "source": "INRAE",
+    "titre": "Graphical and latent variable models for species community modelling in ecology",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Mon, 09 Nov 2026 15:27:53 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9yS3QxZDlpYl9HaDRlcTBXWFdhaFRraGFjUjlVb0c3VXRTZ2NkLVVXTHNQeElXcnB4NWtsWkZhTDlvVFU4elFMZQ?oc=5",
+    "canal": "site",
+    "source_id": "inrae",
+    "autorite": "primaire",
+    "axe": "science",
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "FR",
+    "source": "CNRS",
+    "titre": "Les terrains de l’international sur « Écologie politique latino-américaine »",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 11:23:47 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSS1YSzZBbUtWUFAtSERCalhVNy14Z3hObFhuVVBpVm40YWk4Y0c2dm9HbUJRam5YMFpaSUZfbTg1emUwUlpiVnVScElTd05uMFhYZ2NncFVEaHdKckJNcmcwQlBMTXluSU44NjBkT0FXWUtWaGhCZjlyZXFRbHpKVFdCUENCTXBSR3R1eS1hZV91dm9QTkhJdkNvaVZEbThEbExzWWJ1QQ?oc=5",
+    "canal": "site",
+    "source_id": "cnrs",
+    "autorite": "primaire",
+    "axe": "science",
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "FR",
+    "source": "Vert",
+    "titre": "On a lu le chapitre sur l’écologie du dernier livre de Jordan Bardella : un pamphlet contre «le retour à l’âge de pierre» en guise de programme",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 05:00:00 +0000",
+    "lien": "https://vert.eco/chaleurs-actuelles/dans-gouverner-jordan-bardella-se-dit-pret-a-relever-le-defi-environnemental-sans-sattarder-sur-les-mesures-a-prendre/",
+    "canal": "rss",
+    "source_id": "vert",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "FR",
+    "source": "LesEco.ma",
+    "titre": "Biodiversité: 2 millions d’euros pour soutenir les associations",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 09:11:15 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQWk5SMThkNWs4NHUtbk9lZTYxVm5mdGxWczBMcHRXTVg4b1Vmd0paTll6OWNPSTl0XzZ6MjlQajk0dEhoZWc2U1laY2h1Y3prSFljZ3VYRkVXeWxVQnRwc2w1T3AtODE1ZlBUZ0hRR2poWmthdkVWcnlrb2ZZNG9sWV92bWlfODBydUZybFl0Ul9JM1lFMTVfcA?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "FR",
+    "source": "Global Voices en Français",
+    "titre": "Madagascar s’engage pour la biodiversité à travers la protection des aires marines",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Mon, 09 Nov 2026 18:39:12 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE56U1NhV2tQWGc5cXh3cmVib0lNV2dWSmV0RDFwUExzMnlod0V0T2c2b2ZpXzBqRzRYUXVjMkdnMDRkVjQxS1dadUd4aUZVN0tsS3FZV25EUEVBQQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UE",
+    "source": "Wood Central",
+    "titre": "Sweden Takes a Different Line to Finland on EU Nature Law",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 00:55:56 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMidEFVX3lxTE92YWY4X2VHQ2RseVNHOWI3Y19wMDBVem9paGdOelhXU0hGOUlXVFhMUVYyejBIeVNBdjkyeENyZ2htNTQwZFhPb0RxVFpsLTNHbGlEclBXWm93M2IzTFFXN0lkMW9aa2ltX1hTRDNvWGJ5YW45?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UE",
+    "source": "Investment Week",
+    "titre": "FE fundinfo’s Helen Slater: Sustainability reporting simplification fails to ease burden",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 12:04:35 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQS0VWZnZIcFhYYXlSZ3JvU2VyU1JOQ0dJZmtESm9aSHM2Z2U2clRzX0lfT2lpNF9RT2g1VF9WcG5DdlVfd3o3blM2eXhIMmM1MXMxRDJMSGE3eUdJaHNTclFfMzVSMncyZTNQUzFSTTVGeHBuVHZkeU0wbVNjTXNPQWlPNVVNSVdOVXphQ2dxbGl2Q3lXUTlLazRSeXVqc294Q3JNU3NLNWRkM0lUT05QT295WEJvMDZtbUtsTE1GdHJxZy04dHpjcWM4Zw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UE",
+    "source": "Mirage News",
+    "titre": "Reef Biodiversity Accounting to Scale Up Restoration",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 08:02:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPMG5wOE1jOHk2WklZMklRdTdMMFB0RlVmSkZHUG5WTTB4RmU5OWRmTHBUd21KSEI1TkVsQ3l5aVlMU3dQVUtfc3dSdVVobWRfTnlJVUllZmxBSktCMFJLemdVcEg1N2dGT2JfZ3pKdkM3b3YwY3FYekhuQkZJQlM0aHNn?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UE",
+    "source": "Hiiraan Online",
+    "titre": "Unlocking Somalia's Investment Potential- Opportunities in the Blue Economy, Fisheries, Energy and Agriculture",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 10:35:17 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPdGI0SEtwZTBSSW90bG1xR3pVWXNLQjE0OHh4LTk2QUpEZFZVY0w0VU05WkdCcmYzcHFEQVRMM2MyVkhxSHl6YTRpVGQwdW5FazFWQ21oZ0RyaVhTbl9PTzdpdDFTYXJkTTVabGY2b09TUTNIbmNtQlU4YS0zdkxRc21seUlrM09uSWhvaGMtdTFXclR4Y2pWMVpiNU9WX05Ec3kzRWtkQXl6OV84aFpkblNISmpOaTVhSjIwQnQzck4wX2ZQeTMtSk1LdlpjOG1BVmhXYUdDSFI4bDE4c0lETmEwQWtfQTNpRFNV?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UE",
+    "source": "The Sun Nigeria",
+    "titre": "Otu woos investors, highlights blue economy opportunities",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 03:42:45 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNbURnaDBLcElVN3NXcnphVTB5aHk1YXVIbFIwQ2ItY2FqcGx0WEJPbGZHZnBoUVRxS0huSndCTEhUYlRtWmQzMDBjcWxaMXRuLTRfTnJ5T3UyVWl5eTRMMkxVQzQ1WmVsc0hsQi1sUTdyLTZpUGFvdkFwc3duTTN4aA?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UE",
+    "source": "매일경제",
+    "titre": "Woori Investment & Securities supported the creation of a \"small forest in the city\" in Muak-don..",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 06:03:07 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5QOFV4SWNwRWV1VUVNdlVLbzdwRklRYnZEaGtpR2lwTEpORlV0QmhiaVYyUFROVF9JZ3dDSk1rWEpSTjRIQ0MzMFZWWDBicU0?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UE",
+    "source": "Khmer Times",
+    "titre": "UNDP warns Cambodia of $193M biodiversity funding gap",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Mon, 09 Nov 2026 17:19:53 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNYjBNZ0FtUTNJd0l3cHJHTm10eXpPSmtub1luTnowczYxekt4NVdMeW1IbjJKdkxlZDYtQi1iNHhLaE1xWlJOb3pITm1RNHF2RDNHRllhRHY0bzlfVTJOV2g0REF5alVQYjZJM2w0dEFUa2QydC1XR1JLeW9JWlVENVlCZF9CMlF2VHowblVQR1FLeTUyWlpR?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UE",
+    "source": "Ghana Business News",
+    "titre": "Economics Banks Biodiversity",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sun, 08 Nov 2026 08:00:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQUnFtX2NEaDFkM3o1UHBibTZ5ZVdELWZSd2ZINkQycmJDUmctcjNXMTVZZjBpT1ZWZWQxem9vdDY3SEIzUFF5MTQ1NFZ5SXdZeWlVY2Nrb3U0TDhyUUZ1YXQ1VmE4ODdqV3EtSjdQUUprMzM2SWpnaHhLTzIteGgwbmhvZ3l3NGRNSzh0SDI0Q0o1OEZ6ZW1PNlRJS1lfOFhZMy1EbGxPR1ZYX0JzVkx3WmFEM0U1bkRVLWk5bjMySGdISDhfN0xaRS1JTHRPZUFzZXdQZEl2UTFMYmFfSHc?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UE",
+    "source": "World Wildlife Fund",
+    "titre": "Transforming the Global Biodiversity Framework into Tangible Action in Zambia",
+    "themes": [
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 11:19:36 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPUlVmY0xWcmdGOEJ3Q2hkTFdkSkRaREd3NVBWbnh0ZmZQQ3F5S0dMQnk2Yk1ZRlh3Wmlld0x2eWdpRjUySl93dklHYzBoNWwxZGVHY3g5ODNrVkNDZDZPMWdDTWNESDdUZmlnWkdUNEk1ZHhSZGxGcW1ibkZDQ1FkRzhITGZTWE5LSzRvblE4Z3RHWk5OT2NoQzhod3RPdFFCSHExaGd1dzFvS2lreEFTY3Zjc0tDcWNFZ2FnNDB1N1JWY2x3SFcxZDJZdWI4c05jZUxHNHhUcw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UK",
+    "source": "MLex",
+    "titre": "Biodiversity COP leaves business uncertain on harmful subsidies, nature credits",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Mon, 09 Nov 2026 13:20:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBTRnRtNzVrdUc2SjEtWjk3Ujl6WUNHMW9yTU5hYXJWNUhlcGN0M2hMdTU4RmplRWlBa3ZNTzRqaUhCeDdyX0JfY1MxS0M5dEtPWVgtTkJ1LXNuQdIBWkFVX3lxTFBTRnRtNzVrdUc2SjEtWjk3Ujl6WUNHMW9yTU5hYXJWNUhlcGN0M2hMdTU4RmplRWlBa3ZNTzRqaUhCeDdyX0JfY1MxS0M5dEtPWVgtTkJ1LXNuQQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UK",
+    "source": "ANTARA News",
+    "titre": "Indonesia seeks innovative funding for national park conservation",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 04:37:45 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQcHU3OGVPb3NEWGpSMWNFZmxEem4zandFazlhbWpvZG5zRTJETjlFRTVCd0ExZ2o1SFhZVXVpSEdUY0JiVDRnNHpHNTE5UXluWXp2WV9SbUxxb3UySXAxOWVlQ0h4WEFiSjY1dE1jMWZXek4wdlAtX3pjc0hhRmxWdmRKNHpXamdqc0FnZjg0bVBCanRXS0M1X2Rib0FPTTU5akJONFpB0gGrAUFVX3lxTFBndERfVkQxVE1iTjBXTjJiRW5NX3NHN3BXMEE5QXhhdXVpZ2tTNm1kSWdjcGVBajVVZFpMOUMwMzkwX0hKSHlIYnp4YS1JQ3A0ZG0tOF9hRmxfSGdyQmhzOFFqTE9IM3laLUdzTEZIRUlGWGdFLVM4SmxDSnJBWmR4aEJzNHlDbkJEall5ZXFKdmRRTzdVTjBmVFE4dmsxUGFBN2E2YWo4TnJCcw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-10 13:56",
+    "pays": "UK",
+    "source": "Redheaded Blackbelt",
+    "titre": "Noyo Center Receives $100,000 PG&E Grant for Kelp Forest Recovery",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 08:00:51 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOSk5JRVRWX3pTTGxaYjdKZUhGaVFReFo4OUNkYkJHVFhYaS1zcUZmcXdBNUZXOG80eEdBX0dvb1JxRmpvWmVQRzNfOW04cDcyRnhnaUN3TzJZWkNpQXJPSDRHdVM4cWVJOEluZzVfWnJGei11MDY1YmRFMGhWT182UVVHcEpoZkJHZ1NVXzh4OUtxM0tyUjBReVR3?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
   }
 ]
