@@ -7119,5 +7119,383 @@
     "autorite": "presse",
     "axe": null,
     "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UK",
+    "source": "JNCC",
+    "titre": "Counted by citizens: how volunteers are shaping UK biodiversity monitoring",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 13 Nov 2026 10:09:43 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOMnZrS3VfZDlHUF9lYjhQNjFCSldnYXFqazlYNlpEcDBHTjIteWpMM010dmthWTVwLXFRVWtsSTloRU5LRTlXRkYtVFViYlBqSGFpZnNIdjdFZTc4MnM5OU9VMzNLbzFMT3ZEOE1OeG52b2tDTHZrNkpNMXRTWHNzX2R6TVFtMUJvelBTTWJMY1FoVG1yVlBPbEFwSHR1RnpQ?oc=5",
+    "canal": "site",
+    "source_id": "jncc",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "FR",
+    "source": "CNRS",
+    "titre": "Canicules marines : la biodiversité peut-elle s’adapter ?",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 13 Nov 2026 10:51:25 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOLUJqRVlwN2FRWjBvczdfcXl6T0dXQ3BEaGlla2oybkxzelFmbHJQRzRoYkpkaG05WTFiODJSVDN6TjJtZTdZZDJIMWRxclVkYzF3a3hlNDBuSG5keFVnclR2b2h1SkFQUkt5TDc3bS1qaFN5LWNLTWZlMW5TM0xiNnhqMWNtWGk1V290MGx3?oc=5",
+    "canal": "site",
+    "source_id": "cnrs",
+    "autorite": "primaire",
+    "axe": "science",
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "INT",
+    "source": "ESG Today",
+    "titre": "Nuveen Launches New Nature-Based Solutions Fund",
+    "themes": [
+      "Instruments et marchés",
+      "Solutions fondées sur la nature"
+    ],
+    "date_publication": "Thu, 12 Nov 2026 17:03:04 +0000",
+    "lien": "https://www.esgtoday.com/nuveen-launches-new-nature-based-solutions-fund/?utm_source=rss&utm_medium=rss&utm_campaign=nuveen-launches-new-nature-based-solutions-fund",
+    "canal": "rss",
+    "source_id": "esg-today",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "INT",
+    "source": "ESG Today",
+    "titre": "EU Commission Releases Draft Sustainability Reporting Assurance Standards",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Thu, 12 Nov 2026 15:33:42 +0000",
+    "lien": "https://www.esgtoday.com/eu-commission-releases-draft-sustainability-reporting-assurance-standards/?utm_source=rss&utm_medium=rss&utm_campaign=eu-commission-releases-draft-sustainability-reporting-assurance-standards",
+    "canal": "rss",
+    "source_id": "esg-today",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "FR",
+    "source": "Monaco Hebdo",
+    "titre": "Biodiversité : à Erevan, les États peinent à renforcer leurs engagements pour 2030",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 13 Nov 2026 08:25:47 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPb3IyLUFOTDJINE5xVjRnVTF3UTU5X2I2ME56Qm03VFRnM1BQcG9pT0lrWTBMOTNxdTQwMVg5MFgybDQ3S2Y3Q2RDcE9mM3k1eHJNS2stRGJpR2J0T2RHZDNmX0h4OW8xRjMwOEdiZzk2c0NpNWdOd2h0Y2prVjhaeXFyUFZGcWNZRElLb3pPVE55djlhUkZ1TlhKblRiM0JsZDR0ejdfcVFNeTlZQTlMRjdGWVpIOEwxNWFaOWhxVGwxQmh4NHp1Z2Z3?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "FR",
+    "source": "Région Auvergne-Rhône-Alpes",
+    "titre": "La Région lance une stratégie de restauration de la nature sur ses sites emblématiques Natura 2000",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 12 Nov 2026 19:10:11 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiywFBVV95cUxObk5MREpxdlNsM3lDSXdBUjRfdkI2aHlteERxeE1LUWtKcFFzTWRoS21kc000eUxCY1M2RWlnQmRHNnJ6c0VLQlNZeEZTRzcxYk8tVjdxNzViWkE4M3Q4MzZrYmRuNFpLcXVBSGJldGoxWkh1Tjcwc3Z3NVBPajRneU90S0lHVDE5cVduQ1hmd0RIYXdrTXB5YXd0U09IUUVkbTM0MC16czNheVowUGNxTmJMRi1tdWR0cTdaMncta09UdWhiQkhpTUU2Yw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "FR",
+    "source": "Ouest-France",
+    "titre": "10 000 € de restauration : ce lycée va contribuer à sauver une œuvre « en péril » du patrimoine mayennais",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 12 Nov 2026 17:42:23 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMilAJBVV95cUxQRTRxR3RlejVoU1BXSjhuMGVNSUpmbWY5dnFfRDJJWXJjNk4wTjYySk5PbFdCejlTOU1pMlhnenhmS2owbF9CM1dSdGU0QXZpVVl2VmwxQlpjTDBXYTVfREF2UTJnblFjN2tTejk2OTRLV3JwYmNPRHZUU0IxRG9PejJ2VTRjX0pMcm85bnRZTHZZSjc2MENldGtPQWNsQ0JrTlo1VlRWT1ZTdmhmU2g1NHI0T0R3SFNCNkF3bjhrZmloaFNhT250OGJmZURmZERMSDN3SGpQc3hGU0RDTVUzRmpEZVJiVEFVR0dCTVJSUy1CcG1adjZlck01MFB5UzI1QV93VjRSQ280VjQzSV9mLUY3VFQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "FR",
+    "source": "Le Télégramme",
+    "titre": "Parc naturel régional d’Armorique : comment la Coopérative climat Bretagne aide à financer la restauration des tourbières",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 12 Nov 2026 18:28:40 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMijwJBVV95cUxOWXl5MEZBdUYwWjBiNnpSODNOQnA1TWJEa1BHaGtDcWFZVWdaWHQzdkxnX1I5cDhYWTZWRjkzZWhEQ0lmUVUzNF9aUy1VaWlNa0xJRVJ2N0RlNUJzaTJYTy1FbzFqYWlTaXRBSGh4ajBPaVpZaTZNNlA0VFlockZqWlAtQUdpQlRGcVA1cTR1SFhYVWZzbUJHN2dBTjlGNzd6ZzVRM1ljSXNiakpnWEVMQl91S0lCYjlsdkxTc0RFWVRteWVJT2NETFY3MnlRdU95NVRxVmM5UkVlejJaYjZ6NkZjdXd1amYwRUdBOGctU3RVSmV4UFpfRHRFWktDd0lSYV90U2F0TVUwS0dpSWNz?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "FR",
+    "source": "Le Républicain Lorrain",
+    "titre": "Lessy. Restauration de l’église et de l’orgue : un récital pour récolter des fonds le 15 novembre",
+    "themes": [
+      "Instruments et marchés",
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 12 Nov 2026 06:19:34 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPQkpHeDgtOF80YUN1Zl9FcU9vS1NuWkwwbzhDYmdfTGZBN1B2TV9VNEFvNmNyRWxCc1IwZWdycnlXclljLWZTdVJibXlyWlU1YXZSaGxqODdPbWtwU2pzWlVDd1BWVjlFVDlJTzlIRXY5UVZKdEswbTZSc1VFZjNnWTI2eVFZekhfT2cyMFNQWllmV2k3QnlqWTZpV1Y5cTBrQk1WelktYVhRTHN1SG5QejBnX2h5cnlVMVVsSUVkWkNPOE5HMWZzNFBhQkhTV1BWdDBtZ0lULXE0Y2lsa2lkSnlHa24?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "FR",
+    "source": "Laodong.vn",
+    "titre": "Cà Mau ajuste le capital d'investissement culturel, n'a pas alloué de capital pour la restauration des vestiges dégradés",
+    "themes": [
+      "Instruments et marchés",
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Fri, 13 Nov 2026 12:52:23 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiywFBVV95cUxONGdObmNtVVpXUUkzb1M0MlNKVW1nbFBfSlM0VXNXMXRhYnl1NGJ0c2VGeUlyLWpCRFQ2MGFfakhJNnVrb2YyaWtxT3JPYXIteDFGYTVJTTlndDlsUEtJRm5LS1NBdHhGeDdQeEFndDJuQ2ZhREtDdmFMZkFtV1VhQXd2dlg4ejdmeUJtY1QyVWIyMWg0d2hOZWgzb2JQeFBkYkNpVXZOZVZaTUJsWFRpWE5IdkNncGlhR01helRhVEJGZDhyY2trR3NKSQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "FR",
+    "source": "Ouest-France",
+    "titre": "Lors du congrès des maires, la communauté de communes de la Côte d’Émeraude va recevoir un Prix du génie écologique",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 12 Nov 2026 15:29:28 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMipwJBVV95cUxQaTJmVGJSWmRMSVBRZGM2VDVRZ2pxRFEyaXJFclIwa2l3d2VRRXVoWGpWb19aTS1RQ2lNTm5ibGhpSXZVZHkwcS1aYUhVVDhrM242WlBYczFTd3VLWE9GUHF3Y1hGMlFILXg2anUxcUhHYllQUk83dGdCNUZYZWpnZDVXZ2xBZzFPdHhvQmliMDVWbkNXeDg3eC1KQkcxcTBqUWk2cVFQTmtleEFsa281VDhFbDYzV1d3eVVrUFRhRU1iRlN5bU9aaWZrRHdDUGRRWG9QcEJobkl5WXVvdGZRU3cwb1lsbEhqeTZidmxuaENpQTFfcC1seXZLUWllVTRqekZHbngxZzlVOGdqenRoUkc5UG5aODRkSzVUUjRzUjN0S1RQb0hJ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UE",
+    "source": "projects.research-and-innovation.ec.europa.eu",
+    "titre": "Out of the blue (economy): fresh ideas to finance marine restoration",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 12 Nov 2026 19:53:44 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi5gJBVV95cUxPbTU2bTBhbThDY1VpMVI4S0dOWEVCc1lVQks2SjBnVFFoODBJNnFyZHlPXzFILUVSOW5NUFJYbnZfYmxnNGkwbUloSjlLMWpOTTA4aDhfTnlSRVRMNzZGSEZPdGNWZDJxOHgxQlFiRHdlU1d2SmExZEZBS0RiNXJROU50Wmp6WXE0OTc5R04wRHQ3M3V2ZzVMNTcyRWRIUlF3T3hsM1o2Q3NuM2pjLXNrVXZrc18yS0trZjRtY0l0QUYzU1lMRnJwUEtMZDZETVhaSmpfUmpzbV9HOXpiS3pWVkk5TktNX2djbGRuOGhHX2t1ckdJRmlfLTV2RzZwVEdBeFc2eUIwOVNkb2lXMl90RzNFXzNCRXJjWV9ablZjeU5acTROaXRGSzQtTHdDankyVTVVb1VXZWg0UTB2a3dVcjVueVlnaFJtYThzVXBtOVBsdVdYWFFfXzFUYmZoa1VTQ3dpQUVn?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UE",
+    "source": "Sustainability Online",
+    "titre": "European Commission opens consultation on sustainability reporting assurance standards",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Fri, 13 Nov 2026 07:07:38 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQUW05bWRMQ29Qb3RrelNuSmpXdmJCWms3ZEZMdjM0WWJ2RWpVOVRQd2xsNGs5Q1N5eXUyX01ZOUNDaFYzd0RuYTJyZi1Id2JDZ2JjVS1obThNdXQ2c044UjhNSnBKenZVaUJ3Sm9ZTUxtVHBDTDg1Sm8xOWR6Sk1NZk9xeDJkZWx1dVFqUDdEblFKSUFyTWxSRW9GLWZOdm1zbW50TE1tVEo3cXdtcHR1eWFmN2hUSU10X0JFMmtsTmprMjA?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UE",
+    "source": "fundsforNGOs News",
+    "titre": "COP17 in Armenia examines how Joint SDG Fund and partners can finance food systems that protect biodiversity",
+    "themes": [
+      "Instruments et marchés",
+      "Cadre mondial et science"
+    ],
+    "date_publication": "Fri, 13 Nov 2026 05:03:32 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNc3BBVDBwaV9iWnZJOUdxbDFtaERGWDRBZm9FVU8wUi1oWFdGZ01JZlhUc2hJVGtISmtfQ3ljcjQ3cGJBWXpzM2dkWjhkcEZZOUxiaVRvS0hFblRqT3FNYldlOUJhMU02ZXBObGpYNFlIVnlRMEFib25McHA5VnQ5aThTSWlXU1FaOEd0WHpES2FrbVF0cldTQ2R5M2JQRllReVhDZzhTdw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UE",
+    "source": "Capital FM Africa",
+    "titre": "Kenya seeks local, foreign investment in blue economy through new policy",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Fri, 13 Nov 2026 10:32:20 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMingFBVV95cUxNSnJIa0x0dm5XekFVZUZsZW5BaEx4SjJRYXhoM2huV1Zpa0FXekYxY1Jrc1hfWFNMclZCY1MtVFcxMmkxcmx6ZUVCX1J5eVpaREVIZFJFanZzV25OazJ2dFkxLUZJMWZFcUJmb3JVYnEtcEFNdmtFQ3dWZGFzQXVpdno5MWg1QTBfRkJhY3h5NzBBOUVLa0ZKdTNFcjU3dw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UE",
+    "source": "Agroberichten Buitenland",
+    "titre": "Italy: integrating biodiversity into economic strategies",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 13 Nov 2026 07:04:43 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPT0UzaS1oNjNjRmMwZ0F3OHdIWmJqYnBTYndVSGVyVkZrLTFEZTlKZkRILTdBQ1JqMXJLdnoxeG5yYkFyV1JCS09fVU1lYzJFVFVsNEtBdlJNVk8yeEo2ZGdZdk90R1hDSmZxTWJkN3BjdFpBN003OGxUaHBrVkFWR1dfc3VTM3JqYzZCOTNRUkdqVExHakFIRHhoYnFiZXFrQVZhZkZkeVJPQVU0TEN3eGczWS13aFdiVWNXSA?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UE",
+    "source": "Asianet Newsable",
+    "titre": "Global Biodiversity Fund Still Awaits Corporate Payments Years After Countries Agreed To Share Genetic Data Benefits",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Fri, 13 Nov 2026 11:27:26 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMipAJBVV95cUxQVm4xOXFQcEFwQzlzWXl5TFdDZ2h2Yk16LWwxTGtzelVGLVVlUUdQQy1tVXlhRXB2NG5ZbUdBRUIxbTctSVZtNzBNZ2tIQnlFeEhTY0lETlRXc09fZjZjaEVGc01FTjVSdTRUNVlfWTdaRmYyWGZUU3V1bVBQZ3hHSkJMZ3Y4OXRYN2o2T3VoeW44d3Q0MEV1RFByTFB6X2IxbDBNNG1SU3pFdDZzdVhTMUJNVktOM1N4bzhFejhPU2FhdnR4VGVLRnFPV1liVmVfQ19tY0VWM3Y1bjlZVlRzZ0ROT1pYRXp6aWZxVFcwNU5mMkpCTHN2X25WYUxocUVQMWxaVktNVGNCYmdZYWlsUmkyYVNLTDVqTGpYalJ1cEx5bUZQ0gGqAkFVX3lxTFAtQ2MwMDE2MDZBLWpHUVJyaDVQenBJMFVBWkk0OHdFUG5GdkJLcDVveDZINU02TUl5MC1wZE5sSzZKdktwXy1pX2JlekEtY0ZJcFhLM3dKRWJidTViWTNlcUVZWlNmR1U1YWY0b0dRYnNHbmozWUlYSThZNDdyWHV1TGdURmhBYWxsMnhkWDJTWmstYVBIcHhWS2lnNnBzT3lTNmE2Q09zanBhdG12MHllLXdzMEpTUG5jVW1jMnpGYTV4UEwtbzQ3SDFncUpfakF0MlFNbDF4TnZCa3FVSEpLTFUyQWtGelJKNWRJOEhrWFZYVUgyTVRza2VnM093a2FPNzdTSld3QjhpY3pHMVBCbnRzV0ktZDNkUVQteXpzV3p6Sl9vZ1ZSSVE?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UE",
+    "source": "Independent Newspaper Nigeria",
+    "titre": "Nigeria Seeks Asian Investment, Technology To Accelerate Blue Economy Growth",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Thu, 12 Nov 2026 17:37:21 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOSU10cjMwYURmdmotZHhUNlo3Qnc2bjZ6NUF0U0J6MlVXdWJMazBEZU1VcC02MEljNU9WZmtRRzVtZzlGYUxMYy0tOGtRdy15VkpabnpLbEc2bkE5VF80VHgyeWJqXy1RVTVJZktLRGpqTnlvbG4yd2tBZ3FSV2Fsalh0RWpuY0FVYzU1ekpaakZDSmtoS2VIOFJWcl9qakRE?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UE",
+    "source": "Daily Trust",
+    "titre": "Niger Delta summit to plant 18,000 mangrove seedlings in three coastal communities",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 13 Nov 2026 11:38:08 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPLW1uX0RRSEVxN29hOENhMmY0Ykc3c0xXanpSVklaTTVGQ0Ixd1laSzlTSG9uWDI3OGVOekQwVVNWc2E1cXNCZl9YYkg1Ynh6Ny1jZDNzY2Q1RDhQbEhkQ0lHb0RCcXN0YjEtMFRLYVpCQkxtejBvU2hFcWtKNHk3Qjl5U2xWTWZpT3ZMWVZzb2M3VXJjalBJVkRFMDIyVm9vcU5qSndaRk8?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UK",
+    "source": "MarketsandMarkets",
+    "titre": "Biodiversity Monitoring Market",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 12 Nov 2026 18:51:34 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOMC1udGVNenhmb3N4aW5mWFdpS3U2cXhfN29YMlc2cFdxUjNITERlS0VaSUUxYVVVb0dPSE9La0tNOXFHc1E3LXlCYXhwV3ZxZHVjazFPVWVhX2ZnR0pxM1hoVFp4RHd5RTRsOXF5dU1JWHUwcnh6RzBxTHNmelNLMDByRHdrbWM2ZjFGYzIwMmRPYThxMWliRg?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UK",
+    "source": "Open Access Government",
+    "titre": "Sustainable holiday homes: Towards nature-positive rural development",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Tue, 10 Nov 2026 15:04:25 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQb0RoYl84Y3M3VnBWYThuRHB1SExSU1E3aXdEWUg3V3RhclVtbEsycHBXQVZ3SHNBc0ktc0xpUkc3VWcwWHduYXoxTnFhQ3BSeE9jamtSaTc2UzZ4dzVtMWtBYjBlbmFSS2d2a1NGTGJjX0NmMXpWbk5pMFdqXzRCcjFJOXRDaDhBSzBJQVJsaDhzNzdVc0xmUXljNUtveW0zRkhpZlB4Ti1CU0FUUktrVThka2NwM1dGMEt5dA?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UK",
+    "source": "Global AgInvesting",
+    "titre": "Navigating Risk and Resilience: Key Takeaways on Natural Capital from GAI Europe 2026",
+    "themes": [
+      "Risques et dépendances"
+    ],
+    "date_publication": "Thu, 12 Nov 2026 18:33:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQNlZqTzZScjRmaU94d3p3czQ3VWE1SDdadjlzeFNyWmNXMjNBV2hoMHBzVHJYS2I2UWJCRVZfZ3JuV2YyVW5hS0FzaUZER3FKSGctMWVIb3RwZ2V3VlY5c2ZpMmszRGdBejY5SGhHR0VyMWlra25GbUNtSWd0TWl1bTU5WTl2TkVxN29XYlc0MnFPVmhhNDFUQWZ1RU9QVGkzTF9jMjd1dG5reUlSYlBTTmJ0U1ZzQQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-13 13:38",
+    "pays": "UK",
+    "source": "Yahoo Finance",
+    "titre": "Biodiversity Monitoring Market worth $11.39 billion by 2031 - Exclusive Report by MarketsandMarkets™",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 13 Nov 2026 11:45:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMingFBVV95cUxQejE1QjVpZFhFdUFMUVpXQmVqb1BKYnZBY3ppM2w1dUJCTE0wd0thV3lCVjdmclFHX25NV3NSQ3pUV0ZyMXlEOEJTU2R2SXloX2F5N28tN0JyclBXSURlY2hYcmVJUWxjUVozYldnYXNGN1dBM0hyNlVsaHQ2QzUzdlNGZTM4QW9LVUxSVGdFLUNVVG1BdG1tbFF2SUdmZw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
   }
 ]
