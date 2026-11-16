@@ -5,7 +5,8 @@ on:
   pull_request:
   workflow_dispatch:
   schedule:
-    - cron: "0 6 * * 1"   # lundi 06:00 UTC : vérification des sources et des liens de l'agenda
+    # Hors du pic de début d’heure et décalé de la collecte ; horaire non garanti.
+    - cron: "43 7 * * 1"   # lundi 07:43 UTC : vérification des sources et des liens de l'agenda
 
 permissions:
   contents: read

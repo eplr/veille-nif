@@ -1,11 +1,11 @@
 name: Collecte quotidienne et veille hebdomadaire Notion
 
-# Collecte quotidienne à 06:00 UTC, sans appel à un modèle d’IA.
+# Collecte quotidienne à 06:17 UTC, sans appel à un modèle d’IA.
 # Page Notion hebdomadaire et email le lundi seulement.
-# GitHub peut retarder le déclenchement.
+# Éviter le pic de début d’heure réduit le risque de retard, sans garantir l’horaire.
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "17 6 * * *"
   workflow_dispatch:
     inputs:
       lookback_days:

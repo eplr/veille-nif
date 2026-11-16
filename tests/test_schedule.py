@@ -21,8 +21,15 @@ class TestSchedule(unittest.TestCase):
             if "name" in step
         }
 
-    def test_collecte_quotidienne_a_six_heures_utc(self):
-        self.assertEqual(self.workflow["on"]["schedule"], [{"cron": "0 6 * * *"}])
+    def test_collecte_quotidienne_hors_pic_a_six_heures_dix_sept_utc(self):
+        self.assertEqual(self.workflow["on"]["schedule"], [{"cron": "17 6 * * *"}])
+
+    def test_controles_du_lundi_decales_de_la_collecte(self):
+        controls = yaml.load(
+            (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8"),
+            Loader=yaml.BaseLoader,
+        )
+        self.assertEqual(controls["on"]["schedule"], [{"cron": "43 7 * * 1"}])
 
     def test_publications_planifiees_gardent_le_mode_hebdomadaire(self):
         for name, force in (
