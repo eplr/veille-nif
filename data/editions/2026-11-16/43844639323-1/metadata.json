@@ -1,0 +1,12 @@
+{
+  "edition": "2026-11-16",
+  "captured_at": "2026-11-16T10:02:06.320410+00:00",
+  "preview": false,
+  "notion_outcome": "success",
+  "email_outcome": "skipped",
+  "source_commit": "7c5d2d4e71beb92579eacdafb643d8df758c5857",
+  "run_url": "https://github.com/eplr/veille-nif/actions/runs/43844639323/attempts/1",
+  "files_sha256": {
+    "notion.json": "e69239f5e57af875d883e891ff6e97aeaeb687362e4b4629346f59249a013af4"
+  }
+}

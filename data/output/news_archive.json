@@ -8425,5 +8425,53 @@
     "autorite": "presse",
     "axe": null,
     "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-16 09:59",
+    "pays": "FR",
+    "source": "Midi Libre",
+    "titre": "Un succès au rendez-vous à la Fête des abeilles et de la biodiversité",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sun, 15 Nov 2026 04:08:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPSllFc3VwaUVFVWRCTWtoMEJnNno4akFVY1Y3V2IwTEpacmpuZ09YaVZWWG9Nb3BobmpHTTlzbFdBQUZpMlNHVDEtU2NJSS1DR25Id1R2dnVFaHRQNXFqS3RIbjJOREJmazZHTjRkZ3hTY2tFeEIwZzdtYl9HQkNnbnFJeUhpNDB5d3RURWZUdF8xeklwdFFTZFhiLXpGb29Sb3B3T180WVpEMkltTGU1aGxsX0s4ODVXT0E?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-16 09:59",
+    "pays": "UE",
+    "source": "CnEVPost",
+    "titre": "Nio signs phase 2 Clean Parks deal with UNDP to expand low-carbon conservation efforts",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Fri, 13 Nov 2026 10:29:14 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9TT29kSHJDRDJaQXRiNmFyQnlzSlU4TmhKdTdZYVZnajJoME95aVVzd3dZRHdkYl9VZkhBWld3OXBpaFRVVW5wek9laTBaMVViMkRicGt0LVdFdTdEUWgxQ1VXWUtDZ21hRmltVFRHTnhVYXky?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-16 09:59",
+    "pays": "UE",
+    "source": "Daily Champion Newspaper",
+    "titre": "NIMENA, plug and play partner to strengthen Nigeria’s maritime, blue economy ecosystem",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Mon, 16 Nov 2026 05:54:24 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcWRKX3VyUlJER3pzSHpBenEwdHY1bkUxLUtOWUZNR1A1REVjT3ZMSmI4QmF5R1RxV1I4b0tvTVlIeWw0YUtuQWF0X1FZYjI5QUFKTWliTkY2RmI5TVpVSEhzel9hVnpRb080S1Q0Z1RSei0xQnFsWjNmX1RFMjNOek52eV96NmJtOWpEcnlqWkVmR2UzT0ZGUDlJdlh6RHY1ZTg4UU14X0dBUllPVTEtd3Nn?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
   }
 ]
