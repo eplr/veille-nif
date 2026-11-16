@@ -230,6 +230,16 @@ class TestDigest(unittest.TestCase):
             self.assertIn(needle, md)
         self.assertNotIn("## Appels à projets", md)  # section absente quand il n'y a rien
 
+    def test_rendus_sans_mention_de_reverification(self):
+        event = dict(self.window[0], confiance="moyenne", en_cours=True)
+        for render in (daily_digest.compose_markdown, daily_digest.compose_html):
+            with self.subTest(render=render.__name__):
+                content = render(self.items, [event], [event], [], {"ok": True}, self.today)
+                self.assertNotIn("à revérifier", content.lower())
+                self.assertIn("nouveau", content)
+                self.assertIn("en cours", content)
+        self.assertEqual(event["confiance"], "moyenne")
+
     def test_pas_d_adresse_email_dans_le_depot(self):
         root = pathlib.Path(__file__).resolve().parent.parent
         for path in list((root / "src").glob("*.py")) + list((root / "data").glob("*.yaml")):
@@ -255,6 +265,7 @@ class TestPromptPack(unittest.TestCase):
         self.assertIn("N’utilise QUE les éléments fournis", pack)
         self.assertIn("COP17", pack)
         self.assertIn("## C. Appels à projets ouverts", pack)
+        self.assertNotIn("à revérifier", pack.lower())
 
 
 if __name__ == "__main__":

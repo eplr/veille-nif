@@ -158,8 +158,10 @@ class TestWeeklySelection(unittest.TestCase):
         blocks = daily.build_blocks(items, events, [], NOW, calls_available=False)
         content = json.dumps(blocks, ensure_ascii=False)
         for expected in ("L’essentiel de la semaine", "À retenir cette semaine",
-                         "accès sur abonnement", "Événement 7", "à revérifier", "Carenews"):
+                         "accès sur abonnement", "Événement 7", "Carenews"):
             self.assertIn(expected, content)
+        self.assertNotIn("à revérifier", content.lower())
+        self.assertTrue(all(event["confiance"] == "moyenne" for event in events))
         self.assertNotIn("désinscription", content)
         self.assertIn("yellow_background", content)
         self.assertIn("blue_background", content)

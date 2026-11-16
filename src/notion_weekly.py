@@ -154,8 +154,6 @@ def build_blocks(items, events, calls, now, calls_available=True, total_articles
         flags = []
         if event.get("en_cours"):
             flags.append("en cours")
-        if event.get("confiance") != "haute":
-            flags.append("à revérifier")
         label = daily_digest.fr_range(event["debut"], event["fin"])
         if flags:
             label += " · " + " · ".join(flags)

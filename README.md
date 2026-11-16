@@ -161,7 +161,7 @@ Les fiches validées pendant les sept derniers jours sont proposées à l’édi
 
 ## Ajouter un événement
 
-Ouvrir `data/events.yaml`, copier un bloc, renseigner tous les champs obligatoires, dont `source` (la page officielle consultée) et `verifie_le`. Si une information vient d’une source secondaire ou est déduite, mettre `confiance: moyenne` : l’email affichera « à revérifier ». Le chargement valide le fichier et signale toute erreur de saisie.
+Ouvrir `data/events.yaml`, copier un bloc, renseigner tous les champs obligatoires, dont `source` (la page officielle consultée) et `verifie_le`. Si une information vient d’une source secondaire ou est déduite, mettre `confiance: moyenne` : ce niveau reste une métadonnée interne et n’ajoute pas de mention dans la page hebdomadaire, la newsletter ou le pack copier-coller. Le chargement valide le fichier et signale toute erreur de saisie.
 
 ## Utiliser la version copier-coller
 

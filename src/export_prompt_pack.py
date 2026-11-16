@@ -156,11 +156,10 @@ def render_agenda(events: list[dict]) -> str:
     for e in events:
         fin = f" au {e['fin'].isoformat()}" if e["fin"] != e["debut"] else ""
         extras = [e.get("horaire"), e.get("cout"), e.get("note")]
-        fiable = " [à revérifier : source secondaire ou détail déduit]" if e.get("confiance") == "moyenne" else ""
         lines.append(
             f"- {e['debut'].isoformat()}{fin} – {e['titre']} – {e['lieu']} ({e['format']}) – organisé par "
             f"{e['organisateur']} – {e['lien']}"
-            + ("".join(f" – {x}" for x in extras if x)) + fiable
+            + ("".join(f" – {x}" for x in extras if x))
         )
     return "\n".join(lines)
 

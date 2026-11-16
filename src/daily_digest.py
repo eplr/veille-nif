@@ -33,8 +33,7 @@ AUCUNE_ACTU = "Aucune nouvelle actualité retenue pour cette édition."
 NOTE_METHODE = (
     "Sélection automatique par mots-clés et priorité de source, sans garantie d’exhaustivité. "
     "Une source primaire ne vaut pas validation de ses affirmations. Vérifiez la source avant de la citer. "
-    "L’agenda et les fiches de rapports sont validés à la main ; "
-    "les événements marqués « à revérifier » comportent encore une incertitude."
+    "L’agenda et les fiches de rapports font l’objet d’un suivi éditorial manuel."
 )
 
 MOIS = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."]
@@ -85,8 +84,6 @@ def _event_tags(e: dict, new_ids: set) -> list[str]:
         tags.append("nouveau")
     if e.get("en_cours"):
         tags.append("en cours")
-    if e.get("confiance") == "moyenne":
-        tags.append("à revérifier")
     return tags
 
 
