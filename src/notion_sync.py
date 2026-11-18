@@ -4,7 +4,9 @@ Le jeton et l’identifiant de source de données proviennent exclusivement de
 NOTION_TOKEN et NOTION_DATA_SOURCE_ID. Aucun secret n’est accepté en argument.
 """
 import argparse
+import json
 import os
+import re
 import time
 from datetime import datetime, timezone
 from uuid import UUID
@@ -62,6 +64,35 @@ class NotionError(RuntimeError):
     pass
 
 
+def error_details(body, authorization):
+    """Ne conserver que les diagnostics, jamais la réponse ni les en-têtes bruts."""
+    if not isinstance(body, dict):
+        return "réponse JSON inattendue"
+    fields = {key: body[key] for key in ("code", "message", "request_id")
+              if isinstance(body.get(key), str)}
+    additional = body.get("additional_data")
+    if isinstance(additional, dict) and isinstance(additional.get("rate_limit_reason"), str):
+        fields["rate_limit_reason"] = additional["rate_limit_reason"]
+    token = authorization.removeprefix("Bearer ")
+    for key, value in fields.items():
+        if token:
+            value = value.replace(token, "[masqué]")
+        value = re.sub(r"(?i)\bBearer\s+\S+|\b(?:secret|ntn)_[A-Za-z0-9_-]+",
+                       "[masqué]", value)
+        value = re.sub(r"https?://[^\s<>\"']+|[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}",
+                       "[masqué]", value, flags=re.IGNORECASE)
+        if key != "request_id":
+            value = re.sub(r"(?i)\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-"
+                           r"[0-9a-f]{4}-[0-9a-f]{12}\b|\b[0-9a-f]{32}\b",
+                           "[masqué]", value)
+        # Notion peut répéter les valeurs de propriétés invalides dans le message.
+        value = re.sub(r'"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|`[^`]*`',
+                       "[masqué]", value)
+        value = " ".join(value.split())
+        fields[key] = value[:1000] + ("…" if len(value) > 1000 else "")
+    return json.dumps(fields, ensure_ascii=False) if fields else "aucun détail API exploitable"
+
+
 class NotionClient:
     def __init__(self, token, data_source_id, session=None):
         if not token or any(character.isspace() for character in token):
@@ -99,10 +130,12 @@ class NotionClient:
                 body = {}
             if response.status_code == 200:
                 return body
+            details = error_details(body, self.session.headers.get("Authorization", ""))
+            additional = body.get("additional_data") if isinstance(body, dict) else None
             retryable = response.status_code in {429, 529} or (
                 safe_to_retry and response.status_code in {500, 502, 503, 504}
             )
-            if body.get("additional_data", {}).get("rate_limit_reason") == "public_api_request_blocked":
+            if isinstance(additional, dict) and additional.get("rate_limit_reason") == "public_api_request_blocked":
                 retryable = False
             if retryable and attempt < 4:
                 try:
@@ -110,11 +143,13 @@ class NotionClient:
                 except (TypeError, ValueError):
                     delay = 2 ** attempt
                 if delay > 120:
-                    raise NotionError("Quota Notion indisponible plus de deux minutes ; réessayer plus tard")
+                    raise NotionError(
+                        f"Notion HTTP {response.status_code} ; quota indisponible plus de deux minutes ; "
+                        f"réessayer plus tard ; {details}"
+                    )
                 time.sleep(delay)
                 continue
-            # Aucun corps de réponse ni contenu de page dans les journaux.
-            raise NotionError(f"Notion HTTP {response.status_code} ; vérifier accès, schéma ou quota")
+            raise NotionError(f"Notion HTTP {response.status_code} ; {details}")
         raise NotionError("Nombre maximal de tentatives Notion atteint")
 
     def schema(self):

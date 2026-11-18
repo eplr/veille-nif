@@ -274,6 +274,61 @@ class TestClient(unittest.TestCase):
             self.client.request("POST", "/pages", {})
         self.assertEqual(self.session.request.call_count, 1)
 
+    def test_erreur_api_detaillee_sans_secrets_ni_contenu(self):
+        request_id = "11111111-1111-4111-8111-111111111111"
+        self.session.request.return_value = self.response(403, body={
+            "code": "restricted_resource",
+            "message": (
+                f"No access to {SOURCE_ID}; test-token Bearer other-token "
+                "ntn_other_secret secret_legacy "
+                "https://private.example/page?token=hidden person@example.org "
+                "\"Private page title\" 'Private note' `Private value`\nMissing read capability."
+            ),
+            "request_id": request_id,
+            "properties": {"Notes": "Never log this"},
+            "additional_data": {"rate_limit_reason": "public_api_request_blocked",
+                                "private": "Never log this either"},
+        })
+        with self.assertRaises(notion.NotionError) as error:
+            self.client.request("GET", f"/data_sources/{SOURCE_ID}")
+        message = str(error.exception)
+        for expected in ("Notion HTTP 403", "restricted_resource", request_id,
+                         "Missing read capability.", "public_api_request_blocked", "[masqué]"):
+            self.assertIn(expected, message)
+        for secret in ("test-token", "other-token", "ntn_other_secret", "secret_legacy",
+                       "private.example", "person@example.org", "Private", "Never log", SOURCE_ID):
+            self.assertNotIn(secret, message)
+        self.assertNotIn("\n", message)
+        self.assertEqual(self.session.request.call_count, 1)
+
+    def test_erreurs_sans_json_ou_json_inattendu(self):
+        for body in ([], "private response", {"additional_data": None}):
+            response = self.response(403)
+            response.json.return_value = body
+            self.session.request.return_value = response
+            with self.assertRaisesRegex(notion.NotionError, "Notion HTTP 403"):
+                self.client.request("GET", "/users/me")
+        response.json.side_effect = ValueError("private HTML response")
+        with self.assertRaises(notion.NotionError) as error:
+            self.client.request("GET", "/users/me")
+        self.assertNotIn("private", str(error.exception))
+
+    def test_diagnostic_borne_et_masquage_avant_troncature(self):
+        details = notion.error_details(
+            {"message": "a" * 995 + "test-token" + "b" * 2000}, "Bearer test-token")
+        self.assertNotIn("test-token", details)
+        self.assertNotIn("test-", details)
+        self.assertLess(len(details), 1100)
+
+    def test_quota_long_conserve_le_diagnostic(self):
+        self.session.request.return_value = self.response(
+            429, body={"code": "rate_limited", "message": "Try again later"},
+            headers={"Retry-After": "121"},
+        )
+        with self.assertRaisesRegex(notion.NotionError, "rate_limited"):
+            self.client.request("GET", "/users/me")
+        self.assertEqual(self.session.request.call_count, 1)
+
     def test_lecture_incomplete_refusee(self):
         self.session.request.return_value = self.response(body={
             "request_status": {"type": "incomplete"}, "results": [], "has_more": False,
