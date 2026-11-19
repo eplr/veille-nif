@@ -9711,5 +9711,508 @@
     "autorite": "presse",
     "axe": null,
     "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Office français de la biodiversité",
+    "titre": "Colloque national Sport, mer et littoral",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 18 Nov 2026 19:10:21 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9GZnNfVXExdHZDTVpvckQ3OUVYQW9SZVBxRDFVU3YtN3BwTHMwdkkwcTAxWGJ6cUVQVl9RblNyVzBjRmN4UmtZUVBQR2J4bVZhdk1laHBGYlgtRzAtSy1VTzhoYXcyV1JnYWhsN1NFZW5WT2pyZ1p6NExB?oc=5",
+    "canal": "site",
+    "source_id": "ofb",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Office français de la biodiversité",
+    "titre": "Ouverture du nouveau sentier de la Mare Caïman.",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 18 Nov 2026 19:11:08 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMifkFVX3lxTFAtVDdEODBGcXdRLXRtbUJwb3d6ZWt4QXFmb1lhOGhHZlR2b0JMQjZaN3REM0doSndNdFJrck1BMlJ2VUV3NlA0anFWT19HUXpyeGJJSG1GeUZjS3F0ZWpxMDdfUl9kYkxDbS03NDFnSjE2SE5VbFhkQW1IVHhDZw?oc=5",
+    "canal": "site",
+    "source_id": "ofb",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Office français de la biodiversité",
+    "titre": "Grande mulette (Pseudunio auricularius)",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 18 Nov 2026 13:49:51 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE43eWhnVkJ2Tm5lby14UnZpRl9MOFJob2ZuNGJVS3NDdl9DZEliRVJISF9wQ1kzRFdXazJKZl83NFdQS2dhTFJnNzZLN1IyM1hibjZ3?oc=5",
+    "canal": "site",
+    "source_id": "ofb",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "UK",
+    "source": "JNCC",
+    "titre": "UK-BI: Abundance of birds | Advisor to Government on Nature Conservation",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Tue, 17 Nov 2026 10:13:16 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE0tblJ4NUJvT2psSGxsdHdrQkJUOVBIRmJlUEZJWGU2c2xNTWRLaUY1TzJPb3RHaU0tNnFDaGdzbjU5T3BGR0J4ZkV6VzFnZGRJbEdtS1FlVkRRbXZsd0RSazMzSUY?oc=5",
+    "canal": "site",
+    "source_id": "jncc",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "UK",
+    "source": "JNCC",
+    "titre": "UK-BI: Biodiversity positive incentives | Advisor to Government on Nature Conservation",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Tue, 17 Nov 2026 08:00:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE13QWdybXZ3SGNlZjhPRW12d1llMGZ2OVJ3d2RmWUhWVTFxS0V5bjBqV09fcFk5cERCNlN3ek1FeUw1OTl1SU1lcEk5ekJ6OElUaTBFNEMtaWtjcjExMF9KUHpEcXk?oc=5",
+    "canal": "site",
+    "source_id": "jncc",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Vert",
+    "titre": "Sortie de «GTA VI» : les jeux vidéos dématérialisés, bonne nouvelle ou vrai problème pour l’écologie ?",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 05:00:00 +0000",
+    "lien": "https://vert.eco/culture/sortie-de-gta-vi-les-jeux-videos-dematerialises-bonne-nouvelle-ou-vrai-probleme-pour-lecologie/",
+    "canal": "rss",
+    "source_id": "vert",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Vert",
+    "titre": "Santé des femmes : La France insoumise dépose une proposition de loi pour interdire les gaz lacrymogènes",
+    "themes": [
+      "Réglementation et supervision",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Wed, 18 Nov 2026 16:02:28 +0000",
+    "lien": "https://vert.eco/rapports-de-force/sante-des-femmes-la-france-insoumise-depose-une-proposition-de-loi-pour-interdire-les-gaz-lacrymogenes/",
+    "canal": "rss",
+    "source_id": "vert",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "AEF Info",
+    "titre": "La TNFD recommande à l'ISSB d'opter pour une norme contraignante sur la nature",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Wed, 18 Nov 2026 17:28:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNV0ladVNTX21GYXBzZDYxQ1VkbFROM0FOTFQ2NkVPYTNDRnA5Rll4MHlPOXl0elVrVTlzTnFlbHVIZTN1SUdrbDV4Nzl2NGZQRVI1MjlSU3g2LURSajRhbms3NlJfX3JQS3JaTnpmZDFnWlN4SmhWZHc1QzYtdVUzTnRNVEZUaXdhcVdWdEt4M3FpY2RpWmkwMExWUnIyakp0MEo0VXhWTWU3cktaV1RsTXBiZ3Y?oc=5",
+    "canal": "site",
+    "source_id": "aef-info",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "abonnement"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "INT",
+    "source": "ESG Today",
+    "titre": "TNFD Urges ISSB to Issue Mandatory Nature-Related Reporting Standard",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 10:45:51 +0000",
+    "lien": "https://www.esgtoday.com/tnfd-urges-issb-to-issue-mandatory-nature-related-reporting-standard/?utm_source=rss&utm_medium=rss&utm_campaign=tnfd-urges-issb-to-issue-mandatory-nature-related-reporting-standard",
+    "canal": "rss",
+    "source_id": "esg-today",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "INT",
+    "source": "Environmental Finance",
+    "titre": "TNFD urges ISSB to set mandatory standard",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 14:18:16 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZUp3WTFESFVOck1hU1hOSG03YThxREJaT3Zyb09sMkRpN09Helk5OVlaN05wTGhjVGhYcUE1UU4td1gtcjAyZ0ZFSTdHNU1Xd09iLWlUc0kxOXN2Ukl1QVdUbG5wbjA5ajBRVUlDSDNJMWdDUHYxS1ByQnkyejNLbmhralRIeGQ3MVRFa3I5N0ZZNG5MOE5JY3ZjWDdxTkN6UDhV?oc=5",
+    "canal": "site",
+    "source_id": "environmental-finance",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Le Revenu",
+    "titre": "Nairobi : le boom immobilier menace les espaces verts et la biodiversité",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 08:00:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQOUxVODM1U1k2Q2haTWJkckk3WUVaRkRiTGpXb1RYdWNMUEhzNEd2OXdCYV9WOWNiSTNuV0U5RWxyaHNvN1NiZEFDRUkyU2Q3M3hYZnd3aDU3dmhtcnRJY3NqWXIwYlNpRHVlc0NWV21vVzdKT0RNR1NfOGtVMnFJbHpFSEJqM2xkVjB2dnNuUFBJamNNTmtyZHhXQnRzXzM3OElnXy1fVWdPNHhvLUNCMk44ZnM?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "News Asset Pro",
+    "titre": "Investissement responsable – La biodiversité entre dans la course",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Wed, 18 Nov 2026 16:45:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMipAFBVV95cUxObE44WHdWNjRWdm5UMUsyTWQya0Jubl9neGhVajVCSFl1ckJtcUVNeTl6ZzNEWFpLUkN4YTlubHBDVzhEVWFidDBTZDlrUF9IdGQ2akVFblpVVk1iTTE5eF9McmxGR2VKRWtCelhJMWJHalBrSkNDUEZ4ODh4c2d4SkNYMk9IdXhYRXV5R2drYlR6bmUtdkpQNGJzSGJVYUxtc1d5cw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "The Good Life",
+    "titre": "MVRDV imagine Rotterdam ROCKS!, une architecture utopiste dédiée à la biodiversité",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 08:42:36 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1mX1ZvbTRrWG1zeUNnUVF1cVRWSklFNFRGaHZ5elZxQ3NDdk9DSHRqSDRXRG1QZjZXUGtrcDloNnlzbnA5cDVHS1B6QlVtdjBZY25waEZhbTVEVkRuVFlpOVlGWmMtV1FJYklhNWZR?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Elle.ch",
+    "titre": "Nature Renaissance : préserver les oiseaux et la biodiversité",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 04:43:37 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQa2V1MUtFbTIzRFlQQ2lRb1JXbHpfbXVEYVdGNEZlXzl6c0IwX2dhNWxNdWx1cjdsS0J0dVZMLWhhVHBzMVZoUjhNWUZ4TTg3WEhuZ1JVVXlPRkk5ZDFqb1hnVGN6WEhsTTZGME51NXdSQ3FoM2hJY3lwdWo0Z1QtUTNR?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Sea Shepherd France",
+    "titre": "Une énergie renouvelable peut-elle détruire la biodiversité ? Oui. Et la France ne peut plus ignorer ce qu’elle sacrifie au nom de la transition écologique. Bruit sous-marin, pollution, destruction et transformation des habitats, collisions, perte de zones d’aliment",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 14:52:30 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQQ29yRWlxaThtWUl0Q2ljcnBkMlhkcUZNSE94STA0YWc1cm5WM1VrVDZWcF9OQlYyOUloOGlVSW50Q05mbl9FTVJlSFg0V1ZOcXNqV014N0pFcUJFZnBzeWVKZUZwVkFXbjg5THN4UlkwUXNFbnJnYWd6TDVKU1VEZGFISEpUWFZHNVJ0T25kQ05aZ0E?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "lanouvellerepublique.fr",
+    "titre": "Affluence inédite à la vente de livres d’occasion dont les bénéfices vont servir à la restauration de l’église à Artannes-sur-Indre",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Wed, 18 Nov 2026 17:06:24 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPVEtWdTU0WE10aWhvejFTWjZrSTcwMktPRTZ0VE41T0Nnc3JtcnFKTVdsSnFCNFk5U0JUUjJKXzlnMmRyX3o2TUlyaDI4MTRSZGIwVEo1bjE3U29Zek5aRS1wVkR1S2pfdFJnWXpqb05CNFhFeUVlZFF6ejZvNHI4UVR5dVNadzlpR25DM2pRUDhiM0lwczh6R1RLM3BDb0tVZ3BqVVVJdTE3RDBiUDM2dENKR282WG5HZE5PYmhFUWVNekROYlFSd0Q5N3JORDVxZ1dVaVdObVpqdDZiamg2QVd2Q0ZjUFl5NGpHRVJDRjRnVjlvNHdmZU1ySU5YaGY1Sk1PWU96bE90bE43UW1qS1ZJR0F2aFh1czE0cFhYbFdXMGdUN181azI5Zk01TEZZb25VeWxYeWlrYjMwMVUtWWNB?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Midi Libre",
+    "titre": "Un concert pour soutenir la restauration de la chapelle",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 04:06:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNUmdhaHZNZDFRMlNDT1FPX29lVVdfa2J2RVN0TDdxbHNrbHE4Tmh6YTNEU0xDMFdzZDdPUjhPalN5VE11M0xWT3prQUhZQTRLbXZjdmZqNlNkNWxoZnNHT2ZVT3NRZWxCY1pUc1k3Tnp0eWNYd2dNeVhRMGJZYzRIUC1pRlVDN1dTTDZidWJsanpWUHJJUXlGel9DT3AtVVhmU0x0eERnaw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Le Moniteur",
+    "titre": "Moselle : une dotation de 10 000 euros pour la restauration de la Maison forestière du Spitzberg, à Dabo",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Tue, 17 Nov 2026 14:53:01 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxPYXRkVVcyZDVzVjY0S3BNT013RWJjRUQxV20zUm1IMnVBaU1oR0I3V2xWNGtGUEp2eUFoMTFoTUZmdHpVVEFoTFB0bWJoajZMcU14QUNIYXJGRThucmNWZWJXaGktLWdOeG4yUExlOThCN2VIMnVpREJJeFBOU0dnbW1xdXJXQlFSXzdDcXMzenVjRWZPWkVQRnJ4N3RjR0xTby1oLUlkUXRHS3FFRmp2dk9OYXRwZlpDY0diSFRpZ0FxMUJ5akFySVJ0YWNqak9ERW5kUU1Wanp6VGpTTk96M0VneDloRktGcXd6bXJydGRsaVQ5ZlZKSU1BRmRWR05OQ1pJQ2p3SDI?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "lequotidien",
+    "titre": "(+) Le Parc naturel régional en cuisine pour soutenir la biodiversité",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 13:52:27 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQSUdiQnJheTV4ZDNKaVpKTUZubjE3TnhfdmI1U19fN2Y0X1JDS0dZeTFxdmhuZ2ZjUUdQM0RXQzhCRHpPWk5VVUw3RlQwQ1l4ZEZDWGs4X1ZIS1NjaTZLOUJYUE05VTk2OWJhcWhfSnZ3T01xYjBISHM1U3hlTktTV3BpVnFVVVpFdHAyUnpGdXo4WWNDUUtHbTIwVFR3Q1l6ak8yZ04yWHBrTHctUUJidkFPYzM?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "lanouvellerepublique.fr",
+    "titre": "La restauration de la chapelle du château de Gizeux devrait débuter en 2027",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Wed, 18 Nov 2026 17:21:32 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNOXdRTm5TMWM5UzlOZHUzQlNfdk0yeU1ZV1J0T2dfSklGa002ajNIMzVEcmNteGo2Wkw1VDI4Qm1vRU1mRHdOa2x4YXM3eWQ2RXlhWHlVYnJjaFppQWMxa05Jbk02dGMydmdoS0dJRTkzbW1FandaVlluUVZyRjdQamZyRUo3TmM0cUluOXN4cVJzZ2RNN2FCMWZpUWJpREw5MTNEbnBtdmk3dDUzcTdRcHZYSGhQWVBHT3V1anFaNGRhbWR0ZHF6dGtIaG1IOTBhTmF2RlpDVmhTZkptTlZIV1VnNTF1SUU?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Espacemanager",
+    "titre": "Kerkennah: Des récifs artificiels pour préserver la biodiversité marine",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 14:56:16 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMingFBVV95cUxOZTUtYVZtcUpPZTlaVVpuXzBZRnlLdUE0MG9JZ1czWEhpY1JrS2czdjFkRmI4M05leFFsQkdCTFlPdEdLMDdZVnY1R293dVdGanFRM19IODU0SHU1S0hNa09iZk1SYkJlUllrZ0JZT21odkFlam9HbjE0UWZxZVlrZV9xNG9oLVRTQ1ZHWW96WlhJWFVPdGRJMTdvOXVsUQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "FratMat",
+    "titre": "Biodiversité et filières agricoles : La Côte d’Ivoire signe deux importants mémorandums",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 18 Nov 2026 19:45:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNM1NESGx4Rktid1JKZzhGaFIzdlk3Vzl4S0VsTWtfdzJIVmhfdjlRMDhRY1VzRUVsOGFsMG1SVWVkbHFiLXNnb21tNGJCT2RyUW1tMjhIZXZzQVFtMDgtSU91ejc4Z2RhWTIyNXdPWXdXWDRWYzhBNmlEakdPdWFBNjhpelNnd2pzVjRpeEVfRDhFcDNsTTFCVUYwOWphRU5kSGFnZHFESloydHh0MF9tTDFEZExudC1IQnVBSUJFQ2pJbkVrNjFBZG1JYjd4aUE?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Lelezard",
+    "titre": "IFF inaugure son premier laboratoire forestier dans la forêt atlantique brésilienne, visant à faire progresser l'innovation dans les domaines de la parfumerie et de la beauté",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 01:34:03 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObHR6dlNuZGowWGswdHJJM2U3Y2ZEMnpoQTlDM1FlTXM0ZDF1bVNXUUtKNTFwVTI2S29KXzNLcDNjWHRYWEp5RzdwZ2N5S25HclM4NXNCYnJWN3NMT3BwREJPMl9JSUdtSFdPbm1yOTZ4eFJINVcxOEw4Qi1ldDZhTXFmTFNfdFBSSlQ4RU5oa1BwVVQ1UWgtWnpFUDlSQlJUdmlhVWhPYWItMlpQek5uMUJyNEJka1Jqak1VOHlwOEtZQWpkSnF6ak5MWDNIdw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Ouest-France",
+    "titre": "À Lécousse, la rivière du Gué Pérou retrouve un état naturel après un gros chantier de restauration",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 07:18:02 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxQc0puSTlSTXRkWmlDb3J6ZDVhQmJ2V05yN0oxNU9MZHNyNVhKQm96R1ZqajJSMlJydmxMaUV5djk5d2xVUUxxWFF1M3NyME1YWFF0b0NFanJLWFZaQWdaODhQU1Iyc05IcnY1bGp6MXozbHNFUkdaMUI5Qm5vd00tX3BrUW1fLWp4dHg3b2o2U3M3MEI4Vnd2RlNlRERyZGRIRE5jdE1MRkdXQ3VZcElYeEdWMzIySm1PVWc0bjBLYUJ3NFFZM05IdmJjNmx0RlhNMV8wSk5qd1A5c3lmTkU2M2IySGZzd1U3ZmVicUsxLTZKZmRWZWtiang5cXBtZ0ZhM2NZMkdpX1Y?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "FR",
+    "source": "Office national des forêts",
+    "titre": "La Corrèze retrouve sa source : une vaste zone humide restaurée au cœur de la forêt domaniale de Larfeuil",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Wed, 18 Nov 2026 13:22:35 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMirgJBVV95cUxNMExyY0hKX1d5bVdYNlItYWFrRm1QZVVjckU5NDhXWnJEczFFTnRBTlF0eU5jYTBTR0t2eXdEVjFTSVlLdEY0bjZJTHVBSlRXR0I3Ym11NkpXa0pyRGliRFhOOE10RC13SHB0akItd1VQVUtEcWdReUwyRjhMeEw0dUFNNnJ4alliUHdBal9Vb1AzOGxNQ0tRQ3pCb1htTjlMTXM2Zjl6SFNoU3hSbEE1SndjTk9lQ3BfdzEydko0QkdTd1psMng5YzhZNVlKZ21xQlJJcUx5MnJWREEwYldOYVJrUmlRcERpZV9JVDlsQ3hTRGhYRnNGQWVHc1h2bFN6RTkzeTBBX1d3cTNjeDA3SHllcFBIcHZKclpCNy0yUEt3bEdmR0ZONjQ4Yzdsdw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "UE",
+    "source": "Linklaters - Sustainable Futures",
+    "titre": "EU CSRD: Commission consults on limited assurance standards, Julia Voskoboinikova",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 09:56:59 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPT3kxLXlBYkFtM0FsbjZnZXh4bWR3dFBFclNwNUFGZnNmaHNSNVJZdHIzODJFNzEzMlJGb0hGYTdlREtBQ0pwM2pIY2hqV0VkTHlxdkZPTzV3UVFPQjNCTGRpYlZJM0lIdGk5UUVsaGs5ZVVXSnJ0OUlOOXNkM1FEZzJLaW52Qm9wdXprOGk1bjdDazdjY0ZmcmNGN05UanNCRlR0Ui0yTXd4M1JtcHdoTjI5RQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "UE",
+    "source": "The Irish News",
+    "titre": "Wicklow consultancy taps into Northern Ireland’s ‘blue economy’ as new Belfast hub brings 12 jobs",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 10:00:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOS1ZZa3lXT0p2NFZpWHpTNGhJVG1ydC1zOXVzclU2a0J1SkY5WGtTSlUwUkFrQ0tDRHRSX1NvVEMyeGdxVkRIa09WeTFRMUpLM1Exd0Z6RU5zaWVDTHByUjAwMVBVR191NENYQ2laMlZmT0lJZUxCMWZvM1pDbEtTZ3JfdF9UT2FYZHJFM1dMd2VBLTVYRVpBczlYWVdObWZ6dUxrVjMxbnlFZDYwVFRLTW55a2twQnNyWUF1cTZaVFNDZ2FVdU1YVGI4TWsxMXh5azJlMU9NTlg4dHUtV0Y5VFF5dmJTMmdTTzBIQXBxdWlhSUpj?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "UE",
+    "source": "The Villager Newspaper",
+    "titre": "Biodiversity Financing Gap Stands at Over Half a Billion",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 06:54:57 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPRmpTTEFjM2Q0N0Z4dmZXYV9hOElYR1NtZW85LXhlQzVpbkVwQWpyRmNuU0ZhcnJZX2x5MkQtRHUxdTgxUmVFWmpsaDZlQmJ4SjdtQmYySTJRejNld0ExWE8wWkNUZ3dCd0Z3aEdhTHdjaU81ZFRtU1c4Z0pYSThlOUZnT0hRTnctSkdxZkRLWmNaZVBCOXdtaHZWQTM4dlJCZ2Rn?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "UE",
+    "source": "MyJoyOnline",
+    "titre": "Global Fund for Coral Reefs announces over $30m to protect reefs in 22 developing countries",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 05:35:18 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVURCRjJkQmktb2tjMXM4cHFOc0hDSGhXTGg3TGZ2azVxQ1MxYVhuSVNQV3gxeUJpOHZGcm1GaVlMMFNtTzY4QmtlMHRZRXlJbk5mZUl1dDlaRFB6S2xxbm42ZU1EX1YtQ0ZDRGpJdEhfTzV1OG9XMWoySk0tNE1QY2x5a1VCVWVUdy1iYzBZbG5zS0gxYmhXNktZbEhOZ25JZkw1RWU5cEs2M1FUcWZxY054WjRPTEFFaGVR?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "UK",
+    "source": "Chosunbiz",
+    "titre": "Korean brokerages weigh water and flood risks as TNFD reporting expands",
+    "themes": [
+      "Reporting et standards",
+      "Risques et dépendances"
+    ],
+    "date_publication": "Mon, 16 Nov 2026 21:00:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMigAFBVV95cUxONlZheDAwWDlyek5wZTV3OWJ2dGVsUG5ldkNQTEVJeWpkZnUydmFybHFQSU1pdy1OZWlvVi1yalU3LU54MlZiMUlhV1RMck9OOWFUbEZ5eHF5UTVid0hDMmZKQVdpSnJlYlZnWE1XVlJyUkMxRlFOd2RyMk53Y0FhYtIBlAFBVV95cUxPUHV6UlhhRkxQSnM1M3JBT29nUHQtUjQ4bDhLbHVKVEZtNll5REJTTnRLQzlGaGtRWm9UcmZORlhqSHZQSGN0UDRXT3lhalBrLUh4cko2blVPS3M0VXk0T20tMXU2VTlTTVB6bVktNF9WVE1RckNNRGh2ZC1GSl9jSmFFVnEtMENNb0JJVGY0TC1JWUls?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-19 15:52",
+    "pays": "UK",
+    "source": "Imperial College London",
+    "titre": "Investing in nature: Why markets haven’t caught up yet",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 18 Nov 2026 04:11:14 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQUlBpcjR1S3lORnVxRjZlTTZvcmoyR09sR0pUNklfTGRfN09tWHUzTjUtc095dHpCSWhNOFlUSEp1VG5HS2ZmRnRMSWpOYlp5YkVTOTRMWVktOUpMazdNam9uU2hIV3NQalYwc0VXbGNBdTJBZXNzRnJyM1Z1bXJ5LXZ5eUtOcGphU0JRQkVCQ295VGpxNVhRVkw4V3hweC1NT3pmTHo2d2VIQXh3M3dpdGF0c3NER2pSdllwdWdXSFU?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
   }
 ]
