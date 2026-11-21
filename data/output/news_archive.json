@@ -10879,5 +10879,411 @@
     "autorite": "presse",
     "axe": null,
     "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "FR",
+    "source": "Office français de la biodiversité",
+    "titre": "Parc naturel marin du golfe du Lion, Bureau du 21 octobre 2026 Délibération n°2026-007",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 19:45:47 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQbHZiNEF5MWRwekhqREtCQlJicTFZd3NxYTNFVU5yV3QtWVBHOXZINGdaR2hVVFRGdnNjYURoZlZGMGZSNWdIRk1oN0xCblFBVkVkVm15bVBDaVVCMHBqcDRlNUdGZFM0WWJCbEpkTGlLQTJnVmNHaG5qZFVhMGhtcVExYnhuYWJwSlR1R20yNmVUU3lQUHZQakZSd3d2ZjlPNUhsT01GLXlGdXpoN1dFYTNGNzF1TEFDRGxKbUxGOWlDR2c?oc=5",
+    "canal": "site",
+    "source_id": "ofb",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UE",
+    "source": "EFRAG",
+    "titre": "EFRAG Publishes Draft Comment Letter and Launches Public Consultation on the ISSB’s Nature-related Disclosures Practice Statement Exposure Draft",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 12:00:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxObG05M1hScnR1UXc4akp4T2Eyb3VEUEhsbHZISUNGQ3RnX1J2d0VzckxqTnZpRHItSExTWElXVGlWRGJvSTRmeWgwaGhNSUpHTVNwZ3Y3WkxKcXBpRk4tb3IxZEN6Q3Fid1ZyOGlrTzM5ajdzdDNnNW5BOGg0RHJwa1Z3b1NXUGhVN0s1Ui1Jd1hNNjNIU1BMUkp1dDdtNWNyQ3lUNWlyaHVIWVplMDRIdTVnMEg0bFp5Tnd3NVFCTDlSc21LeU5fN2RNNm5aUl9ndEM1RmM0WWpaMV9W?oc=5",
+    "canal": "site",
+    "source_id": "efrag",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UK",
+    "source": "Defra",
+    "titre": "Changes to moving plants and UAFM from Great Britain to Northern Ireland",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "2026-11-20T16:41:01Z",
+    "lien": "https://www.gov.uk/guidance/changes-to-moving-plants-and-uafm-from-great-britain-to-northern-ireland",
+    "canal": "rss",
+    "source_id": "defra",
+    "autorite": "primaire",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "FR",
+    "source": "Vert",
+    "titre": "«Ça a été la dégringolade totale» : derrière les promesses de campagne, l’impitoyable bilan de Gabriel Attal sur l’écologie",
+    "themes": [
+      "Science et génie écologique"
+    ],
+    "date_publication": "Sat, 21 Nov 2026 06:00:00 +0000",
+    "lien": "https://vert.eco/politique/ca-a-ete-la-degringolade-totale-derriere-les-promesses-de-campagne-limpitoyable-bilan-de-gabriel-attal-sur-lecologie/",
+    "canal": "rss",
+    "source_id": "vert",
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "FR",
+    "source": "PetitBleu.fr",
+    "titre": "Journée de l’arbre et de la biodiversité à Darel",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 04:12:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNUU0tU3FvWmVnWjVSeTI2Zm5GN0Y5N3VLOXc1elM2cmhQTld6QlM4U3BBMnhBOU92bTl1UlBmZnFaeUx0Z2xpUFNtbjItNkFtQ3kxTjEwTnZhVjBwZFdCVUJqVWdPY3JtR190MVpPUXZtZmtQUE5YbVp5cWtrVVVKdkpHd0xhVVpmYXotU1pzSHloVzVTSi1Xd0NFN1o?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "FR",
+    "source": "Ville de Marseille",
+    "titre": "Marseille élue Capitale française de la biodiversité",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 06:00:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOVWstV3FmakEyTk4ta1JwNnk2ck10ZzNVRFcwdXhYQ2duZWRmMUpsX0F6YmlHd3BFUWIybXEtRHI5ZE1TbnhfOEtTZWllaU1ISFltc0FaS1BIdXRZdHRwOE5yR3lGYmotRlV6ZHhwazRuVks5RlBKR2k4QjQtT3lMclVJeFFNdVp2ckdBQzl4dw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "FR",
+    "source": "ici.fr",
+    "titre": "Un inventaire des fresques murales du palais des Papes à Avignon, témoins de la biodiversité du Moyen-Âge à nos jours",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 15:55:32 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMimgJBVV95cUxOeFNRd2pMSzNoQUJacWJJZ2pzcDVPcnFtSUttOEpVblR4S20yNVM1QmFTN0JTUG1lZ0ZEU0pqaUxRVlpKS1FGN3hKU0Q5d0lzQWdjUVViekptNWJpOW9FSm5ZUWx5M3JjR3ZLc3E5V2VvWm5UUGM4YnJyVVZYa0lqcXVKYlk5cWxLUUk2OVYxQnE2cGZQOGxkdGFvYWltSXIwc2dmTjc1NGRNeGhwbFdsQjRWcjVORWN5S2JPVmF6dmZ2OVJtSTJnUjNoU0haeXpENS1ta2hxRHVnLUlHSGNPd0pLR09iNVp6M3E4TmFYc2I1aUVYS012X3Z1aVI5dnMyV1hQWGo4WVJPZ2hyY3d4dVZKVndrby04dmc?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "FR",
+    "source": "lanouvellerepublique.fr",
+    "titre": "\"Hors de question de barbouiller là-dessus\" : des peintures anciennes compliquent la restauration de la chapelle Saint-Jean à Amboise",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 16:10:06 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMirwJBVV95cUxQVl9YeXNSYUdKZUZtcUJSNS03ZUljd1VNdFhsTjV6aXRzZlBnRHhpMndJdjJmQ1BkYjlZQlJkQVVrLW1hN1MzU3VzZTZ3MjA5LXNQYnl6dlVlWVEyNmxqMDdOdHQ1UmgxVTNWRjNYNzV3dEROdWFESW5Nd3pFSFB1TXBydGMxVlpBbDAzUnllZzhYWFdRNFZIYnp2VVlBOXV4Tm1OczZKQkVtMVNfeXRSSER6dVFmak1wLXZaVlVtM0o4MXg0LUItcmZtVEp0b3UxSnJoUTByY2JjUVZfeHBfb2VnSFRXdEVtWUNBOExjbEZqdW5FdkpWWEJNRVZpZDRSZUVuTjZVcHdROUxBcmJkT2h1eXBPYmp3TkRTZHhtb01Lel9JYUhJTkJPX1NTbTg?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "FR",
+    "source": "L'Hôtellerie Restauration",
+    "titre": "Harcèlement sexuel d’ambiance : la restauration face à une vigilance accrue",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 18:54:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPdVc1akVEMEtCaGFhSllwd2VEa2lJdE1TeGVldlZTRHBOWGtVeXRtR3BleWRQZy0yVlg1Qm9UWnZpS3RSb2VQSk1GUGw4akdYUVh6Zk9FaTNBQ0h0aV9iZnBETWhULUlrZ2g0d3RMeTJmamRSYlVod09WMWNUVU9mWDhrX0dyX0NvNExrQXBCLUFNcUNDVGRJZWI2MnQ3U1BjdVMxS0o5ZnhGYk1QNjV3VFZCU1pkZjkybnlDRjhwRUQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "FR",
+    "source": "Webmanagercenter",
+    "titre": "Kerkennah : des « maisons pour poissons » pour protéger la faune marine et préserver la biodiversité",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sat, 21 Nov 2026 12:06:59 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNZEtIRHMtLVZXT0JuSWt2eTBRcFdEeDZ3UzZGTnd5bk1QUFNWajBraG5OdjdJMWxSZzZ1enJNSGJQWnBFUDYxOEI1aXhMS0FsUExPdEo5S1RzOFNib2dTVmZSU0hEVzh5Vk5oN1FWU3JsNmVhbktZYVllTE9MR3NOTW95eG93VWwtRlBROUt4SnlsZi1fWTRrV0VEUWpMUTRGZVpYUm9jdjNfa1Naa0dZTlp3b1lFZmZPUTdFd1FtNnNiSUlCb2RibVhVSU5zbXlYSGlUQmJpdmZlZkxvQVJR?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "FR",
+    "source": "Ouest-France",
+    "titre": "« Inspirer et être reproduit » : la restauration écologique d’une rivière est devenue un exemple en Mayenne",
+    "themes": [
+      "Solutions fondées sur la nature",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Sat, 21 Nov 2026 07:00:33 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMimgJBVV95cUxNMGNlZXZwcko0X0pUQjRpbHNoYVozV2ctTFBpYjZVNi01bXY4cjBLbjZ4MklNd3NmcXM0R0VlVFNmUlU3bHZiajBGekhqOTl6ZU0tTmVEOXp4S1ZXWWVGdExCLTFhYktiTElzdl9lVEpWMy1WMlUyWlZETDBEZ0kxTHVlbTRPaEtnZWRsNUYwVEU1dF9iSmtGTUF1NlJ2VWJpSkxmUElBcTB3Wk1YbHBFNEtjbEY5TzJDSmZvYVE4V0dHeG5tZkJMRDV0bHd0WjZVbTBTSjNETHpZZ1BtZEVYM28zLWxvODZpUFJKajhzejh0cEo2X1NuRXlzaUFKZlNTbXdTU1QtMlllN1pidVJmNTNNdEk3dklzZkE?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "FR",
+    "source": "www.lamarseillaise.fr",
+    "titre": "[Biodiversité] Des rencontres scientifiques entre le Parc national de Port Cros et le grand public",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Sat, 21 Nov 2026 13:42:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOVS1iRW9zclNGczQwZmZ3Z05rMkJwSk9XV0d2bUEtaWlkbEY0N3JPQkdfQ3Rsd0JiQXRRR0pXQzZQR28zd0I3TG9VcE9DbU1BcW1KdUoxZ0ZGaW54N295akRFdUs4Z3E3dXJJaGN1Yll3dEktNXpWeUwwcnJqTkNTVmg5Qlo1WFlDemFYNTlyR1YyOWIxYU1uUVhfaWFzMTQ4bGhfUVdyalg5bFNQQ0N2R2RETmtON3VTX0RsZEJGazYxekNJSFNjLThoV2ZxNFBacHhhMi1OVmQzNDljaTFfQnBMVWZKQQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UE",
+    "source": "Global Regulation Tomorrow",
+    "titre": "Co-legislators reach agreement on SFDR 2.0",
+    "themes": [
+      "Réglementation et supervision"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 15:44:28 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOcndRbjVURndrVWE5TEl0eVhlYlZINTNLZTlWcTExb1ZwNFdxb25xT0ZzdGVnWXBwdlZvZ1hFTEItWUNaRzF0QUxqc0JDTGstNVFEOGcxeXJlQlpuQW83ZUZLaHk2aDE1WDRCeHo4TzdzYU1oUHp4RTBIWTdzdnVqSURNQ2psVFZ4WC0yRmtPdw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UE",
+    "source": "Investment & Pensions Europe",
+    "titre": "Co-legislators reach deal on SFDR 2.0",
+    "themes": [
+      "Réglementation et supervision"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 15:45:56 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQaDhKVHpzVVFzY1Y4VXE4MWxzdkpXWFQ0ME5KUU5tdU1KLXVlMm8xMmFodmh2eUVEY1E5MnRTWnc3ZFRrU2xBSkdWRlpFVzNtdmxXSXVGRmhpTXJjWnMzcVR2R3hvVkpIZHJKQ1NCTWl2eWVkZzdTSHVETUpXVWlCYjFvaXc?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UE",
+    "source": "Hogan Lovells Cadwalader",
+    "titre": "EU SFDR 2.0 – agreement reached on review of Sustainable Finance Disclosure Regulation transparency rules",
+    "themes": [
+      "Reporting et standards",
+      "Réglementation et supervision"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 19:24:04 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNQk9pM0Z4V2JQNV9SOE01cnI1RnZYbTBVWDNoUHZRam1oaWV3aHBVd2lvMEtvR1RYdnNjdmEzbVV2RnhfWWJOZkN6X2R6dXFPc1FFS0t5Z3hRU1pzZmY2Q25PbGVENFVKdHg4OFdwZi1DUXBqcGNydDItVGxVbXlQbGZJZXRYTFJkc0hIS3h3bGpsV3FETkFxT0lTQmdQLVAyd0s1V002UmJLZjFkV3BBU0pfNTZtSm5mdC1iS2pKbEFnbV84OTNMVUxmSDc?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UE",
+    "source": "Castanet",
+    "titre": "CSRD takes first steps towards bylaw changes to accommodate provinces new riparian area regulations",
+    "themes": [
+      "Reporting et standards",
+      "Réglementation et supervision"
+    ],
+    "date_publication": "Sat, 21 Nov 2026 11:48:52 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNSEJPY2puWTJ6V19HZzBGVmZ5Ujd2ajJ3WEpWcThPQnVwem1heEp2QU1vNEdRSEZZM2ktaFlGUllkUzdjUmFwWGtyMTZWeDJZQWlQclY4YnQ0TWRHVHl3aWg0d0ZERVdhLTNJMHNQTURQU2l4RkFpWFVVdUFfbktSb1IxTS1nMXBGX0VmZWIxUTRtNm9pU2lxWlJVVW0tSm1jSno5d2ZLUW9xOEFpbzFTV0NYN3ppNTk2VnE2cWxOWThMVmJCMWs4YU5qYVNVV0pCTFN5ZngxWVJsX0d6SXVrdA?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UE",
+    "source": "Castanet",
+    "titre": "Melnychuk returns as CSRD board chair, Golden councillor acclaimed as vice-chair",
+    "themes": [
+      "Reporting et standards"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 20:07:00 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQS0JibEhNUGNhVWZKMjR3OWhUSVNodTZ1NWtrbXU5Vlg3VkpQQ1JmT2U0UDBGajdKRFZmQnJtT3ZGQmc2MUxTTTVIdlo0eG1uUDJfNUpJWEJibUEwb2VjMHhERFdyRnBTZENLYnpHYWpjckFKemFYSnRNV3RnZ0FsYXBPVVZuRk10Q25ueHNoel9Pb1RUWEZLNUUtV281dHFBZjZWWmN1MjR4SzBtSkw2OTZDbTdydEdpSkxHWXZ5dFN5cWJUUEE?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UE",
+    "source": "Yahoo Finance Singapore",
+    "titre": "Ultimus Managers Trust - Karner Blue Biodiversity Impact Fund (KAIIX) Seasonal returns chart - Yahoo Finance",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Sat, 21 Nov 2026 01:16:27 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9jWDNldEhoTjI0SFVacDJsNE5GOHRXUVlrOHctbDRkc2hfb00zTEVWRldiZEcwNl81cDlpU1lIT1k4ekpLUk1HMnd4aEpkLUtpZDN5ZFYwcjdsb0I5dVd6bjVfQQ?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UE",
+    "source": "GBC Ghana Online",
+    "titre": "Africa’s coastal communities face uncertain future as climate threats expose blue economy vulnerabilities",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 15:23:37 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQUFZ4Vmc0TDlEdVRMMmcxODh6ZzhkR3hZYVBVOWZQYVVXTHZ6NkJYc1RUNGZfNFBiUTc1MldtcTJvZnl5X1ZTdWtETEZ1NjNrSklvcnRxcElDOWRIVDFrY1lydnFqR3F3Z3JBam16ZktLNGUydVoxOHN0V2dqYnlUOVJpM18?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UE",
+    "source": "Business Post Nigeria",
+    "titre": "Oyetola Woos Investors to Nigeria’s Untapped Blue Economy Opportunities &",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 16:04:38 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPYzBfSW5wNlp1U3VENXpwVWtBbXZDRjRuTFM4SXZXZFZwR0tYMGZYNUJzSjRmTWp2UllPVW9OZXh6a01XVjJIaUhhVUZ1bVpXQXlVVnNmVFMxMUFBZGZveG1zaWNyQjRhbGU1R3lVV1drSU5PMWJhbXBfU1V5OG9aZXMwSXpPcHVfU2NGNEdTRmRfNVM4X0J1aTlKN01MZ3FXb3NDMEV3?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UE",
+    "source": "Nature",
+    "titre": "Tipping the frontier of climate and nature investment",
+    "themes": [
+      "Instruments et marchés"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 18:23:29 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBITGxma2xyNkZJcU5MUEdIV2dFZlZnR1pObnhTVDJIMmJaLTZzd2R4RWxuTnVUbGFxRFVWcmY4Mk1FbjlGc3RLemNnR0hCejFrNDBNVElSOXZsZ2FUUC1r?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UE",
+    "source": "Prashant News",
+    "titre": "Uttarakhand plans Rs 100-crore Shivalik Biodiversity Park in Muni Ki Reti in two phases",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Wed, 18 Nov 2026 15:29:27 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPUE1PWmVsREYtMjExMzFmYmFfbm9aSWI4Rm5hdURwWWcxNEUxT0I5V05vVUVmdC00bHU2YTV4a0VfbnU3OXlOZEZtNDlrOXJFZElFUnpwZWxQdUFKZkQyUjVjbGQ3ZTRoTVBPSnlQdGhlTUVXQUtNbG1faEwwZ09nTGhOcGwxbmZXMV9iS3ZFT3ZkN1V2ZEVhbVBqUTJ5ZXcwRzZzdVcwTzZnSm9YNjJsS0RsOXFaVDl2?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UK",
+    "source": "edie",
+    "titre": "Nature loss could cost SMEs a third of their profits, research reveals",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 14:39:14 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQaU1LS1BsblJubXUwTFB2SkEyM1ZaeHM3ZzFreEloSXhtR3VhSk84NFhkOHlTV2ZxYV9GR1VEeDFUUkxZU09od21wUC1qeW9ZOGJpOUE2RGxuU0o1WlBQLVhZeHlscDZreVBfdWVvSy1fQW5mYy1MS2ZpNjBkRnNwU3pkeE5VNURKazF6Q29vSHFVcXFjWGVYTy0tSEwwcks2SUHSAaIBQVVfeXFMUGlNS0tQbG5Sbm11MExQdkpBMjNWWnhzN2cxa3hJaEl4bUd1YUpPODRYZDh5U1dmcWFfRkdVRHgxVFJMWVNPaHdtcFAtanlvWThiaTlBNkRsblNKNVpQUC1YWXh5bHA2a3lQX3Vlb0stX0FuZmMtTEtmaTYwZEZzcFN6ZHhOVTVESmsxekNvb0hxVXFxY1hlWE8tLUhMMHJLNklB?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UK",
+    "source": "Noticias Ambientales",
+    "titre": "COP31: An Argentine presents a methodology in Turkey to measure ecosystem health and finance its conservation",
+    "themes": [
+      "Cadre mondial et science",
+      "Science et génie écologique"
+    ],
+    "date_publication": "Thu, 19 Nov 2026 20:15:17 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNck1fUEZydGU4NUp4VjctcjctaW5zTUNRc3ZyVmxmekpfZlpOX0pxTm5fc21FNFF1dGNBNjA2aWlPTFQ3WnpLY3FEb2xGdExSTG45QmZYR19tbWRaM2s0TV95QnB4eTc4Y2RzQUIzcVYzLWRISWd0REhJbEh2TFcydTFhU29feUxXUFVjT2x5NWR1T2pNVWdXTlhwT18yR1FkZTVMYjZ3TzJySjl2endEQ3RDaVJiRmJqOFdYX2lfNldKeDdXM2swMWZkYjZIQUY4MDBEckthOWVwVXJQS2UwN2pqdjRrZVNTVkpzd9IB8gFBVV95cUxOSHNsVnAtWjh1aW5BZW1oTnlhMmw5Y0J1N29YY1hUTi0tcWtYdk55dk5URjRKeWFBM3d3WjRWOTRSdVo2TFR4VUtyYzhhRkx6d3I4dWJmLVRoMTJKbFpwVmF5X282SGRlelllRDd2NzVSS19tNFh1TTZJV2xZZHBfNXR5MlF3WkFHUUVVdG5TUlZmbmQ0WXV1TXNtRmp0Yms0WVJNdTE4WDdQSkxUV0FnYUthZWVzNDFLMGc1dXEyQkQtQVFLdm9hMGdacjlQUGFwSTFnZldCYldzNGNwUWF2NmZrWk5VZ0F5M0dhNDNVX2djdw?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
+  },
+  {
+    "date_detection": "2026-11-21 14:44",
+    "pays": "UK",
+    "source": "Yahoo Sports",
+    "titre": "Can nature help shape a better golf course?",
+    "themes": [
+      "Autres signaux"
+    ],
+    "date_publication": "Fri, 20 Nov 2026 16:21:44 GMT",
+    "lien": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOMkFPMFA3MEVBU1RQaG5lR0N4RTFxMVpWRnhabXR3WkpLRk9lOVMtRW82SXBleHhmblZqSi1Fa3hKd1E4d0ZJVjZZZy1udWRjbGZrb1MzNXlvX3I3Rmd1RHllWUwteGVhcnZPY19LT3RyVFI4d1g5dU1tN2lqTURkT0VXOTU?oc=5",
+    "canal": "zone",
+    "source_id": null,
+    "autorite": "presse",
+    "axe": null,
+    "acces": "libre"
   }
 ]
